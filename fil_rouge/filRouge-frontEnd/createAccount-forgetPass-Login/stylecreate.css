@@ -1,0 +1,63 @@
+form{
+  
+    width: 350px;
+   
+    height: auto;
+   
+    position: absolute;
+   
+    left: 50%;
+   
+    top: 50%;
+    font-family: 'Merriweather', cursive;
+    color: white;
+   
+    transform: translate(-50%, -50%);
+   
+    -webkit-transform: translate(-50%, -50%);
+    font-weight: 500;
+    font-size: 120%;
+
+   
+    }
+
+    #bimg{
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(imgRef/createAccount\ .jpeg) center ;
+       
+        background-repeat: no-repeat;
+        background-size: cover;
+        /* doonner une certaine auteur a limage */
+        height: 1000px;
+    }
+
+
+    h1{
+        font-family: 'Redressed', cursive;
+        text-align: center;
+        color: white;
+        font-size: 300%;
+        
+     }
+
+     
+p{
+    font-family: 'Redressed', cursive;
+    text-align: center;
+    color: white;
+
+    font-size: 200%;
+
+}
+button{
+    font-family: 'Merriweather', cursive;
+
+}
+a{
+    color:white;
+}
+
+#cp{
+
+    text-align: center;
+}
+
