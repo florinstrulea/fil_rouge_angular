@@ -3,19 +3,29 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
 
-import { FormContainerComponent } from './components/form-container/form-container.component';
-import { BackgroundImageComponent } from './components/background-image/background-image.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/security/login/login.component';
+
+
+import { ImageLeftComponent } from './components/security/utils/image-left/image-left.component';
+import { LoginFormComponent } from './components/security/utils/login-form/login-form.component';
+import { RegisterFormComponent } from './components/security/utils/register-form/register-form.component';
+import { ResetFormComponent } from './components/security/utils/reset-form/reset-form.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    FormContainerComponent,
-    BackgroundImageComponent
+
+
+    ImageLeftComponent,
+    LoginFormComponent,
+    RegisterFormComponent,
+    ResetFormComponent,
+
   ],
   imports: [
     BrowserModule,

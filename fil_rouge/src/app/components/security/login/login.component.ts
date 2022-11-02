@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -7,12 +7,9 @@ import { Component, ElementRef, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  image: string = "../../../assets/forest.jpeg"
   constructor() { }
 
   ngOnInit(): void {
   }
-
-
 
 }

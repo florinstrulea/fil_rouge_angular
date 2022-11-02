@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormContainerComponent } from './form-container.component';
+import { ResetFormComponent } from './reset-form.component';
 
-describe('FormContainerComponent', () => {
-  let component: FormContainerComponent;
-  let fixture: ComponentFixture<FormContainerComponent>;
+describe('ResetFormComponent', () => {
+  let component: ResetFormComponent;
+  let fixture: ComponentFixture<ResetFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FormContainerComponent ]
+      declarations: [ ResetFormComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(FormContainerComponent);
+    fixture = TestBed.createComponent(ResetFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
