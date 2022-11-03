@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/interfaces/user';
 import { Auth } from 'src/app/services/auth/auth.service';
-import { createPasswordStrengthValidator } from 'src/app/validations/PasswordValidator';
+import { PasswordValidators } from 'src/app/validations/PasswordValidators';
+
 
 @Component({
   selector: 'app-register',
@@ -10,6 +11,9 @@ import { createPasswordStrengthValidator } from 'src/app/validations/PasswordVal
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
+  submitted = false;
+  isWorking = false;
+
   user: User = {} as User;
   emailExist: boolean = false;
   emailMessageError: string = '';
@@ -17,14 +21,25 @@ export class RegisterComponent implements OnInit {
 
   registration = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [
+    password: new FormControl('', Validators.compose([
       Validators.required,
-      Validators.min(3),
-      //createPasswordStrengthValidator(),
-    ]),
+      Validators.minLength(6),
+      PasswordValidators.patternValidator(new RegExp("(?=.*[0-9])"), {
+        requiresDigit: true
+      }),
+      PasswordValidators.patternValidator(new RegExp("(?=.*[A-Z])"), {
+        requiresUppercase: true
+      }),
+      PasswordValidators.patternValidator(new RegExp("(?=.*[a-z])"), {
+        requiresLowercase: true
+      }),
+      PasswordValidators.patternValidator(new RegExp("(?=.*[$@^!%*?&])"), {
+        requiresSpecialChars: true
+      })
+    ])),
     passwordRepeat: new FormControl('', [
       Validators.required,
-      Validators.min(3),
+      Validators.min(6),
       //createPasswordStrengthValidator(),
     ]),
     username: new FormControl('', [Validators.required]),
@@ -36,11 +51,10 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  onSubmit() {
-    this.registerService.register(this.registration.value as User).subscribe();
-    // console.log(this.registration.value);
-    this.checkIfEmailExist();
-  }
+  // onSubmit() {
+  //   this.registerService.register(this.registration.value as User).subscribe();
+  //   this.checkIfEmailExist();
+  // }
 
   checkEmail(): string {
     if (this.registration.get('email')?.hasError('required')) {
@@ -77,7 +91,7 @@ export class RegisterComponent implements OnInit {
   }
   checkPassword(): string {
     if (this.registration.get('password')?.hasError('required')) {
-      this.emailMessageError = 'Le password est requis.';
+      this.emailMessageError = 'Ce champ est requis.';
     }
 
     return this.emailMessageError;
@@ -88,5 +102,57 @@ export class RegisterComponent implements OnInit {
     if ((this.registration.get('email')?.dirty ||
       this.registration.get('email')?.touched))
       this.emailVerification = "";
+  }
+
+  // convenience getter for easy access to form controls
+  get f() {
+    return this.registration.controls;
+  }
+
+  get passwordValid() {
+    return this.registration.controls["password"].errors === null;
+  }
+
+  get requiredValid() {
+    return !this.registration.controls["password"].hasError("required");
+  }
+
+  get minLengthValid() {
+    return !this.registration.controls["password"].hasError("minlength");
+  }
+
+  get requiresDigitValid() {
+    return !this.registration.controls["password"].hasError("requiresDigit");
+  }
+
+  get requiresUppercaseValid() {
+    return !this.registration.controls["password"].hasError("requiresUppercase");
+  }
+
+  get requiresLowercaseValid() {
+    return !this.registration.controls["password"].hasError("requiresLowercase");
+  }
+
+  get requiresSpecialCharsValid() {
+    return !this.registration.controls["password"].hasError("requiresSpecialChars");
+  }
+
+  onSubmit() {
+    this.registerService.register(this.registration.value as User).subscribe();
+    this.checkIfEmailExist();
+    this.submitted = true;
+
+    if (this.registration.invalid) {
+      return;
+    }
+
+    this.isWorking = true;
+    this.registration.disable();
+
+    setTimeout(() => {
+      this.isWorking = false;
+      this.registration.enable();
+    }, 1500);
+
   }
 }
