@@ -32,9 +32,9 @@ export class RegisterComponent implements OnInit {
     lastName: new FormControl('', [Validators.required]),
   });
 
-  constructor(private registerService: Auth) {}
+  constructor(private registerService: Auth) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   onSubmit() {
     this.registerService.register(this.registration.value as User).subscribe();
@@ -47,6 +47,7 @@ export class RegisterComponent implements OnInit {
       this.emailMessageError = "L'email est requis.";
     } else if (!this.validateEmail(this.registration.value.email!)) {
       this.emailMessageError = 'Le champ ne respecte pas le format email.';
+
     }
 
     return this.emailMessageError;
@@ -67,7 +68,6 @@ export class RegisterComponent implements OnInit {
         this.user = data;
         if (this.user.email.match("L'email existe déja")) {
           this.emailVerification = this.user.email;
-
           console.log(this.user);
         } else {
           this.emailVerification = '';
@@ -81,5 +81,12 @@ export class RegisterComponent implements OnInit {
     }
 
     return this.emailMessageError;
+  }
+
+
+  emptyEmailVerification() {
+    if ((this.registration.get('email')?.dirty ||
+      this.registration.get('email')?.touched))
+      this.emailVerification = "";
   }
 }
