@@ -19,11 +19,13 @@ export class RegisterComponent implements OnInit {
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [
       Validators.required,
-      createPasswordStrengthValidator(),
+      Validators.min(3),
+      //createPasswordStrengthValidator(),
     ]),
     passwordRepeat: new FormControl('', [
       Validators.required,
-      createPasswordStrengthValidator(),
+      Validators.min(3),
+      //createPasswordStrengthValidator(),
     ]),
     username: new FormControl('', [Validators.required]),
     firstName: new FormControl('', [Validators.required]),
@@ -36,7 +38,7 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     this.registerService.register(this.registration.value as User).subscribe();
-    console.log(this.registration.value);
+    // console.log(this.registration.value);
     this.checkIfEmailExist();
   }
 
@@ -65,7 +67,19 @@ export class RegisterComponent implements OnInit {
         this.user = data;
         if (this.user.email.match("L'email existe déja")) {
           this.emailVerification = this.user.email;
+
+          console.log(this.user);
+        } else {
+          this.emailVerification = '';
+          console.log(this.user);
         }
       });
+  }
+  checkPassword(): string {
+    if (this.registration.get('password')?.hasError('required')) {
+      this.emailMessageError = 'Le password est requis.';
+    }
+
+    return this.emailMessageError;
   }
 }

@@ -1,5 +1,19 @@
 <div id="register-page" class="">
   <div
+    id="emailExist"
+    class="alert alert-warning alert-dismissible fade show"
+    role="alert"
+    *ngIf="user.email == 'L\'email existe déja'"
+  >
+    L'adresse mail: <strong>{{ registration.value.email }}</strong> existe déjà
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div
     class="row g-0 ps-md-0 mx-auto form-container border border-secondary rounded w-50 form-div"
   >
     <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
@@ -33,9 +47,6 @@
                       {{ checkEmail() }}
                     </small>
                   </div>
-                  <small class="text-danger mt-0">
-                    {{ emailVerification }}
-                  </small>
                 </div>
                 <div class="form-floating mb-3">
                   <input
@@ -46,6 +57,21 @@
                     formControlName="password"
                   />
                   <label for="floatingPassword">Mot de passe</label>
+                  <div
+                    *ngIf="
+                      registration.get('password')?.invalid &&
+                      registration.get('password')?.errors &&
+                      (registration.get('password')?.dirty ||
+                        registration.get('password')?.touched)
+                    "
+                  >
+                    <div
+                      class="field-message"
+                      *ngIf="registration.get('password')?.errors"
+                    >
+                      Le mot de passe ne passe pas
+                    </div>
+                  </div>
                 </div>
                 <div class="form-floating mb-3">
                   <input
