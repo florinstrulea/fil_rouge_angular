@@ -14,6 +14,7 @@ export class RegisterComponent implements OnInit {
   emailExist: boolean = false;
   emailMessageError: string = '';
   emailVerification: string = '';
+
   registration = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [
@@ -64,7 +65,6 @@ export class RegisterComponent implements OnInit {
         this.user = data;
         if (this.user.email.match("L'email existe déja")) {
           this.emailVerification = this.user.email;
-          console.log(this.user);
         }
       });
   }
