@@ -10,7 +10,7 @@ export class Auth {
   userUrl: string = 'http://localhost:8080/register';
   constructor(private http: HttpClient) {}
 
-  register(user: User): Observable<string> {
-    return this.http.post<string>(this.userUrl, user);
+  register(user: User): Observable<User> {
+    return this.http.post<User>(this.userUrl, user);
   }
 }
