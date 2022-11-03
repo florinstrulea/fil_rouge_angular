@@ -12,6 +12,6 @@ export class ImageLeftComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  @Input() imageUrl = '';
+  @Input() leftImageUrl = '';
 
 }
