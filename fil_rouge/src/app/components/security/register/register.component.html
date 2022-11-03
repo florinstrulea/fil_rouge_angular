@@ -1,0 +1,139 @@
+<div id="register-page" class="">
+  <div
+    id="emailExist"
+    class="alert alert-warning alert-dismissible fade show"
+    role="alert"
+    *ngIf="user.email == 'L\'email existe déja'"
+  >
+    L'adresse mail: <strong>{{ registration.value.email }}</strong> existe déjà
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div
+    class="row g-0 ps-md-0 mx-auto form-container border border-secondary rounded w-50 form-div"
+  >
+    <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+    <div class="col-md-8 col-lg-6">
+      <div class="register d-flex align-items-center py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9 col-lg-8 mx-auto">
+              <h3 class="register-heading mb-4">Bonjour!</h3>
+
+              <!-- Form -->
+              <form class="" [formGroup]="registration" (ngSubmit)="onSubmit()">
+                <div class="form-floating mb-3">
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="floatingInput"
+                    placeholder="E-mail"
+                    formControlName="email"
+                  />
+                  <label for="floatingInput">Adresse e-mail</label>
+                  <div
+                    *ngIf="
+                      registration.get('email')?.invalid &&
+                      registration.get('email')?.errors &&
+                      (registration.get('email')?.dirty ||
+                        registration.get('email')?.touched)
+                    "
+                  >
+                    <small class="text-danger mt-0">
+                      {{ checkEmail() }}
+                    </small>
+                  </div>
+                </div>
+                <div class="form-floating mb-3">
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="floatingPassword"
+                    placeholder="Mot de passe"
+                    formControlName="password"
+                  />
+                  <label for="floatingPassword">Mot de passe</label>
+                  <div
+                    *ngIf="
+                      registration.get('password')?.invalid &&
+                      registration.get('password')?.errors &&
+                      (registration.get('password')?.dirty ||
+                        registration.get('password')?.touched)
+                    "
+                  >
+                    <div
+                      class="field-message"
+                      *ngIf="registration.get('password')?.errors"
+                    >
+                      Le mot de passe ne passe pas
+                    </div>
+                  </div>
+                </div>
+                <div class="form-floating mb-3">
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="floatingPasswordRepeat"
+                    placeholder="Répéter le mot de passe"
+                    formControlName="passwordRepeat"
+                  />
+                  <label for="floatingPasswordRepeat"
+                    >Répéter le mot de passe</label
+                  >
+                </div>
+
+                <div class="form-floating mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="floatingUserName"
+                    placeholder="Username"
+                    formControlName="username"
+                  />
+                  <label for="floatingUserName">Nom d'utilisateur</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="floatingInputFirstName"
+                    placeholder="Prénom"
+                    formControlName="firstName"
+                  />
+                  <label for="floatingInputFirstName">Prénom</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="floatingInputLastName"
+                    placeholder="Prénom"
+                    formControlName="lastName"
+                  />
+                  <label for="floatingInputLastName">Nom de famille</label>
+                </div>
+
+                <div class="d-grid">
+                  <button
+                    class="btn btn-lg btn-primary btn-register text-uppercase fw-bold mb-2"
+                    type="submit"
+                  >
+                    S'enregistrer
+                  </button>
+
+                  <div class="text-center">
+                    <a class="text-dark" routerLink="/login">Se connecter ?</a>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

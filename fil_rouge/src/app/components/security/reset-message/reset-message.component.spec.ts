@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ImageLeftComponent } from './image-left.component';
+import { ResetMessageComponent } from './reset-message.component';
 
-describe('ImageLeftComponent', () => {
-  let component: ImageLeftComponent;
-  let fixture: ComponentFixture<ImageLeftComponent>;
+describe('ResetMessageComponent', () => {
+  let component: ResetMessageComponent;
+  let fixture: ComponentFixture<ResetMessageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ImageLeftComponent ]
+      declarations: [ ResetMessageComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ImageLeftComponent);
+    fixture = TestBed.createComponent(ResetMessageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
