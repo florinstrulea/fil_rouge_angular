@@ -1,6 +1,7 @@
 <div id="register-page" class="">
-
-  <div class="row g-0 ps-md-0 mx-auto form-container border border-secondary rounded w-50 form-div">
+  <div
+    class="row g-0 ps-md-0 mx-auto form-container border border-secondary rounded w-50 form-div"
+  >
     <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
     <div class="col-md-8 col-lg-6">
       <div class="register d-flex align-items-center py-5">
@@ -12,113 +13,108 @@
               <!-- Form -->
               <form class="" [formGroup]="registration" (ngSubmit)="onSubmit()">
                 <div class="form-floating mb-3">
-                  <input type="email" class="form-control" id="floatingInput" placeholder="E-mail"
-                    formControlName="email" (click)="emptyEmailVerification()" />
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="floatingInput"
+                    placeholder="E-mail"
+                    formControlName="email"
+                    (click)="emptyEmailVerification()"
+                  />
                   <label for="floatingInput">Adresse e-mail</label>
-                  <div *ngIf="
+                  <div
+                    *ngIf="
                       registration.get('email')?.invalid &&
                       registration.get('email')?.errors &&
                       (registration.get('email')?.dirty ||
                         registration.get('email')?.touched)
-                    ">
-                    <small class="text-danger mt-0 ">
+                    "
+                  >
+                    <small class="text-danger mt-0">
                       {{ checkEmail() }}
                     </small>
                   </div>
                   <div>
                     <small class="text-danger mt-0">
-                      {{emailVerification}}
+                      {{ emailVerification }}
                     </small>
-
                   </div>
                 </div>
                 <div class="form-floating mb-3">
-                  <input type="password" class="form-control" id="floatingPassword" placeholder="Mot de passe"
-                    formControlName="password" />
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="floatingPassword"
+                    placeholder="Mot de passe"
+                    formControlName="password"
+                  />
                   <label for="floatingPassword">Mot de passe</label>
-
-                  <div class="invalid-feedback">
-                    <!-- required -->
-                    <span class="text-danger" *ngIf="(f.password.dirty || submitted) && !requiredValid">Password is
-                      required</span>
-
-                    <!-- password validation rules -->
-                    <div id="validation-rules" class="mt-3" *ngIf="requiredValid">
-                      <!-- minlength -->
-                      <div [ngClass]="{ 'text-success': minLengthValid, 'text-danger': !minLengthValid }">
-                        <i [attr.class]="minLengthValid ? 'bi-check-square-fill' : 'bi-x-square'"></i>
-                        Must be at least 8 characters long
-                      </div>
-
-                      <!-- requires digit -->
-                      <div [ngClass]="{ 'text-success': requiresDigitValid, 'text-danger': !requiresDigitValid }">
-                        <i [attr.class]="requiresDigitValid ? 'bi-check-square-fill' : 'bi-x-square'"></i>
-                        Must contain at least 1 digit
-                      </div>
-
-                      <!-- requires uppercase -->
-                      <div
-                        [ngClass]="{ 'text-success': requiresUppercaseValid, 'text-danger': !requiresUppercaseValid }">
-                        <i [attr.class]="requiresUppercaseValid ? 'bi-check-square-fill' : 'bi-x-square'"></i>
-                        Must contain at least 1 uppercase character
-                      </div>
-
-                      <!-- requires lowercase -->
-                      <div
-                        [ngClass]="{ 'text-success': requiresLowercaseValid, 'text-danger': !requiresLowercaseValid }">
-                        <i [attr.class]="requiresLowercaseValid ? 'bi-check-square-fill' : 'bi-x-square'"></i>
-                        Must contain at least 1 lowercase character
-                      </div>
-
-                      <!-- requires special characters -->
-                      <div
-                        [ngClass]="{ 'text-success': requiresSpecialCharsValid, 'text-danger': !requiresSpecialCharsValid }">
-                        <i [attr.class]="requiresSpecialCharsValid ? 'bi-check-square-fill' : 'bi-x-square'"></i>
-                        Must contain at least 1 special character
-                      </div>
-                    </div>
-                  </div>
                 </div>
                 <div class="form-floating mb-3">
-                  <input type="password" class="form-control" id="floatingPasswordRepeat"
-                    placeholder="Répéter le mot de passe" formControlName="passwordRepeat" />
-                  <label for="floatingPasswordRepeat">Répéter le mot de passe</label>
-                  <div *ngIf="
-                  registration.get('password')?.invalid &&
-                  registration.get('password')?.errors &&
-                  (registration.get('password')?.dirty ||
-                    registration.get('password')?.touched)
-                ">
-                    <small class="text-danger mt-0 ">
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="floatingPasswordRepeat"
+                    placeholder="Répéter le mot de passe"
+                    formControlName="passwordRepeat"
+                  />
+                  <label for="floatingPasswordRepeat"
+                    >Répéter le mot de passe</label
+                  >
+                  <div
+                    *ngIf="
+                      registration.get('password')?.invalid &&
+                      registration.get('password')?.errors &&
+                      (registration.get('password')?.dirty ||
+                        registration.get('password')?.touched)
+                    "
+                  >
+                    <small class="text-danger mt-0">
                       {{ checkPassword() }}
                     </small>
                   </div>
                 </div>
 
                 <div class="form-floating mb-3">
-                  <input type="text" class="form-control" id="floatingUserName" placeholder="Username"
-                    formControlName="username" />
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="floatingUserName"
+                    placeholder="Username"
+                    formControlName="username"
+                  />
                   <label for="floatingUserName">Nom d'utilisateur</label>
                 </div>
                 <div class="form-floating mb-3">
-                  <input type="text" class="form-control" id="floatingInputFirstName" placeholder="Prénom"
-                    formControlName="firstName" />
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="floatingInputFirstName"
+                    placeholder="Prénom"
+                    formControlName="firstName"
+                  />
                   <label for="floatingInputFirstName">Prénom</label>
                 </div>
                 <div class="form-floating mb-3">
-                  <input type="text" class="form-control" id="floatingInputLastName" placeholder="Prénom"
-                    formControlName="lastName" />
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="floatingInputLastName"
+                    placeholder="Prénom"
+                    formControlName="lastName"
+                  />
                   <label for="floatingInputLastName">Nom de famille</label>
                 </div>
 
                 <div class="d-grid">
-                  <button type="submit" class="btn btn-block btn-primary" [disabled]="!registration.valid">
-                    <i [attr.class]="isWorking ? 'bi-hourglass-split' : 'bi-check2-square'"></i> {{ isWorking ? 'Working
-                    on it...' : 'S\'enregistrer' }}
+                  <button type="submit" class="btn btn-block btn-primary">
+                    S'enregistrer
                   </button>
 
                   <div class="text-center">
-                    <a class="text-dark" routerLink="/login">Se connecter ?</a>
+                    <a class="text-dark" routerLink="/auth/login"
+                      >Se connecter ?</a
+                    >
                   </div>
                 </div>
               </form>
