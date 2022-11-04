@@ -28,10 +28,10 @@ const routes: Routes = [
     path: 'reset-message',
     component: ResetMessageComponent,
   },
-  // {
-  //   path: '**',
-  //   component: NotFoundComponent,
-  // },
+  {
+    path: '**',
+    component: NotFoundComponent,
+  },
 ];
 
 @NgModule({
