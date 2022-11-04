@@ -24,8 +24,8 @@ export class Auth {
     return this.http.post<User>(this.userUrl, user);
   }
 
-  login(user: UserLogin): Observable<UserLogged> {
-    return this.http.post<UserLogged>(this.loginUrl, user);
+  login(user: FormData): Observable<any> {
+    return this.http.post<any>(this.loginUrl, user);
   }
 
   isUser(obj: any): obj is User {
