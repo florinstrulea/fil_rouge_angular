@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/interfaces/user';
 import { Auth } from 'src/app/services/auth/auth.service';
+import { StatusService } from 'src/app/services/auth/status.service';
 import { PasswordValidators } from 'src/app/validations/PasswordValidators';
 
 
@@ -47,12 +48,12 @@ export class RegisterComponent implements OnInit {
     lastName: new FormControl('', [Validators.required]),
   });
 
-  constructor(private registerService: Auth) { }
+  constructor(private authService: Auth, private statusService : StatusService) { }
 
   ngOnInit(): void { }
 
   // onSubmit() {
-  //   this.registerService.register(this.registration.value as User).subscribe();
+  //   this.authService.register(this.registration.value as User).subscribe();
   //   this.checkIfEmailExist();
   // }
 
@@ -75,20 +76,21 @@ export class RegisterComponent implements OnInit {
       );
   };
 
-  checkIfEmailExist() {
-    this.registerService
-      .register(this.registration.value as User)
-      .subscribe((data) => {
-        this.user = data;
-        if (this.user.email.match("L'email existe déja")) {
-          this.emailVerification = this.user.email;
-          console.log(this.user);
-        } else {
-          this.emailVerification = '';
-          console.log(this.user);
-        }
-      });
-  }
+  // checkIfEmailExist() {
+  //   this.authService
+  //     .register(this.registration.value)
+  //     .subscribe((data) => {
+  //       this.user = data;
+  //       if (this.user.email.match("L'email existe déja")) {
+  //         this.emailVerification = this.user.email;
+  //         console.log(this.user);
+  //       } else {
+  //         this.emailVerification = '';
+  //         console.log(this.user);
+  //       }
+  //     });
+  // }
+
   checkPassword(): string {
     if (this.registration.get('password')?.hasError('required')) {
       this.emailMessageError = 'Ce champ est requis.';
@@ -138,8 +140,16 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    this.registerService.register(this.registration.value as User).subscribe();
-    this.checkIfEmailExist();
+    this.authService.register(this.registration.value as User).subscribe((user) => {
+      if(this.authService.isUser(user))
+        this.statusService.envoyerStatus({
+          response : "Inscription effectuée",
+          type : "info"
+        });
+      else
+        this.statusService.envoyerStatus(user);
+    });
+    // this.checkIfEmailExist();
     this.submitted = true;
 
     if (this.registration.invalid) {
