@@ -10,13 +10,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class Auth {
-  // userUrl: string = 'http://localhost:8080/register';
-  // loginUrl: string = 'http://localhost:8080/login';
-  // private curUser = new BehaviorSubject<AuthStatus>({
-  //   connected: false,
-  // });
-
-  // curUserObservable = this.curUser.asObservable();
   private curUser = new BehaviorSubject<AuthStatus>({
     connected : false
   });
@@ -31,7 +24,7 @@ export class Auth {
   register(user: User): Observable<User | Status> {
     return this.http.post<User | Status>(this.userUrl, user);
   }
-  login(user : User| FormData) : Observable<User>{
+  login(user : User | FormData) : Observable<User>{
     return this.http.post<User>(this.loginUrl,user, {withCredentials : true});
   }
   getUser() : Observable<User | Status>{

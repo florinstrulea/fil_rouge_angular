@@ -50,12 +50,12 @@ export class RegisterComponent implements OnInit {
     lastName: new FormControl('', [Validators.required]),
   });
 
-  constructor(private authService: Auth, private statusService:StatusService) {}
+  constructor(private authService: Auth, private statusService : StatusService) { }
 
   ngOnInit(): void {}
 
   onSubmit() {
-    //this.registerService.register(this.registration.value as User).subscribe();
+    // this.authService.register(this.registration.value as User).subscribe();
     this.checkIfEmailExist();
   }
 
@@ -186,4 +186,5 @@ export class RegisterComponent implements OnInit {
   //     this.registration.enable();
   //   }, 1500);
   // }
-}
+
+  }
