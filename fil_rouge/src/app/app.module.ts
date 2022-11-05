@@ -9,13 +9,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AuthComponent } from './auth/auth.component';
 import { NotFoundComponent } from './components/others/not-found/not-found.component';
 import { NavbarComponent } from './components/commons/navbar/navbar.component';
+import { AlertComponent } from './components/commons/alert/alert.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
     NotFoundComponent,
-    NavbarComponent
+    NavbarComponent,
+    AlertComponent
 
   ],
   imports: [

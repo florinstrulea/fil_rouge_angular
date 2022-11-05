@@ -61,6 +61,21 @@
                   <label for="floatingPasswordRepeat"
                     >Répéter le mot de passe</label
                   >
+<<<<<<< HEAD
+=======
+                  <!-- <div
+                    *ngIf="
+                      registration.get('password')?.invalid &&
+                      registration.get('password')?.errors &&
+                      (registration.get('password')?.dirty ||
+                        registration.get('password')?.touched)
+                    "
+                  >
+                    <small class="text-danger mt-0">
+                      {{ checkPassword() }}
+                    </small>
+                  </div> -->
+>>>>>>> f68b561 ([RS] environment.ts et register)
                 </div>
 
                 <div class="form-floating mb-3">

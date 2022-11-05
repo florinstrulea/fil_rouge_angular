@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/interfaces/user';
 import { Auth } from 'src/app/services/auth/auth.service';
+import { StatusService } from 'src/app/services/auth/status.service';
 import { PasswordValidators } from 'src/app/validations/PasswordValidators';
 
 @Component({
@@ -49,7 +50,7 @@ export class RegisterComponent implements OnInit {
     lastName: new FormControl('', [Validators.required]),
   });
 
-  constructor(private registerService: Auth) {}
+  constructor(private authService: Auth, private statusService:StatusService) {}
 
   ngOnInit(): void {}
 
@@ -77,10 +78,19 @@ export class RegisterComponent implements OnInit {
   };
 
   checkIfEmailExist() {
-    this.registerService
+    this.authService
       .register(this.registration.value as User)
       .subscribe((data) => {
-        this.user = data;
+
+        if(this.authService.isUser(this.user))
+        this.statusService.envoyerStatus({
+          response : "Inscription effectuée",
+          type : "info"
+        });
+        
+      else
+        this.statusService.envoyerStatus(this.user);
+        this.user = data as User;
         if (this.user.email.match("L'email existe déja")) {
           this.emailVerification = this.user.email;
           console.log(this.user);
@@ -88,8 +98,13 @@ export class RegisterComponent implements OnInit {
           this.emailVerification = '';
           console.log(this.user);
         }
-      });
+    })
+
+
+        
+
   }
+
   checkPassword(): string {
     if (this.registration.get('password')?.hasError('required')) {
       this.emailMessageError = 'Ce champ est requis.';
@@ -146,7 +161,16 @@ export class RegisterComponent implements OnInit {
   }
 
   // onSubmit() {
-  //   // this.registerService.register(this.registration.value as User).subscribe();
+  //   this.authService.register(this.registration.value as User)
+  //   .subscribe((user) => {
+  //     if(this.authService.isUser(user))
+  //       this.statusService.envoyerStatus({
+  //         response : "Inscription effectuée",
+  //         type : "info"
+  //       });
+  //     else
+  //       this.statusService.envoyerStatus(user);
+  //   });
   //   this.checkIfEmailExist();
   //   this.submitted = true;
 
