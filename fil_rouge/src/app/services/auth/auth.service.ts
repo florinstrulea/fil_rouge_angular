@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Status } from 'src/app/interfaces/status';
 import { User } from 'src/app/interfaces/user';
-import { UserLogged } from 'src/app/interfaces/user-logged';
 import { UserLogin } from 'src/app/interfaces/user-login';
 
 @Injectable({
@@ -12,6 +11,7 @@ import { UserLogin } from 'src/app/interfaces/user-login';
 export class Auth {
   userUrl: string = 'http://localhost:8080/register';
   loginUrl: string = 'http://localhost:8080/login';
+  userInfoUrl: string = 'http://localhost:8080/home';
   // private curUser = new BehaviorSubject<AuthStatus>({
   //   connected: false,
   // });
@@ -24,8 +24,11 @@ export class Auth {
     return this.http.post<User>(this.userUrl, user);
   }
 
-  login(user: FormData): Observable<any> {
-    return this.http.post<any>(this.loginUrl, user);
+  login(user: UserLogin): Observable<any> {
+    const formData = new FormData();
+    formData.append('username', user.username);
+    formData.append('password', user.password);
+    return this.http.post<any>(this.loginUrl, formData, { withCredentials: true });
   }
 
   isUser(obj: any): obj is User {

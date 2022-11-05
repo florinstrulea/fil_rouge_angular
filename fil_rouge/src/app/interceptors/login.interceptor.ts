@@ -13,7 +13,8 @@ export class LoginInterceptor implements HttpInterceptor {
   constructor() { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    return next.handle(request);
+
     request.clone({ body: request.body })
+    return next.handle(request);
   }
 }
