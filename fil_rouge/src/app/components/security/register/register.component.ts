@@ -50,9 +50,9 @@ export class RegisterComponent implements OnInit {
     lastName: new FormControl('', [Validators.required]),
   });
 
-  constructor(private authService: Auth, private statusService : StatusService) { }
+  constructor(private authService: Auth, private statusService: StatusService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   onSubmit() {
     // this.authService.register(this.registration.value as User).subscribe();
@@ -82,14 +82,14 @@ export class RegisterComponent implements OnInit {
       .register(this.registration.value as User)
       .subscribe((data) => {
 
-        if(this.authService.isUser(this.user))
-        this.statusService.envoyerStatus({
-          response : "Inscription effectuée",
-          type : "info"
-        });
-        
-      else
-        this.statusService.envoyerStatus(this.user);
+        if (this.authService.isUser(this.user))
+          this.statusService.envoyerStatus({
+            response: "Inscription effectuée",
+            type: "info"
+          });
+
+        else
+          this.statusService.envoyerStatus(this.user);
         this.user = data as User;
         if (this.user.email.match("L'email existe déja")) {
           this.emailVerification = this.user.email;
@@ -98,10 +98,10 @@ export class RegisterComponent implements OnInit {
           this.emailVerification = '';
           console.log(this.user);
         }
-    })
+      })
 
 
-        
+
 
   }
 
@@ -187,4 +187,4 @@ export class RegisterComponent implements OnInit {
   //   }, 1500);
   // }
 
-  }
+}
