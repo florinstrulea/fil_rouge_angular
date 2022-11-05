@@ -18,7 +18,7 @@ export class Auth {
 
   // curUserObservable = this.curUser.asObservable();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   register(user: User): Observable<User> {
     return this.http.post<User>(this.userUrl, user);
