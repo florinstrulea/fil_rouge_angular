@@ -5,6 +5,7 @@ import { LoginComponent } from '../components/security/login/login.component';
 import { RegisterComponent } from '../components/security/register/register.component';
 import { ResetMessageComponent } from '../components/security/reset-message/reset-message.component';
 import { ResetPasswordComponent } from '../components/security/reset-password/reset-password.component';
+import { ConnectedGuard } from '../guards/connected/connected.guard';
 import { AuthComponent } from './auth.component';
 
 const routes: Routes = [
@@ -14,10 +15,12 @@ const routes: Routes = [
   },
   {
     path: 'login',
+    canActivate: [ConnectedGuard],
     component: LoginComponent,
   },
   {
     path: 'register',
+    canActivate: [ConnectedGuard],
     component: RegisterComponent,
   },
   {
@@ -38,4 +41,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class AuthRoutingModule {}
+export class AuthRoutingModule { }

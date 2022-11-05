@@ -18,6 +18,7 @@ export class Auth {
   });
 
   curUserObservable = this.curUser.asObservable();
+
   userUrl: string = environment.apiUrl + "register";
   loginUrl: string = environment.apiUrl + "login";
   logoutUrl: string = environment.apiUrl + "logout";

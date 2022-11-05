@@ -29,24 +29,30 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void { }
 
   onSubmit() {
-    let user: UserLogin = {} as UserLogin;
-    user.password = this.login.controls.password.value!;
-    user.username = this.login.controls.username.value!;
-    this.authService.login(user).subscribe((res) => {
-      if (res) {
-        console.log(res);
-        this.invalidLogin = false;
-        this.sessionId = res.details.sessionId;
-        this.storedUser = res.principal;
-        sessionStorage.setItem('token', this.sessionId);
-        sessionStorage.setItem('user', JSON.stringify(this.storedUser));
-        this.router.navigateByUrl("/game");
-      } else {
-        this.invalidLogin = true;
-        this.errorMessage = "L'email / username ou mot de passe n'est pas valid"
+    if (!sessionStorage.getItem('token')) {
+      let user: UserLogin = {} as UserLogin;
+      user.password = this.login.controls.password.value!;
+      user.username = this.login.controls.username.value!;
+      this.authService.login(user).subscribe((res) => {
+        if (res) {
+          console.log(res);
+          this.invalidLogin = false;
+          this.sessionId = res.details.sessionId;
+          this.storedUser = res.principal;
+          sessionStorage.setItem('token', this.sessionId);
+          sessionStorage.setItem('user', JSON.stringify(this.storedUser));
+          this.router.navigateByUrl("/game");
+        } else {
+          this.invalidLogin = true;
+          this.errorMessage = "L'email / username ou mot de passe n'est pas valid"
 
-      }
-    });
+        }
+      });
+    } else {
+      this.login.reset();
+
+    }
+
 
   }
 
@@ -59,6 +65,7 @@ export class LoginComponent implements OnInit {
       this.invalidLogin = false;
     }
 
-
   }
+
+
 }
