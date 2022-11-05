@@ -113,11 +113,11 @@ export class RegisterComponent implements OnInit {
     return this.registration.controls["password"].errors === null;
   }
 
-  get requiredValid() {
-    return !this.registration.controls["password"].hasError("required");
+  requiredValid(): boolean {
+    return !this.registration.get("password")?.hasError("required");
   }
 
-  get minLengthValid() {
+  minLengthValid() {
     return !this.registration.controls["password"].hasError("minlength");
   }
 
