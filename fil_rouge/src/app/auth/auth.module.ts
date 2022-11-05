@@ -6,7 +6,7 @@ import { LoginComponent } from '../components/security/login/login.component';
 import { RegisterComponent } from '../components/security/register/register.component';
 import { ResetMessageComponent } from '../components/security/reset-message/reset-message.component';
 import { ResetPasswordComponent } from '../components/security/reset-password/reset-password.component';
-import { LoginInterceptor } from '../interceptors/login.interceptor';
+
 
 import { AuthRoutingModule } from './auth-routing.module';
 
@@ -24,6 +24,6 @@ import { AuthRoutingModule } from './auth-routing.module';
     AuthRoutingModule,
     ReactiveFormsModule,
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: LoginInterceptor, multi: true }]
+
 })
 export class AuthModule { }

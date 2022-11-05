@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { User } from 'src/app/interfaces/user';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { AuthStatus } from 'src/app/interfaces/auth-status';
+
 import { Status } from 'src/app/interfaces/status';
 import { environment } from 'src/environments/environment';
 import { Injectable } from '@angular/core';
 import { UserLogin } from 'src/app/interfaces/user-login';
+import { AuthStatus } from 'src/app/interfaces/auth-status';
 
 @Injectable({
   providedIn: 'root',

@@ -14,6 +14,11 @@ import { Auth } from 'src/app/services/auth/auth.service';
 export class LoginComponent implements OnInit {
   sessionId: string = '';
   storedUser: any = {};
+
+  errorMessage = "L'email / username ou mot de passe n'est pas valid";
+  invalidLogin = false;
+
+
   login = new FormGroup({
     username: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
@@ -30,22 +35,30 @@ export class LoginComponent implements OnInit {
     this.authService.login(user).subscribe((res) => {
       if (res) {
         console.log(res);
+        this.invalidLogin = false;
         this.sessionId = res.details.sessionId;
         this.storedUser = res.principal;
         sessionStorage.setItem('token', this.sessionId);
         sessionStorage.setItem('user', JSON.stringify(this.storedUser));
         this.router.navigateByUrl("/game");
       } else {
-        alert("Authentication failed !")
-      }
+        this.invalidLogin = true;
+        this.errorMessage = "L'email / username ou mot de passe n'est pas valid"
 
-      // if (this.authService.isUser(luser)) {
-      //   //this.router.navigateByUrl('/auth/register');
-      //   sessionStorage.setItem('connected', 'true');
-      //   sessionStorage.setItem('user', JSON.stringify(luser));
-      //   console.log('connected');
-      // } else console.log('not-connected');
+      }
     });
+
+  }
+
+  emptyFields() {
+    if (
+      this.login.get('username')?.dirty ||
+      this.login.get('username')?.touched
+    ) {
+      this.errorMessage = '';
+      this.invalidLogin = false;
+    }
+
 
   }
 }
