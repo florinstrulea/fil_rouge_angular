@@ -4,7 +4,6 @@ import { User } from 'src/app/interfaces/user';
 import { Auth } from 'src/app/services/auth/auth.service';
 import { PasswordValidators } from 'src/app/validations/PasswordValidators';
 
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -21,22 +20,25 @@ export class RegisterComponent implements OnInit {
 
   registration = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', Validators.compose([
-      Validators.required,
-      Validators.minLength(6),
-      PasswordValidators.patternValidator(new RegExp("(?=.*[0-9])"), {
-        requiresDigit: true
-      }),
-      PasswordValidators.patternValidator(new RegExp("(?=.*[A-Z])"), {
-        requiresUppercase: true
-      }),
-      PasswordValidators.patternValidator(new RegExp("(?=.*[a-z])"), {
-        requiresLowercase: true
-      }),
-      PasswordValidators.patternValidator(new RegExp("(?=.*[$@^!%*?&])"), {
-        requiresSpecialChars: true
-      })
-    ])),
+    password: new FormControl(
+      '',
+      Validators.compose([
+        Validators.required,
+        Validators.minLength(6),
+        PasswordValidators.patternValidator(new RegExp('(?=.*[0-9])'), {
+          requiresDigit: true,
+        }),
+        PasswordValidators.patternValidator(new RegExp('(?=.*[A-Z])'), {
+          requiresUppercase: true,
+        }),
+        PasswordValidators.patternValidator(new RegExp('(?=.*[a-z])'), {
+          requiresLowercase: true,
+        }),
+        PasswordValidators.patternValidator(new RegExp('(?=.*[$@^!%*?&])'), {
+          requiresSpecialChars: true,
+        }),
+      ])
+    ),
     passwordRepeat: new FormControl('', [
       Validators.required,
       Validators.min(6),
@@ -51,17 +53,16 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  // onSubmit() {
-  //   this.registerService.register(this.registration.value as User).subscribe();
-  //   this.checkIfEmailExist();
-  // }
+  onSubmit() {
+    //this.registerService.register(this.registration.value as User).subscribe();
+    this.checkIfEmailExist();
+  }
 
   checkEmail(): string {
     if (this.registration.get('email')?.hasError('required')) {
       this.emailMessageError = "L'email est requis.";
     } else if (!this.validateEmail(this.registration.value.email!)) {
       this.emailMessageError = 'Le champ ne respecte pas le format email.';
-
     }
 
     return this.emailMessageError;
@@ -97,11 +98,12 @@ export class RegisterComponent implements OnInit {
     return this.emailMessageError;
   }
 
-
   emptyEmailVerification() {
-    if ((this.registration.get('email')?.dirty ||
-      this.registration.get('email')?.touched))
-      this.emailVerification = "";
+    if (
+      this.registration.get('email')?.dirty ||
+      this.registration.get('email')?.touched
+    )
+      this.emailVerification = '';
   }
 
   // convenience getter for easy access to form controls
@@ -110,49 +112,54 @@ export class RegisterComponent implements OnInit {
   }
 
   get passwordValid() {
-    return this.registration.controls["password"].errors === null;
+    return this.registration.controls['password'].errors === null;
   }
 
-  requiredValid(): boolean {
-    return !this.registration.get("password")?.hasError("required");
+  get requiredValid() {
+    return !this.registration.controls['password'].hasError('required');
   }
 
-  minLengthValid() {
-    return !this.registration.controls["password"].hasError("minlength");
+  get minLengthValid() {
+    return !this.registration.controls['password'].hasError('minlength');
   }
 
   get requiresDigitValid() {
-    return !this.registration.controls["password"].hasError("requiresDigit");
+    return !this.registration.controls['password'].hasError('requiresDigit');
   }
 
   get requiresUppercaseValid() {
-    return !this.registration.controls["password"].hasError("requiresUppercase");
+    return !this.registration.controls['password'].hasError(
+      'requiresUppercase'
+    );
   }
 
   get requiresLowercaseValid() {
-    return !this.registration.controls["password"].hasError("requiresLowercase");
+    return !this.registration.controls['password'].hasError(
+      'requiresLowercase'
+    );
   }
 
   get requiresSpecialCharsValid() {
-    return !this.registration.controls["password"].hasError("requiresSpecialChars");
+    return !this.registration.controls['password'].hasError(
+      'requiresSpecialChars'
+    );
   }
 
-  onSubmit() {
-    this.registerService.register(this.registration.value as User).subscribe();
-    this.checkIfEmailExist();
-    this.submitted = true;
+  // onSubmit() {
+  //   // this.registerService.register(this.registration.value as User).subscribe();
+  //   this.checkIfEmailExist();
+  //   this.submitted = true;
 
-    if (this.registration.invalid) {
-      return;
-    }
+  //   if (this.registration.invalid) {
+  //     return;
+  //   }
 
-    this.isWorking = true;
-    this.registration.disable();
+  //   this.isWorking = true;
+  //   this.registration.disable();
 
-    setTimeout(() => {
-      this.isWorking = false;
-      this.registration.enable();
-    }, 1500);
-
-  }
+  //   setTimeout(() => {
+  //     this.isWorking = false;
+  //     this.registration.enable();
+  //   }, 1500);
+  // }
 }

@@ -1,5 +1,7 @@
 <div id="login-page" class="">
-  <div class="row g-0 ps-md-0 mx-auto form-container border border-secondary rounded w-50 form-div">
+  <div
+    class="row g-0 ps-md-0 mx-auto form-container border border-secondary rounded w-50 form-div"
+  >
     <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
     <div class="col-md-8 col-lg-6">
       <div class="login d-flex align-items-center py-5">
@@ -9,26 +11,45 @@
               <h3 class="login-heading mb-4">Bonjour!</h3>
 
               <!-- Form -->
-              <form class="">
+              <form class="" [formGroup]="user" (ngSubmit)="onSubmit()">
                 <div class="form-floating mb-3">
-                  <input type="email" class="form-control" id="floatingInput" placeholder="E-mail" />
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="floatingInput"
+                    placeholder="E-mail"
+                    formControlName="username"
+                  />
                   <label for="floatingInput">Adresse e-mail</label>
                 </div>
                 <div class="form-floating mb-3">
-                  <input type="password" class="form-control" id="floatingPassword" placeholder="Mot de passe" />
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="floatingPassword"
+                    placeholder="Mot de passe"
+                    formControlName="password"
+                  />
                   <label for="floatingPassword">Mot de passe</label>
                 </div>
 
                 <div class="d-grid">
-                  <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">
+                  <button
+                    class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
+                    type="submit"
+                  >
                     Se connecter
                   </button>
 
                   <div class="text-center">
-                    <a class="text-dark" routerLink="/forgot-password">Mot de passe oublié</a>
+                    <a class="text-dark" routerLink="/auth/forgot-password"
+                      >Mot de passe oublié</a
+                    >
                   </div>
                   <div class="text-center">
-                    <a class="text-dark" routerLink="/register">Créer un compte</a>
+                    <a class="text-dark" routerLink="/auth/register"
+                      >Créer un compte</a
+                    >
                   </div>
                 </div>
               </form>
