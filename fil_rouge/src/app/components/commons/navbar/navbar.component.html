@@ -13,8 +13,7 @@
                 </li>
                 <li class="nav-item" *ngIf="!curAuth?.connected"><a class="nav-link"
                         routerLink="/auth/register">Register</a></li>
-                <li class="nav-item" *ngIf="curAuth?.connected"><a class="nav-link" routerLink="/auth/login"
-                        (click)="logout()">Logout</a></li>
+                <li class="nav-item" *ngIf="curAuth?.connected"><a class="nav-link" (click)="logout()">Logout</a></li>
             </ul>
             <div class="profile" *ngIf="curAuth?.connected">
                 Bienvenue {{ curAuth?.user?.firstName }} {{ curAuth?.user?.lastName }} !

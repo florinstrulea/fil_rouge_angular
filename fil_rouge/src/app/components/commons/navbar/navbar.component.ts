@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthStatus } from 'src/app/interfaces/auth-status';
 
@@ -17,7 +18,7 @@ export class NavbarComponent implements OnInit {
 
 
   apiUrl: string = "";
-  constructor(private authService: Auth, private statusService: StatusService) {
+  constructor(private authService: Auth, private statusService: StatusService, private router: Router) {
     this.apiUrl = environment.apiUrl;
     console.log(this.apiUrl);
   }
@@ -59,6 +60,8 @@ export class NavbarComponent implements OnInit {
         user: undefined
       });
       sessionStorage.clear();
+      this.router.navigateByUrl("/auth/login")
+
     })
   }
 
