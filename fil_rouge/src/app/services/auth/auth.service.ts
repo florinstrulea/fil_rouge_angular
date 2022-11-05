@@ -31,8 +31,8 @@ export class Auth {
   register(user: User): Observable<User> {
     return this.http.post<User>(this.userUrl, user);
   }
-  login(user : User) : Observable<User | Status>{
-    return this.http.post<User | Status>(this.loginUrl,user, {withCredentials : true});
+  login(user : User) : Observable<User>{
+    return this.http.post<User>(this.loginUrl,user, {withCredentials : true});
   }
   getUser() : Observable<User | Status>{
   return this.http.get< User | Status>(this.loginUrl, {withCredentials : true});
