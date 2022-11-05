@@ -28,8 +28,8 @@ export class Auth {
 
   constructor(private http: HttpClient) {}
 
-  register(user: User): Observable<User | Status> {
-    return this.http.post<User | Status >(this.userUrl, user);
+  register(user: User): Observable<User> {
+    return this.http.post<User>(this.userUrl, user);
   }
   login(user : User) : Observable<User | Status>{
     return this.http.post<User | Status>(this.loginUrl,user, {withCredentials : true});

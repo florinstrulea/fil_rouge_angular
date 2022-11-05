@@ -13,7 +13,7 @@
                 <li class="nav-item" *ngIf="curAuth?.connected"><a class="nav-link" (click)="logout()">LogOut</a></li>
             </ul>
             <div class="profile" *ngIf="curAuth?.connected">
-                Bienvenue {{ curAuth?.user?.username }} !
+                Bienvenue {{ curAuth?.user?.userName }} !
             </div>
         </div>
       
