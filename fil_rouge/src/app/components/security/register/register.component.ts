@@ -76,20 +76,33 @@ export class RegisterComponent implements OnInit {
       );
   };
 
-  // checkIfEmailExist() {
-  //   this.authService
-  //     .register(this.registration.value)
-  //     .subscribe((data) => {
-  //       this.user = data;
-  //       if (this.user.email.match("L'email existe déja")) {
-  //         this.emailVerification = this.user.email;
-  //         console.log(this.user);
-  //       } else {
-  //         this.emailVerification = '';
-  //         console.log(this.user);
-  //       }
-  //     });
-  // }
+  checkIfEmailExist() {
+    this.authService
+      .register(this.registration.value as User)
+      .subscribe((data) => {
+
+        if(this.authService.isUser(this.user))
+        this.statusService.envoyerStatus({
+          response : "Inscription effectuée",
+          type : "info"
+        });
+        
+      else
+        this.statusService.envoyerStatus(this.user);
+        this.user = data as User;
+        if (this.user.email.match("L'email existe déja")) {
+          this.emailVerification = this.user.email;
+          console.log(this.user);
+        } else {
+          this.emailVerification = '';
+          console.log(this.user);
+        }
+    })
+
+
+        
+
+  }
 
   checkPassword(): string {
     if (this.registration.get('password')?.hasError('required')) {
@@ -140,7 +153,8 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    this.authService.register(this.registration.value as User).subscribe((user) => {
+    this.authService.register(this.registration.value as User)
+    .subscribe((user) => {
       if(this.authService.isUser(user))
         this.statusService.envoyerStatus({
           response : "Inscription effectuée",
@@ -149,7 +163,7 @@ export class RegisterComponent implements OnInit {
       else
         this.statusService.envoyerStatus(user);
     });
-    // this.checkIfEmailExist();
+    this.checkIfEmailExist();
     this.submitted = true;
 
     if (this.registration.invalid) {
