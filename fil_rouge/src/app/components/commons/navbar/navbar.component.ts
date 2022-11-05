@@ -27,7 +27,7 @@ export class NavbarComponent implements OnInit {
       this.curAuth = user;
     });
 
-    if (sessionStorage.getItem("connected") === "true") {
+    if (sessionStorage.getItem("token")) {
       // On récupère les informations mises en cache
       this.authService.setAuthStatus({
         connected: true,
@@ -57,7 +57,8 @@ export class NavbarComponent implements OnInit {
       this.authService.setAuthStatus({
         connected: false,
         user: undefined
-      })
+      });
+      sessionStorage.clear();
     })
   }
 

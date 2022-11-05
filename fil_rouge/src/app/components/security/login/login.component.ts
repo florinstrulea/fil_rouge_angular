@@ -41,6 +41,10 @@ export class LoginComponent implements OnInit {
           this.storedUser = res.principal;
           sessionStorage.setItem('token', this.sessionId);
           sessionStorage.setItem('user', JSON.stringify(this.storedUser));
+          this.authService.setAuthStatus({
+            connected: true,
+            user: JSON.parse(sessionStorage.getItem("user")!)
+          });
           this.router.navigateByUrl("/game");
         } else {
           this.invalidLogin = true;
