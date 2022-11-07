@@ -5,11 +5,12 @@ import { NotFoundComponent } from './components/others/not-found/not-found.compo
 
 import { HomeComponent } from './components/game/home/home.component';
 import { AuthComponent } from './modules/auth/auth.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    component: HomepageComponent,
   },
   {
     path: 'auth',
