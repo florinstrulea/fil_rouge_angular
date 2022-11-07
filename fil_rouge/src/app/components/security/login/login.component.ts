@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
             connected: true,
             user: JSON.parse(sessionStorage.getItem("user")!)
           });
-          this.router.navigateByUrl("/game");
+          this.router.navigateByUrl("/game/home");
         } else {
           this.invalidLogin = true;
           this.errorMessage = "L'email / username ou mot de passe n'est pas valid"
