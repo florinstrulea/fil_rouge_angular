@@ -21,7 +21,8 @@ import { ModalComponent } from './components/game/choose-player/modal/modal.comp
     NavbarComponent,
     AlertComponent,
     HomepageComponent,
-    ModalComponent
+    ModalComponent,
+
 
   ],
   imports: [

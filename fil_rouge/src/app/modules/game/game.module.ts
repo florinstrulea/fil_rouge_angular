@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { MainPageComponent } from 'src/app/components/game/main-page/main-page.component';
 
 
 import { HomeComponent } from '../../components/game/home/home.component';
@@ -13,6 +14,7 @@ import { GameComponent } from './game.component';
   declarations: [
     GameComponent,
     HomeComponent,
+    MainPageComponent
 
   ],
   imports: [

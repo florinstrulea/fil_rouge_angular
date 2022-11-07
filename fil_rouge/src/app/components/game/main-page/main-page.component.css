@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;400;700&family=Roboto+Condensed&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+}
+
+button {
+  background: none;
+  border: none;
+}
+
+body {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+
+}
+
+.container {
+
+  grid-column: 1/span 12;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  height: 800px;
+}
+
+.map {
+  grid-column: 1/span 12;
+  grid-row: 1/span 1;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  background-image: url("../../../../assets/main-page/GrassMaze.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 630px;
+}
+
+.interface {
+  grid-column: 1/span 12;
+  grid-row: 2/span 1;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  column-gap: 20px;
+  background-image: url("../../../../assets/main-page/GrassBackGround.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  padding: 10px;
+}
+
+.interface__form {
+  text-align: center;
+  border: solid 2px #5ca463;
+  grid-column: span 1;
+  margin-top: 20px;
+  height: 250px;
+  padding-top: 5px;
+}
+
+.interface__img {
+  height: 80px;
+}
+
+.map__form--maison {
+  grid-column: 1/span 4;
+  grid-row: 4/span 7;
+}
+
+.map__form--maison2 {
+  grid-column: 5/span 4;
+  grid-row: 5/span 7;
+}
+
+.map__form--maison3 {
+  grid-column: 8/span 4;
+  grid-row: 5/span 7;
+}
+
+.map__form--gate {
+  grid-column: 10/span 4;
+  grid-row: 2/span 7;
+}
+
+.map__image--gate {
+  height: 330px;
+}
+
+.map__image--maison {
+  height: 330px;
+}
+
+.map__image--maison2 {
+  height: 230px;
+}
+
+.map__image--maison3 {
+  height: 330px;
+}
+
+.interface__form--objects {
+  grid-column: 3/span 8;
+}
