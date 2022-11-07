@@ -17,7 +17,7 @@ const routes: Routes = [
     component: AuthComponent,
   },
 
-  { path: 'game', loadChildren: () => import('./modules/game/game.module').then(m => m.GameModule) },
+  { path: 'game', loadChildren: () => import('./game/game.module').then(m => m.GameModule) },
   {
     path: '**',
     component: NotFoundComponent,
