@@ -13,6 +13,7 @@
         <div class="row col-md-12">
             <div class="col-md-3 choose-player">
                 <div class="card ">
+                    <button id="modal1" (click)="getHeroId($event)" data-id="1">Choose Player</button>
                     <img [src]="warriorFemale" class="card-img-top" alt="..." id="img-1">
                     <div class="card-body" class="essaiDisplay">
                         <h5 class="card-title text-center">Warrior Female</h5>
@@ -23,6 +24,7 @@
             </div>
             <div class="col-md-3 choose-player ">
                 <div class="card">
+                    <a href="#demo2">Choose Player</a>
                     <img [src]="warriorMale" class="card-img-top" alt="...">
                     <div class="card-body" class="essaiDisplay">
                         <h5 class="card-title text-center">Warior Male</h5>
@@ -33,6 +35,7 @@
             </div>
             <div class="col-md-3 choose-player">
                 <div class="card ">
+                    <a href="#demo3">Choose Player</a>
                     <img [src]="archerFemale" class="card-img-top" alt="...">
                     <div class="card-body" class="essaiDisplay">
                         <h5 class="card-title text-center">Archer Female</h5>
@@ -44,6 +47,7 @@
             </div>
             <div class="col-md-3 choose-player">
                 <div class="card">
+                    <a href="#demo4">Choose Player</a>
                     <img [src]="archerMale" class="card-img-top" alt="...">
                     <div class="card-body" class="essaiDisplay">
                         <h5 class="card-title text-center">Archer Male</h5>
@@ -53,6 +57,20 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div id="modal" class="modal">
+        <div class="modal_content">
+            <form>
+                <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Username:</label>
+                    <input type="text" class="form-control" id="recipient-name">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Validate</button>
+                </div>
+                <a href="#" class="modal_close">&times;</a>
+            </form>
         </div>
     </div>
 </section>

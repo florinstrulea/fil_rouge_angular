@@ -11,6 +11,7 @@ import { NotFoundComponent } from './components/others/not-found/not-found.compo
 import { NavbarComponent } from './components/commons/navbar/navbar.component';
 import { AlertComponent } from './components/commons/alert/alert.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
+import { ModalComponent } from './components/game/choose-player/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HomepageComponent } from './components/homepage/homepage.component';
     NotFoundComponent,
     NavbarComponent,
     AlertComponent,
-    HomepageComponent
+    HomepageComponent,
+    ModalComponent
 
   ],
   imports: [
