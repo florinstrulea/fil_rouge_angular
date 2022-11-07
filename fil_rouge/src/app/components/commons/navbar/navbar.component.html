@@ -1,38 +1,39 @@
-<nav class="navbar navbar-expand-lg cc-navbar position-fixed navbar-dark  w-100 fs-3">
-  <div class="container-fluid">
+<nav class="navbar navbar-expand-lg bg-danger">
+    <div class="container-fluid">
 
 
-    <a class="navbar-brand" routerLink="">FloYoRa Adventures</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" routerLink="/">Accueil</a></li>
-        <li class="nav-item" *ngIf="!curAuth?.connected"><a class="nav-link" routerLink="/auth/login">Login</a>
-        </li>
-        <li class="nav-item" *ngIf="!curAuth?.connected"><a class="nav-link" routerLink="/auth/register">Register</a>
-        </li>
-        <li class="nav-item" *ngIf="curAuth?.connected"><a class="nav-link" (click)="logout()">Logout</a></li>
+        <a class="navbar-brand" routerLink="">FloYoRa Adventures</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" routerLink="/">Accueil</a></li>
+                <li class="nav-item" *ngIf="!curAuth?.connected"><a class="nav-link" routerLink="/auth/login">Login</a>
+                </li>
+                <li class="nav-item" *ngIf="!curAuth?.connected"><a class="nav-link"
+                        routerLink="/auth/register">Register</a>
+                </li>
+                <li class="nav-item" *ngIf="curAuth?.connected"><a class="nav-link" (click)="logout()">Logout</a></li>
 
 
-        <!-- On affiche soit Profil soit le nom utilisateur si connecté -->
-        <li class="nav-item " *ngIf="curAuth?.connected==false">
-          <a class="nav-link text-success " routerLink="/home"><i class="bi bi-person-circle"></i>
-            Profil</a>
-        </li>
-        <li class="profile" *ngIf="curAuth?.connected">
-            <a class="nav-link text-success " routerLink="/profile"><i class="bi bi-person-circle"></i>
-                Bienvenue {{ curAuth?.user?.firstName }} {{ curAuth?.user?.lastName }} !</a>
-          
-        </li>
+                <!-- On affiche soit Profil soit le nom utilisateur si connecté -->
+                <li class="nav-item " *ngIf="curAuth?.connected==false">
+                    <a class="nav-link text-success " routerLink="/home"><i class="bi bi-person-circle"></i>
+                        Profil</a>
+                </li>
+                <li class="profile" *ngIf="curAuth?.connected">
+                    <a class="nav-link text-success " routerLink="/profile"><i class="bi bi-person-circle"></i>
+                        Bienvenue {{ curAuth?.user?.firstName }} {{ curAuth?.user?.lastName }} !</a>
+
+                </li>
 
 
-      </ul>
+            </ul>
+
+        </div>
+
 
     </div>
-
-
-  </div>
 </nav>
