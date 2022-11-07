@@ -14,7 +14,7 @@
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(src\assets\choose-player\battleback1_0.png) center center fixed no-repeat;
     background-size: cover;
     /* doonner une certaine auteur a limage */
-    height: 100vh;
+    height: 900px;
 }
 
 /*****************************/
@@ -62,21 +62,22 @@
     transition: 0.3s ease-in-out;
 }
 
-#essaiDisplay {
+.essaiDisplay {
     opacity: 0;
 }
 
-#essaiDisplay:hover {
+.choose-player:hover .card {
+    height: 450px;
+    transition-delay: 0.3s;
+    background-color: aqua;
+    transition: 0.3s ease-in-out;
+}
+
+.choose-player:hover .essaiDisplay {
     opacity: 100%;
 }
 
 
-
-.card:hover {
-    height: 450px;
-    transition-delay: 0.3s;
-
-}
 
 @media (max-width: 330px) {
     .container .card .imgContainer {
