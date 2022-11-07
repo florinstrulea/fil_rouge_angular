@@ -1,6 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ChoosePlayerComponent } from 'src/app/components/game/choose-player/choose-player.component';
+import { ModalComponent } from 'src/app/components/game/choose-player/modal/modal.component';
+
 
 
 import { HomeComponent } from '../../components/game/home/home.component';
@@ -13,11 +17,13 @@ import { GameComponent } from './game.component';
   declarations: [
     GameComponent,
     HomeComponent,
-
+    ModalComponent,
+    ChoosePlayerComponent,
   ],
   imports: [
     CommonModule,
-    GameRoutingModule
+    GameRoutingModule,
+    ReactiveFormsModule,
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: LoginInterceptor, multi: true }]
 })

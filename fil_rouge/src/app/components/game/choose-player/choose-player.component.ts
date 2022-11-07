@@ -10,18 +10,16 @@ export class ChoosePlayerComponent implements OnInit {
   warriorMale: string = "../../../../assets/choose-player/Warrior_Male_equiped.png"
   archerFemale: string = "../../../../assets/choose-player/Archer_Female.png"
   archerMale: string = "../../../../assets/choose-player/Archer_Male.png"
-  heroId?: number;
+  heroId?: string;
   constructor() { }
 
   ngOnInit(): void {
   }
 
   getHeroId(event: Event) {
-    this.heroId = parseInt((event.target as HTMLElement).getAttribute("data-id")!);
+    this.heroId = (event.target as HTMLElement).getAttribute("data-id")!;
+    console.log(this.heroId);
   }
 
-  showModal() {
-    //document.getElementById("modal")?.style.visibility. = "block";
-  }
 
 }

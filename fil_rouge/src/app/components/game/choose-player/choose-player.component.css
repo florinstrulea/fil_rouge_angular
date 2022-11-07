@@ -14,7 +14,7 @@
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(src\assets\choose-player\battleback1_0.png) center center fixed no-repeat;
     background-size: cover;
     /* doonner une certaine auteur a limage */
-    height: 900px;
+    height: 100vh;
 }
 
 /*****************************/
@@ -98,7 +98,7 @@ a {
 }
 
 .modal {
-    visibility: visible;
+    visibility: hidden;
     opacity: 1;
     position: absolute;
     top: 0;

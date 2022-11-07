@@ -34,24 +34,25 @@ export class NavbarComponent implements OnInit {
         connected: true,
         user: JSON.parse(sessionStorage.getItem("user")!)
       });
-      // On fait une requête vers l'API pour vérifier s'il y a eu des changements
-      this.authService.getUser().subscribe((user) => {
-        if (this.authService.isUser(user)) {
-          this.authService.setAuthStatus({
-            connected: true,
-            user: user
-          })
-        }
-        else {
-          sessionStorage.setItem("connected", "false");
-          this.authService.setAuthStatus({
-            connected: false,
-            user: undefined
-          });
-        }
-      });
     }
+    // On fait une requête vers l'API pour vérifier s'il y a eu des changements
+    this.authService.getUser().subscribe((user) => {
+      if (this.authService.isUser(user)) {
+        this.authService.setAuthStatus({
+          connected: true,
+          user: user
+        })
+      }
+      else {
+        sessionStorage.setItem("connected", "false");
+        this.authService.setAuthStatus({
+          connected: false,
+          user: undefined
+        });
+      }
+    });
   }
+
   logout() {
     this.authService.logout().subscribe((message) => {
       this.statusService.envoyerStatus(message);
