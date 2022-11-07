@@ -6,10 +6,11 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AuthComponent } from './auth/auth.component';
+import { AuthComponent } from './modules/auth/auth.component';
 import { NotFoundComponent } from './components/others/not-found/not-found.component';
 import { NavbarComponent } from './components/commons/navbar/navbar.component';
 import { AlertComponent } from './components/commons/alert/alert.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { AlertComponent } from './components/commons/alert/alert.component';
     AuthComponent,
     NotFoundComponent,
     NavbarComponent,
-    AlertComponent
+    AlertComponent,
+    HomepageComponent
 
   ],
   imports: [

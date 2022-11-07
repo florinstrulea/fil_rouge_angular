@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NotFoundComponent } from '../components/others/not-found/not-found.component';
-import { LoginComponent } from '../components/security/login/login.component';
-import { RegisterComponent } from '../components/security/register/register.component';
-import { ResetMessageComponent } from '../components/security/reset-message/reset-message.component';
-import { ResetPasswordComponent } from '../components/security/reset-password/reset-password.component';
-import { ConnectedGuard } from '../guards/connected/connected.guard';
+import { NotFoundComponent } from '../../components/others/not-found/not-found.component';
+import { LoginComponent } from '../../components/security/login/login.component';
+import { RegisterComponent } from '../../components/security/register/register.component';
+import { ResetMessageComponent } from '../../components/security/reset-message/reset-message.component';
+import { ResetPasswordComponent } from '../../components/security/reset-password/reset-password.component';
+import { ConnectedGuard } from '../../guards/connected/connected.guard';
 import { AuthComponent } from './auth.component';
 
 const routes: Routes = [

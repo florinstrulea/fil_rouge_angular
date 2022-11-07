@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthenticationGuard } from '../guards/auth/authentication.guard';
+import { AuthenticationGuard } from '../../guards/auth/authentication.guard';
 import { GameComponent } from './game.component';
 
 const routes: Routes = [
 
   {
     path: '', canActivate: [AuthenticationGuard], children: [
-      { path: 'game', component: GameComponent }],
+      { path: 'game', component: GameComponent }
+
+    ],
   }
 ]
 
