@@ -13,7 +13,7 @@ import { Potion } from 'src/app/interfaces/potion';
 })
 export class ChoosePlayerService {
   choosePlayerUrl: string = environment.apiUrl + "choose-player";
-  
+
 
   public adversaries = new BehaviorSubject({
     monsterDTO: {},
@@ -34,4 +34,9 @@ export class ChoosePlayerService {
   choosePlayer(player: ChosenPlayer): Observable<any> {
     return this.http.post(this.choosePlayerUrl, player, { withCredentials: true })
   }
+
+  getBattleDTO(): Observable<any> {
+    return this.http.get(this.choosePlayerUrl, { withCredentials: true })
+  }
+
 }

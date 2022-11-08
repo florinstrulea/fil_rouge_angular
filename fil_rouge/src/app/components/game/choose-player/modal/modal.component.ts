@@ -32,18 +32,17 @@ export class ModalComponent implements OnInit {
     let player: ChosenPlayer = {} as ChosenPlayer;
     player.id = this.heroId!;
     player.playerName = this.modalForm.value.playerName!
-    this.router.navigateByUrl('/game/main-page');
+
     this.choosePlayerService.choosePlayer(player).subscribe(res => {
       if (res) {
-        console.log("res in modal component", res);
-        this.battleDTO.playerDTO = res.playerDTO;
+
         for (let photo of this.listPhotos) {
           if (photo.id == this.heroId) {
-            this.battleDTO.photo.id = this.heroId;
-            this.battleDTO.photo.link = photo.link;
+            sessionStorage.setItem('photoHeroUrl', photo.link)
           }
         }
-        this.choosePlayerService.adversaries.next(this.battleDTO);
+
+
         this.modalForm.reset();
         this.router.navigateByUrl("game/main-page")
 

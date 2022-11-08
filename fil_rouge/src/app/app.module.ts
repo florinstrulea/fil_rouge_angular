@@ -13,6 +13,7 @@ import { AlertComponent } from './components/commons/alert/alert.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +22,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
     NavbarComponent,
     AlertComponent,
     HomepageComponent,
+
 
   ],
   imports: [

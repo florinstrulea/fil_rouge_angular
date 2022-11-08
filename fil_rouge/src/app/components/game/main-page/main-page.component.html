@@ -1,23 +1,27 @@
 <main class="container-fluid row w-100">
     <div class="map col-12">
-        
-        <form class="map__form map__form--maison" action="">
-            <button class="map__button"><span class="fs-4 fw-bold text-light bg-dark rounded">Weapon Shop</span><img class="map__image map__image--maison" src="../../../../assets/main-page/Maison1.png"
-                    alt=""></button>
-        </form>
-        <form class="map__form map__form--maison2" action="">
-            <button class="map__button"><span class="fs-4 fw-bold text-light bg-dark rounded">Armor Shop</span><img class="map__image map__image--maison2" src="../../../../assets/main-page/Maison2.png"
-                    alt=""></button>
-        </form>
-        <form class="map__form map__form--maison3 ms-5" action="">
-            <button class="map__button"><span class="fs-4 fw-bold text-light bg-dark rounded">Potion Shop</span><img class="map__image map__image--maison3" src="../../../../assets/main-page/Maison3.png"
-                    alt=""></button>
-        </form>
-        <form class="map__form map__form--gate" action="">
-            
-            <button class="map__button"><span class="fs-4 fw-bold text-light bg-danger rounded">Combat Zone</span><img class="map__image map__image--gate" src="../../../../assets/main-page/portail.png"
-                    alt=""></button>
-        </form>
+
+        <div class="map__form map__form--maison bg-danger" action="" (click)="open()">
+            <button class="map__button"><span class="fs-4 fw-bold text-light bg-dark rounded">Weapon
+                    Shop</span><img class="map__image map__image--maison" src="../../../../assets/main-page/Maison1.png"
+                    alt="">
+            </button>
+        </div>
+        <div class="map__form map__form--maison2" action="">
+            <button class="map__button"><span class="fs-4 fw-bold text-light bg-dark rounded">Armor Shop</span><img
+                    class="map__image map__image--maison2" src="../../../../assets/main-page/Maison2.png" alt="">
+            </button>
+        </div>
+        <div class="map__form map__form--maison3 ms-5" action="">
+            <button class="map__button"><span class="fs-4 fw-bold text-light bg-dark rounded">Potion Shop</span><img
+                    class="map__image map__image--maison3" src="../../../../assets/main-page/Maison3.png" alt="">
+            </button>
+        </div>
+        <div class="map__form map__form--gate" action="">
+
+            <button class="map__button"><span class="fs-4 fw-bold text-light bg-danger rounded">Combat Zone</span><img
+                    class="map__image map__image--gate" src="../../../../assets/main-page/portail.png" alt=""></button>
+        </div>
     </div>
     
     <div class="interface">
@@ -38,4 +42,5 @@
             </button>
         </form>
     </div>
+    <app-modal-main-page></app-modal-main-page>
 </main>
