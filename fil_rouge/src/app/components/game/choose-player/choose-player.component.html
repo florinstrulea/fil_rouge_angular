@@ -30,7 +30,12 @@
             </div>
             <div class="col-md-3 choose-player ">
                 <div class="card">
-                    <button>Choose Player</button>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#playerModal"
+                        data-id="2" (click)="getHeroId($event)">
+                        Choose player
+                    </button>
+
                     <img [src]="warriorMale" class="card-img-top" alt="...">
                     <div class="card-body" class="essaiDisplay">
                         <h5 class="card-title text-center">Warior Male</h5>
@@ -41,7 +46,12 @@
             </div>
             <div class="col-md-3 choose-player">
                 <div class="card ">
-                    <button>Choose Player</button>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#playerModal"
+                        data-id="7" (click)="getHeroId($event)">
+                        Choose player
+                    </button>
+
                     <img [src]="archerFemale" class="card-img-top" alt="...">
                     <div class="card-body" class="essaiDisplay">
                         <h5 class="card-title text-center">Archer Female</h5>
@@ -53,7 +63,12 @@
             </div>
             <div class="col-md-3 choose-player">
                 <div class="card">
-                    <button>Choose Player</button>
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#playerModal"
+                        data-id="8" (click)="getHeroId($event)">
+                        Choose player
+                    </button>
                     <img [src]="archerMale" class="card-img-top" alt="...">
                     <div class="card-body" class="essaiDisplay">
                         <h5 class="card-title text-center">Archer Male</h5>

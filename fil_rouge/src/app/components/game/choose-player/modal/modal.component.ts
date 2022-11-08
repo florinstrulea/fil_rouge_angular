@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ChosenPlayer } from 'src/app/interfaces/chosen-player';
 import { ChoosePlayerService } from 'src/app/services/choose-player/choose-player.service';
 
@@ -17,7 +18,7 @@ export class ModalComponent implements OnInit {
     playerName: new FormControl('', [Validators.required]),
   });
 
-  constructor(private choosePlayerService: ChoosePlayerService) { }
+  constructor(private choosePlayerService: ChoosePlayerService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -26,10 +27,14 @@ export class ModalComponent implements OnInit {
     let player: ChosenPlayer = {} as ChosenPlayer;
     player.id = this.playerId!;
     player.playerName = this.modalForm.value.playerName!
+    this.router.navigateByUrl('/game/main-page');
     this.choosePlayerService.choosePlayer(player).subscribe(res => {
       if (res) {
         console.log(res);
         this.choosePlayerService.adversaries.next(res);
+        this.modalForm.reset();
+
+
       }
     })
 

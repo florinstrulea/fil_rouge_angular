@@ -12,14 +12,14 @@ export class ChoosePlayerService {
   choosePlayerUrl: string = environment.apiUrl + "choose-player";
 
   public adversaries = new BehaviorSubject({
-    monster: {},
-    player: {},
-    set setMonster(obj: any) {
-      this.monster = obj;
-    },
-    set setPlayer(obj: any) {
-      this.player = obj;
-    }
+    // monsterDTO: {},
+    // playerDTO: {},
+    // set setMonster(obj: any) {
+    //   this.monsterDTO = obj;
+    // },
+    // set setPlayer(obj: any) {
+    //   this.playerDTO = obj;
+    // }
   })
 
   adversariesObservable$ = this.adversaries.asObservable();

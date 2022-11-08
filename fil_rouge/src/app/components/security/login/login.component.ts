@@ -12,7 +12,7 @@ import { Auth } from 'src/app/services/auth/auth.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  sessionId: string = '';
+  authenticated: string = '';
   storedUser: any = {};
 
   errorMessage = "L'email / username ou mot de passe n'est pas valid";
@@ -37,9 +37,9 @@ export class LoginComponent implements OnInit {
         if (res) {
           console.log(res);
           this.invalidLogin = false;
-          this.sessionId = res.details.sessionId;
+          this.authenticated = res.authenticated;
           this.storedUser = res.principal;
-          sessionStorage.setItem('token', this.sessionId);
+          sessionStorage.setItem('token', this.authenticated);
           sessionStorage.setItem('user', JSON.stringify(this.storedUser));
           this.authService.setAuthStatus({
             connected: true,
