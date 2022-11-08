@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Player } from 'src/app/interfaces/player';
 import { ChoosePlayerService } from 'src/app/services/choose-player/choose-player.service';
-import { PlayerCardService } from 'src/app/services/player-card/player-card.service';
+
 
 @Component({
   selector: 'app-player-card',
@@ -17,7 +17,7 @@ export class PlayerCardComponent implements OnInit {
   playerImg :string ="";
   warriorMale: string = "../../../../assets/choose-player/Warrior_Male_equiped.png";
   weaponEquiped : string="";
-  constructor(private choosePlayerService: ChoosePlayerService, private playerCardService: PlayerCardService) {
+  constructor(private choosePlayerService: ChoosePlayerService) {
   }
 
   ngOnInit(): void {
@@ -32,6 +32,7 @@ export class PlayerCardComponent implements OnInit {
 
       })
     //this.choosePlayerService.adversaries.value.playerDTO = this.curPlayer;
+      // this.playerSubscribtion = this.playerCardService.playerObservable$
 
   }
 
