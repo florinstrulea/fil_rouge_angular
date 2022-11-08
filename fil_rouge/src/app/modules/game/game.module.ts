@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ChoosePlayerComponent } from 'src/app/components/game/choose-player/choose-player.component';
 import { ModalComponent } from 'src/app/components/game/choose-player/modal/modal.component';
 
+import { MainPageComponent } from 'src/app/components/game/main-page/main-page.component';
 
 
 import { HomeComponent } from '../../components/game/home/home.component';
@@ -19,6 +20,8 @@ import { GameComponent } from './game.component';
     HomeComponent,
     ModalComponent,
     ChoosePlayerComponent,
+    MainPageComponent
+
   ],
   imports: [
     CommonModule,
