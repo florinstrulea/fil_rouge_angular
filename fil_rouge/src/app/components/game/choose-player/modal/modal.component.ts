@@ -24,8 +24,6 @@ export class ModalComponent implements OnInit {
     monsterDTO: {},
     playerDTO: {},
     photo: { id: '', link: '' },
-
-
   };
   ngOnInit(): void {
   }

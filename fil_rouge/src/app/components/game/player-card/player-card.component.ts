@@ -11,7 +11,10 @@ import { ChoosePlayerService } from 'src/app/services/choose-player/choose-playe
 export class PlayerCardComponent implements OnInit {
   sub: Subscription = new Subscription();
   curPlayer?: Partial<Player>;
-
+  photoPlayerLink? :{id:number, link:string};
+  playerImg :string ="";
+  warriorMale: string = "../../../../assets/choose-player/Warrior_Male_equiped.png";
+  weaponEquiped : string="";
   constructor(private choosePlayerService: ChoosePlayerService) {
   }
 
@@ -21,6 +24,9 @@ export class PlayerCardComponent implements OnInit {
       .subscribe((elmt) => {
         console.log("monPlayer", elmt);
         this.curPlayer = elmt.playerDTO;
+        this.photoPlayerLink = elmt.photo;
+        this.playerImg = "../../../../assets/choose-player"+elmt.photo.link;
+        // console.log("this.photoPlayerLink",this.photoPlayerLink);       
 
       })
     //this.choosePlayerService.adversaries.value.playerDTO = this.curPlayer;

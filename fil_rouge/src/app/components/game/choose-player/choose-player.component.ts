@@ -38,7 +38,7 @@ export class ChoosePlayerComponent implements OnInit {
 
   getHeroId(event: Event) {
     this.heroId = (event.target as HTMLElement).getAttribute("data-id")!;
-    console.log(this.heroId);
+    console.log("heroId",this.heroId);
   }
 
 

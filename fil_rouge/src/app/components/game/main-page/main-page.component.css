@@ -58,7 +58,7 @@ body {
 .interface__form {
   text-align: center;
   border: solid 2px #5ca463;
-  grid-column: span 2;
+  grid-column: span 3;
   margin-top: 15px;
   height: 250px;
   padding-top: 5px;
@@ -105,5 +105,5 @@ body {
 }
 
 .interface__form--objects {
-  grid-column: 3/span 8;
+  grid-column: 5/span 8;
 }

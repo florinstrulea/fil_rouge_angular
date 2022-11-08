@@ -18,6 +18,7 @@ export class ChoosePlayerService {
   public adversaries = new BehaviorSubject({
     monsterDTO: {},
     playerDTO: {},
+    photo: {id:0, link:""},
     set setMonster(obj: any) {
       this.monsterDTO = obj;
     },
