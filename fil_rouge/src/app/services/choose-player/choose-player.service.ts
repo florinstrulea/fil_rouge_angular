@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ChoosePlayerService {
   choosePlayerUrl: string = environment.apiUrl + "choose-player";
+  
 
   public adversaries = new BehaviorSubject({
     // monsterDTO: {},
