@@ -9,20 +9,21 @@ import { ChoosePlayerService } from 'src/app/services/choose-player/choose-playe
   styleUrls: ['./player-card.component.css']
 })
 export class PlayerCardComponent implements OnInit {
-  sub : Subscription = new Subscription();
-  curPlayer?:Partial<Player>;
-  
-  constructor(private choosePlayerService : ChoosePlayerService) {
-   }
+  sub: Subscription = new Subscription();
+  curPlayer?: Partial<Player>;
+
+  constructor(private choosePlayerService: ChoosePlayerService) {
+  }
 
   ngOnInit(): void {
     this.sub = this.choosePlayerService
-    .adversariesObservable$
-    .subscribe((elmt)=>{
-      console.log("monPlayer", elmt);
-      this.curPlayer = elmt.playerDTO;
-    })
+      .adversariesObservable$
+      .subscribe((elmt) => {
+        console.log("monPlayer", elmt);
+        this.curPlayer = elmt.playerDTO;
 
+      })
+    //this.choosePlayerService.adversaries.value.playerDTO = this.curPlayer;
   }
 
 }
