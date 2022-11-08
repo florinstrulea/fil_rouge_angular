@@ -58,8 +58,8 @@ body {
 .interface__form {
   text-align: center;
   border: solid 2px #5ca463;
-  grid-column: span 1;
-  margin-top: 50px;
+  grid-column: span 2;
+  margin-top: 15px;
   height: 250px;
   padding-top: 5px;
 }

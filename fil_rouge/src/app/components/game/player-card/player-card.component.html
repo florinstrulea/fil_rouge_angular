@@ -1,23 +1,15 @@
-<div class="container-fluid">
+
     <header>
-        <div class="wrap">PlayerCard</div>
+        <div class="wrap text-light fs-6 fw-bold">PlayerCard</div>
     </header>
     <div class="layout wrap"*ngIf="curPlayer">
-        <span class="text-light">Votre nom : {{ curPlayer.namePlayer  }}</span>
-        <div class="card card-a"></div>
-
-        <div class="card card-b"></div>
-        <div class="card card-c"></div>
-        <div class="card card-d"></div>
-        <div class="card card-e"></div>
-        <div class="card card-f"></div>
-        <div class="card card-g"></div>
-        <div class="card card-h"></div>
+        <div class="card card-weapon">Weapon</div>
+        <div class="card card-player-img">Player : {{ curPlayer.namePlayer  }}</div>
+        <div class="card card-armor">Armor</div>
+        <div class="card card-health">HP</div>
+        <div class="card card-money">money</div>
+        <div class="card card-experience">xp</div>
+        <div class="card card-level">level</div>
+        <!-- <div class="card card-h">test</div> -->
 
     </div>
-    <li class="profile" >
-        
-      
-    </li>
-
-</div>
