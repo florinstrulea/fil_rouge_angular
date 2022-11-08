@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ChosenPlayer } from 'src/app/interfaces/chosen-player';
+import { Player } from 'src/app/interfaces/player';
 import { ChoosePlayerService } from 'src/app/services/choose-player/choose-player.service';
 
 @Component({
@@ -10,16 +11,21 @@ import { ChoosePlayerService } from 'src/app/services/choose-player/choose-playe
 })
 export class PlayerCardComponent implements OnInit {
   sub : Subscription = new Subscription();
-  curPlayer?:ChosenPlayer;
+  curPlayer?:Player;
 
 
   constructor(private choosePlayerService : ChoosePlayerService) {
-    // this.sub = this.choosePlayerService.adversariesObservable$.subscribe((player)=>{
-    //   this.curPlayer=player;
-    // })
+
    }
 
   ngOnInit(): void {
+    this.sub = this.choosePlayerService
+    .adversariesObservable$
+    .subscribe((elmt)=>{
+      console.log("monPlayer", elmt);
+      // this.curPlayer = elmt.playerDTO;
+      
+    })
   }
 
 }

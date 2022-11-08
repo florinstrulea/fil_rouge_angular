@@ -4,7 +4,10 @@ import { FormGroup } from '@angular/forms';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ChosenPlayer } from 'src/app/interfaces/chosen-player';
 import { environment } from 'src/environments/environment';
-
+import { Player } from 'src/app/interfaces/player';
+import { Armor } from 'src/app/interfaces/armor';
+import { Weapon } from 'src/app/interfaces/weapon';
+import { Potion } from 'src/app/interfaces/potion';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,14 +16,15 @@ export class ChoosePlayerService {
   
 
   public adversaries = new BehaviorSubject({
-    // monsterDTO: {},
-    // playerDTO: {},
-    // set setMonster(obj: any) {
-    //   this.monsterDTO = obj;
-    // },
-    // set setPlayer(obj: any) {
-    //   this.playerDTO = obj;
-    // }
+    monsterDTO: {},
+    playerDTO: {},
+    set setMonster(obj: any) {
+      this.monsterDTO = obj;
+    },
+    set setPlayer(obj: any) {
+      this.playerDTO = obj;
+    }
+
   })
 
   adversariesObservable$ = this.adversaries.asObservable();

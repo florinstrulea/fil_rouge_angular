@@ -19,7 +19,10 @@ export class ModalComponent implements OnInit {
   });
 
   constructor(private choosePlayerService: ChoosePlayerService, private router: Router) { }
-
+  battleDTO : any = {
+    monsterDTO:{},
+    playerDTO: {}
+     };
   ngOnInit(): void {
   }
 
@@ -30,10 +33,12 @@ export class ModalComponent implements OnInit {
     this.router.navigateByUrl('/game/main-page');
     this.choosePlayerService.choosePlayer(player).subscribe(res => {
       if (res) {
-        console.log(res);
+        console.log("res in modal component",res);
+        this.battleDTO = res;
+        this.battleDTO.playerDTO = res.playerDTO;
         this.choosePlayerService.adversaries.next(res);
         this.modalForm.reset();
-
+        this.router.navigateByUrl("game/main-page")
 
       }
     })
