@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { ChosenPlayer } from 'src/app/interfaces/chosen-player';
 import { Player } from 'src/app/interfaces/player';
 import { ChoosePlayerService } from 'src/app/services/choose-player/choose-player.service';
 
@@ -11,11 +10,9 @@ import { ChoosePlayerService } from 'src/app/services/choose-player/choose-playe
 })
 export class PlayerCardComponent implements OnInit {
   sub : Subscription = new Subscription();
-  curPlayer?:Player;
-
-
+  curPlayer?:Partial<Player>;
+  
   constructor(private choosePlayerService : ChoosePlayerService) {
-
    }
 
   ngOnInit(): void {
@@ -23,9 +20,9 @@ export class PlayerCardComponent implements OnInit {
     .adversariesObservable$
     .subscribe((elmt)=>{
       console.log("monPlayer", elmt);
-      // this.curPlayer = elmt.playerDTO;
-      
+      this.curPlayer = elmt.playerDTO;
     })
+
   }
 
 }

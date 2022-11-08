@@ -7,5 +7,7 @@ import { environment } from 'src/environments/environment';
 export class PlayerService {
   getPlayerUrl : string = environment.apiUrl + "inventory/showAll";
 
+  
+
   constructor() { }
 }

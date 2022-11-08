@@ -4,25 +4,26 @@ import { Weapon } from "./weapon";
 
 export interface Player {
 
-	 id: string;
-	 namePlayer: string;
-	 nameHero: string;
-	 hp: number;
-	 hpMax: number;
-	 strength: number;
-	 defense: number;
-	 speed: number;
-	 money: number;
-	 experience: number;
-	 critical: number;
-	 dodge: number;
-	 level: number;
-	 race: string;
-	 gender: string;
-	 alive :boolean;
-	 listArmor : Array<Armor>;
-	 listWeapon : Array<Weapon>;
-	 listePotions : Array<Potion>;
-	 idWeaponEquiped : number;    
-	 idArmorEquiped : number;    
+	alive :boolean;
+	critical: number;
+	defense: number;
+	dodge: number;
+	experience: number;
+	gender: string;
+	hp: number;
+	hpMax: number;
+	id: string;
+	idArmorEquiped? : number;    
+	idWeaponEquiped? : number;    
+	level: number;
+	listArmor? : Array<Armor>;
+	listWeapon? : Array<Weapon>;
+	listePotions? : Array<Potion>;
+	money: number;
+	nameHero: string;
+	namePlayer: string;
+	race: string;
+	speed: number;
+	strength: number;
+
 }
