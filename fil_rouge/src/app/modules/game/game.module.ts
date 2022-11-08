@@ -12,6 +12,7 @@ import { HomeComponent } from '../../components/game/home/home.component';
 import { LoginInterceptor } from '../../interceptors/login.interceptor';
 import { GameRoutingModule } from './game-routing.module';
 import { GameComponent } from './game.component';
+import { PlayerCardComponent } from '../../components/game/player-card/player-card.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { GameComponent } from './game.component';
     HomeComponent,
     ModalComponent,
     ChoosePlayerComponent,
-    MainPageComponent
+    MainPageComponent,
+    PlayerCardComponent
 
   ],
   imports: [
