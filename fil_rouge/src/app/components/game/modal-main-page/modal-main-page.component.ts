@@ -1,4 +1,5 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { ChoosePlayerService } from 'src/app/services/choose-player/choose-player.service';
 import { MainPageService } from 'src/app/services/main-page/main-page.service';
 
 @Component({
@@ -12,14 +13,14 @@ export class ModalMainPageComponent implements OnInit {
   @ViewChild('overlay') overlay!: ElementRef
   @ViewChild('btnCloseModal') btnCloseModal!: ElementRef
 
-  @Input()
   houseName: string = "";
-  allWeapons = new Array();
+  elements = new Array();
+  player: any = {}
 
-
-  constructor(private mainPageService: MainPageService) { }
+  constructor(private mainPageService: MainPageService, private choosePlayerService: ChoosePlayerService) { }
 
   ngOnInit(): void {
+    this.mainPageService.buyElement('Weapon', 1, 93);
 
   }
 
@@ -27,7 +28,7 @@ export class ModalMainPageComponent implements OnInit {
     this.modal.nativeElement.classList.remove("hidden");
     this.overlay.nativeElement.classList.remove("hidden");
     this.mainPageService.getElements(this.houseName).subscribe((res => {
-      this.allWeapons = res;
+      this.elements = res;
       console.log(res);
     }))
 
@@ -37,6 +38,14 @@ export class ModalMainPageComponent implements OnInit {
     this.modal.nativeElement.classList.add("hidden");
     this.overlay.nativeElement.classList.add("hidden");
 
+  }
+
+  buyElement(element: string, idElement: number, idPlayer: number) {
+    this.mainPageService.buyElement(element, idElement, idPlayer).subscribe(res => {
+
+      console.log(res.error)
+      this.choosePlayerService.getBattleDTO().subscribe(res => this.player = res.playerDTO)
+    })
   }
 
 }

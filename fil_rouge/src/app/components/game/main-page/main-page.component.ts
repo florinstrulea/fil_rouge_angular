@@ -15,7 +15,11 @@ export class MainPageComponent implements OnInit {
   constructor(private choosePlayerService: ChoosePlayerService) { }
 
   ngOnInit(): void {
-    this.choosePlayerService.getBattleDTO().subscribe(res => console.log(res))
+    this.choosePlayerService.getBattleDTO().subscribe(res => {
+      console.log(res);
+      this.modal.player = res.playerDTO;
+
+    })
 
   }
   @ViewChild(ModalMainPageComponent) modal!: ModalMainPageComponent
@@ -26,8 +30,8 @@ export class MainPageComponent implements OnInit {
     this.modal.closeModal();
   }
 
-  open(event: Event) {
-    this.houseName = (event.target as HTMLElement).getAttribute("data-house")!;
+  open(value: string) {
+    this.modal.houseName = value;
     this.modal.openModal();
   }
 
