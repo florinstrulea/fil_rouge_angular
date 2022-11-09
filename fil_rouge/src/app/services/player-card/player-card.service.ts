@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Armor } from 'src/app/interfaces/armor';
@@ -11,8 +11,8 @@ import { environment } from 'src/environments/environment';
 })
 export class PlayerCardService {
   getPlayerUrl : string = environment.apiUrl + "inventory/showAll";
-  getArmorUrl : string = environment.apiUrl + "inventory/currentArmor";
-  getWeaponUrl : string = environment.apiUrl + "inventory/currentWeapon";
+
+  getWeaponUrl : string = environment.apiUrl + "inventory/currentWeapon/";
   
 
   public currentPlayer = new BehaviorSubject({
@@ -69,10 +69,11 @@ armorObservable$ = this.currentArmor.asObservable();
   getCurrentPlayer(idPlayer: number): Observable<Partial<Player>> {
     return this.http.post<Partial<Player>>(this.getPlayerUrl, idPlayer, { withCredentials: true })
   }
-  getCurrentArmor(idPlayer : number) : Observable<Partial<Armor>>{
-    return this.http.post<Partial<Armor>>(this.getArmorUrl, idPlayer, { withCredentials: true })
+  getArmorUrl : string = environment.apiUrl + "inventory/currentArmor/";
+  getCurrentArmor(idPlayer : string) : Observable<any>{
+    return this.http.get<any>(this.getArmorUrl+idPlayer); 
   }
-  getCurrentWeapon(idPlayer : number) : Observable<Partial<Weapon>>{
-    return this.http.post<Partial<Weapon>>(this.getWeaponUrl, idPlayer, { withCredentials: true })
-  }
+  // getCurrentWeapon(idPlayer : number) : Observable<any>{
+  //   return this.http.get<any>(this.getWeaponUrl, idPlayer)
+
 }
