@@ -9,13 +9,13 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 20%;
-
-    background-color: white;
+    width: 80%;
+    background-color: rgb(69, 100, 92);
     padding: 3rem;
     border-radius: 5px;
     box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
     z-index: 10;
+    color: white;
 }
 
 .overlay {

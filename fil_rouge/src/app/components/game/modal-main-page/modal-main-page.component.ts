@@ -1,4 +1,5 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { MainPageService } from 'src/app/services/main-page/main-page.service';
 
 @Component({
   selector: 'app-modal-main-page',
@@ -11,17 +12,24 @@ export class ModalMainPageComponent implements OnInit {
   @ViewChild('overlay') overlay!: ElementRef
   @ViewChild('btnCloseModal') btnCloseModal!: ElementRef
 
-  constructor() { }
+  @Input()
+  houseName: string = "";
+  allWeapons = new Array();
+
+
+  constructor(private mainPageService: MainPageService) { }
 
   ngOnInit(): void {
+
   }
 
   openModal() {
-    console.log(this.modal);
-
     this.modal.nativeElement.classList.remove("hidden");
     this.overlay.nativeElement.classList.remove("hidden");
-    console.log('Florin');
+    this.mainPageService.getElements(this.houseName).subscribe((res => {
+      this.allWeapons = res;
+      console.log(res);
+    }))
 
   }
 

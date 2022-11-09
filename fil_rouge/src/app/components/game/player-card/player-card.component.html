@@ -1,41 +1,40 @@
-
-    <header>
-        <div class="wrap text-light fs-6 fw-bold">PlayerCard</div>
-    </header>
-    <div class="layout wrap"*ngIf="curPlayer">
-        <div class="card card-weapon">
-            <div class="image-container">
-                <!-- <img class="large" alt="Sword" src="https://assets.codepen.io/21542/Sword.4x.png" />   -->
-                <img [src]="playerImg" class="card-img-top" alt="...">
-            </div>
-             <span class="item-title">{{weaponEquiped}}</span>
-          </div>
-
-
-        <div class="card card-player-img">
-            <div class="image-container">
-
-                <img [src]="playerImg" class="card-img-top" alt="...">
-                <!-- <img [src]="warriorMale" class="card-img-top" alt="..."> -->
-                <span class="item-title">{{curPlayer.nameHero}}</span>
-                <!-- <span class="bg-success text-light">Patrick</span> -->
-            </div>           
+<header>
+    <div class="wrap text-light fs-6 fw-bold">PlayerCard</div>
+</header>
+<div class="layout wrap" *ngIf="curPlayer">
+    <div class="card card-weapon">
+        <div class="image-container">
+            <!-- <img class="large" alt="Sword" src="https://assets.codepen.io/21542/Sword.4x.png" />   -->
+            <img class="card-img-top" alt="...">
         </div>
-
-
-        <div class="card card-armor">
-            <div class="image-container">
-                <img alt="Shield" src="https://assets.codepen.io/21542/Shield.4x.png" />
-             </div>
-             <span class="item-title">Armor</span>
-        </div>
-
-
-
-        <div class="card card-health">HP</div>
-        <div class="card card-money">money</div>
-        <div class="card card-experience">xp</div>
-        <div class="card card-level">level</div>
-        <!-- <div class="card card-h">test</div> -->
-
+        <span class="item-title">{{weaponEquiped}}</span>
     </div>
+
+
+    <div class="card card-player-img">
+        <div class="image-container">
+
+            <img [src]="playerImg" class="card-img-top" alt="...">
+            <!-- <img [src]="warriorMale" class="card-img-top" alt="..."> -->
+            <span class="item-title">{{curPlayer.nameHero}}</span>
+            <!-- <span class="bg-success text-light">Patrick</span> -->
+        </div>
+    </div>
+
+
+    <div class="card card-armor">
+        <div class="image-container">
+            <img alt="Shield" src="https://assets.codepen.io/21542/Shield.4x.png" />
+        </div>
+        <span class="item-title">Armor</span>
+    </div>
+
+
+
+    <div class="card card-health">HP</div>
+    <div class="card card-money">money</div>
+    <div class="card card-experience">xp</div>
+    <div class="card card-level">level</div>
+    <!-- <div class="card card-h">test</div> -->
+
+</div>

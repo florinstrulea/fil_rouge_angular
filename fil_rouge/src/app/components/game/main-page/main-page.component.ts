@@ -10,6 +10,7 @@ import { ModalMainPageComponent } from '../modal-main-page/modal-main-page.compo
 export class MainPageComponent implements OnInit {
   /*TODO : pour la partie inventaire du bas : chargé la photo du player qui a été choisit dans choose-player  + son nom*/
 
+  houseName: string = '';
 
   constructor(private choosePlayerService: ChoosePlayerService) { }
 
@@ -18,12 +19,16 @@ export class MainPageComponent implements OnInit {
 
   }
   @ViewChild(ModalMainPageComponent) modal!: ModalMainPageComponent
-  open() {
-    this.modal.openModal();
-  }
+
+
 
   close() {
     this.modal.closeModal();
+  }
+
+  open(event: Event) {
+    this.houseName = (event.target as HTMLElement).getAttribute("data-house")!;
+    this.modal.openModal();
   }
 
 

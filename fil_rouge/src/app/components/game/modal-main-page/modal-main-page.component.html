@@ -1,7 +1,31 @@
 <!-- =============Modal=============== -->
 <div class="myModal hidden text-center" #modal>
-    <h1 class="text-danger " #modalTitle>I'm a modal window 😍</h1>
-    <div class="text-success my-modal-aditional"></div>
+    <h1 class="text-danger " #modalTitle>{{houseName}}😍</h1>
+    <div class="my-modal-aditional">
+        <div class="table-users">
+            <div class="header">Users</div>
+
+            <table cellspacing="0">
+                <tr>
+                    <th>Picture</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th width="230">Comments</th>
+                </tr>
+
+                <tr>
+                    <td><img src="https://i.picsum.photos/id/1005/100/100.jpg" alt="" /></td>
+                    <td>Jane Doe</td>
+                    <td>jane.doe@foo.com</td>
+                    <td>01 800 2000</td>
+                    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </td>
+                </tr>
+
+
+            </table>
+        </div>
+    </div>
     <button class="close-modal btn btn-secondary mx-auto" #btnCloseModal (click)="closeModal()">
         Fermer !
     </button>

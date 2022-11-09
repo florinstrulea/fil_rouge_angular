@@ -1,34 +1,35 @@
 <main class="container-fluid row w-100">
     <div class="map col-12">
 
-        <div class="map__form map__form--maison bg-danger" action="" (click)="open()">
-            <button class="map__button"><span class="fs-4 fw-bold text-light bg-dark rounded">Weapon
+        <div class="map__form map__form--maison bg-danger" data-house="weapons">
+            <button class="map__button"><span class="fs-4 fw-bold text-light bg-dark rounded"
+                    data-house="weapons">Weapon
                     Shop</span><img class="map__image map__image--maison" src="../../../../assets/main-page/Maison1.png"
-                    alt="">
+                    alt="" data-house="weapons" (click)="open($event)">
             </button>
         </div>
-        <div class="map__form map__form--maison2" action="">
+        <div class="map__form map__form--maison2">
             <button class="map__button"><span class="fs-4 fw-bold text-light bg-dark rounded">Armor Shop</span><img
                     class="map__image map__image--maison2" src="../../../../assets/main-page/Maison2.png" alt="">
             </button>
         </div>
-        <div class="map__form map__form--maison3 ms-5" action="">
+        <div class="map__form map__form--maison3 ms-5">
             <button class="map__button"><span class="fs-4 fw-bold text-light bg-dark rounded">Potion Shop</span><img
                     class="map__image map__image--maison3" src="../../../../assets/main-page/Maison3.png" alt="">
             </button>
         </div>
-        <div class="map__form map__form--gate" action="">
+        <div class="map__form map__form--gate">
 
             <button class="map__button"><span class="fs-4 fw-bold text-light bg-danger rounded">Combat Zone</span><img
                     class="map__image map__image--gate" src="../../../../assets/main-page/portail.png" alt=""></button>
         </div>
     </div>
-    
+
     <div class="interface">
         <!-- Partie de gauche  Je veux afficher la photo du Player + Stats -->
-        <form class="interface__form" action="">
+        <form class="interface__form">
             <app-player-card></app-player-card>
-            
+
             <!-- <button class="interface__button interface__button--">
 
             </button> -->
@@ -42,5 +43,5 @@
             </button>
         </form>
     </div>
-    <app-modal-main-page></app-modal-main-page>
+    <app-modal-main-page [houseName]="houseName"></app-modal-main-page>
 </main>
