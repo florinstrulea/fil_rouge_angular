@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
 })
 export class PlayerCardService {
   getPlayerUrl : string = environment.apiUrl + "inventory/showAll";
-
+  getArmorUrl : string = environment.apiUrl + "inventory/currentArmor/";
   getWeaponUrl : string = environment.apiUrl + "inventory/currentWeapon/";
   
 
@@ -69,11 +69,13 @@ armorObservable$ = this.currentArmor.asObservable();
   getCurrentPlayer(idPlayer: number): Observable<Partial<Player>> {
     return this.http.post<Partial<Player>>(this.getPlayerUrl, idPlayer, { withCredentials: true })
   }
-  getArmorUrl : string = environment.apiUrl + "inventory/currentArmor/";
+
   getCurrentArmor(idPlayer : string) : Observable<any>{
     return this.http.get<any>(this.getArmorUrl+idPlayer); 
   }
-  // getCurrentWeapon(idPlayer : number) : Observable<any>{
-  //   return this.http.get<any>(this.getWeaponUrl, idPlayer)
+  
+  getCurrentWeapon(idPlayer : string) : Observable<any>{
+    return this.http.get<any>(this.getWeaponUrl+idPlayer)
+  }
 
 }

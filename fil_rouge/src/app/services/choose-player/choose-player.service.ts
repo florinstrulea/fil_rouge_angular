@@ -1,13 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { FormGroup } from '@angular/forms';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ChosenPlayer } from 'src/app/interfaces/chosen-player';
 import { environment } from 'src/environments/environment';
-import { Player } from 'src/app/interfaces/player';
-import { Armor } from 'src/app/interfaces/armor';
-import { Weapon } from 'src/app/interfaces/weapon';
-import { Potion } from 'src/app/interfaces/potion';
 @Injectable({
   providedIn: 'root'
 })
