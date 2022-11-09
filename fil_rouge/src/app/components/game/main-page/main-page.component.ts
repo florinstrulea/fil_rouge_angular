@@ -14,7 +14,7 @@ export class MainPageComponent implements OnInit {
   constructor(private choosePlayerService: ChoosePlayerService) { }
 
   ngOnInit(): void {
-    this.choosePlayerService.getBattleDTO().subscribe(res => console.log(res))
+    this.choosePlayerService.getBattleDTO().subscribe(res => console.log("main-page .choosePlayerService.getBattleDTO()",res))
 
   }
   @ViewChild(ModalMainPageComponent) modal!: ModalMainPageComponent

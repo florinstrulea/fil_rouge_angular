@@ -22,8 +22,7 @@ export class ModalComponent implements OnInit {
   constructor(private choosePlayerService: ChoosePlayerService, private router: Router) { }
   battleDTO: any = {
     monsterDTO: {},
-    playerDTO: {},
-    photo: { id: '', link: '' },
+    playerDTO: {}
   };
   ngOnInit(): void {
   }
@@ -41,8 +40,6 @@ export class ModalComponent implements OnInit {
             sessionStorage.setItem('photoHeroUrl', photo.link)
           }
         }
-
-
         this.modalForm.reset();
         this.router.navigateByUrl("game/main-page")
 
