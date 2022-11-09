@@ -20,13 +20,13 @@ export class ModalMainPageComponent implements OnInit {
   constructor(private mainPageService: MainPageService, private choosePlayerService: ChoosePlayerService) { }
 
   ngOnInit(): void {
-    this.mainPageService.buyElement('Weapon', 1, 93);
 
   }
 
   openModal() {
     this.modal.nativeElement.classList.remove("hidden");
     this.overlay.nativeElement.classList.remove("hidden");
+    this.elements = new Array();
     this.mainPageService.getElements(this.houseName).subscribe((res => {
       this.elements = res;
       console.log(res);

@@ -5,36 +5,50 @@
     <div class="card card-weapon">
         <div class="image-container">
             <!-- <img class="large" alt="Sword" src="https://assets.codepen.io/21542/Sword.4x.png" />   -->
-            <img class="card-img-top" alt="...">
+            <img [src]="weaponEquipedImg" class="card-img-top" alt="...">
         </div>
-        <span class="item-title">{{weaponEquiped}}</span>
+        <span class="item-title">{{weaponName}}</span>
     </div>
-
 
     <div class="card card-player-img">
         <div class="image-container">
-
-            <img class="card-img-top" alt="...">
-            <!-- <img [src]="warriorMale" class="card-img-top" alt="..."> -->
-            <span class="item-title">{{curPlayer.nameHero}}</span>
-            <!-- <span class="bg-success text-light">Patrick</span> -->
+            <img [src]="playerImg" class="card-img-top" alt="...">
+            <span class="item-title fw-bold">{{curPlayer.namePlayer}}</span>
         </div>
     </div>
 
 
     <div class="card card-armor">
         <div class="image-container">
-            <img alt="Shield" src="https://assets.codepen.io/21542/Shield.4x.png" />
+            <img [src]="armorEquipedImg" class="card-img-top" alt="...">
         </div>
-        <span class="item-title">Armor</span>
+        <span class="item-title">{{armorName}}</span>
     </div>
 
+    <div class="card card-health">
+        <div class="image-container">
+            <img [src]="hpImg" class="card-img-top" alt="...">
+        </div>
+        <span class="item-title">Hp : {{curPlayer.hp}}</span><br>
+    </div>
+    <div class="card card-money">
 
-
-    <div class="card card-health">HP</div>
-    <div class="card card-money">money</div>
-    <div class="card card-experience">xp</div>
-    <div class="card card-level">level</div>
-    <!-- <div class="card card-h">test</div> -->
+        <div class="image-container">
+            <img [src]="moneyImg" class="card-img-top" alt="...">
+        </div>
+        <span class="item-title">Money : {{curPlayer.money}}</span><br>
+    </div>
+    <div class="card card-experience">
+        <div class="image-container">
+            <img [src]="experienceImg" class="card-img-top" alt="...">
+        </div>
+        <span class="item-title">XP : {{curPlayer.experience}}</span><br>
+    </div>
+    <div class="card card-level">
+        <div class="image-container">
+            <img [src]="levelImg" class="card-img-top" alt="...">
+        </div>
+        <span class="item-title">Level : {{curPlayer.level}}</span><br>
+    </div>
 
 </div>

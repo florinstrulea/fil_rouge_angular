@@ -11,11 +11,15 @@
     margin: 0 auto;
     padding-left: 1em;
     padding-right: 1em;
+    background-color: rgb(138, 76, 0);
  }
  .card {
     background: #fff;
+    background-color: rgb(185, 110, 17);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-    border-radius: 4px;
+    border-radius: 10px;
+    border-color: #1D415C;
+    border:3px solid;
     position:relative;
     display:grid;
     justify-items: center;

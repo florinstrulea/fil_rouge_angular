@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Player } from 'src/app/interfaces/player';
 import { ChoosePlayerService } from 'src/app/services/choose-player/choose-player.service';
-
+import { PlayerCardService } from 'src/app/services/player-card/player-card.service';
 
 @Component({
   selector: 'app-player-card',
@@ -10,29 +10,63 @@ import { ChoosePlayerService } from 'src/app/services/choose-player/choose-playe
   styleUrls: ['./player-card.component.css']
 })
 export class PlayerCardComponent implements OnInit {
-  sub: Subscription = new Subscription();
+  choosePlayerSub = new Subscription();
   playerSubscribtion = new Subscription();
   curPlayer?: Partial<Player>;
-  photoPlayerLink? :{id:number, link:string};
-  playerImg :string ="";
-  warriorMale: string = "../../../../assets/choose-player/Warrior_Male_equiped.png";
-  weaponEquiped : string="";
-  constructor(private choosePlayerService: ChoosePlayerService) {
+  /*Img assets*/
+  playerImg: string = "../../../../assets/choose-player" + sessionStorage.getItem("photoHeroUrl");
+  armorEquipedImg : string="";
+  weaponEquipedImg : string="";
+  moneyImg:string="../../../../assets/player-card/money.png";
+  hpImg:string="../../../../assets/player-card/hp.png";
+  experienceImg:string="../../../../assets/player-card/xp.png";
+  levelImg:string="../../../../assets/player-card/level-"+1+".png";/*on l'initialise*/
+
+  weaponName :string="";
+  armorName? :string="";
+  constructor(private choosePlayerService: ChoosePlayerService, private playerCardSerice : PlayerCardService) {
   }
 
   ngOnInit(): void {
-    this.sub = this.choosePlayerService
-      .adversariesObservable$
-      .subscribe((elmt) => {
-        console.log("monPlayer", elmt);
-        this.curPlayer = elmt.playerDTO;
-        this.photoPlayerLink = elmt.photo;
-        this.playerImg = "../../../../assets/choose-player"+elmt.photo.link;
-        // console.log("this.photoPlayerLink",this.photoPlayerLink);       
+    this.weaponEquipedImg = this.curPlayer?.idWeaponEquiped == null? "../../../../assets/player-card/no-weapon.png": "";
+    this.armorEquipedImg = this.curPlayer?.idArmorEquiped == null? "../../../../assets/player-card/no-armor.png": "";
 
-      })
-    //this.choosePlayerService.adversaries.value.playerDTO = this.curPlayer;
-      // this.playerSubscribtion = this.playerCardService.playerObservable$
+    this.choosePlayerSub = this.choosePlayerService.getBattleDTO().subscribe(res => {
+      this.curPlayer = res.playerDTO;
+      this.levelImg = "../../../../assets/player-card/level-"+this.curPlayer?.level+".png";
+              /*On récupère l'ArmorEquiped si idPlayer!=null*/
+              if(!this.curPlayer?.id !==null){  
+                if(this.curPlayer?.idArmorEquiped!=null){
+                  this.playerSubscribtion = this.playerCardSerice.getCurrentArmor((this.curPlayer?.id!) ).subscribe(res=>{
+                    this.armorName = res.name!=null? res.name: "No Armor Equiped";                   
+                  })
+                }else{
+                  this.armorName = "No Armor Equiped";
+                }          
+              }
+          
+              /*On récupère la WeaponEquiped si idPlayer!=null*/
+              if(!this.curPlayer?.id !==null){  
+                
+                if(this.curPlayer?.idWeaponEquiped!=null){
+                  this.playerSubscribtion = this.playerCardSerice.getCurrentWeapon((this.curPlayer?.id!) ).subscribe(res=>{
+                    this.armorName = res.name!=null? res.name: "No Weapon Equiped";                    
+                  })
+                }else{
+                  this.weaponName = "No Weapon Equiped";
+                }
+          
+              } 
+         
+    })
+
+   
+
+
+
+
+  }
+  ngAfterInitView(){
 
   }
 
