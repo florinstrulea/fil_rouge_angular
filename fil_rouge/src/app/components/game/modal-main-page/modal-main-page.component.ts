@@ -41,11 +41,37 @@ export class ModalMainPageComponent implements OnInit {
   }
 
   buyElement(element: string, idElement: number, idPlayer: number) {
-    this.mainPageService.buyElement(element, idElement, idPlayer).subscribe(res => {
+    if (this.checkEnoughMoney(element, idElement)) {
+      this.mainPageService.buyElement(element, idElement, idPlayer).subscribe(res => {
+        console.log(res)
+        this.choosePlayerService.getBattleDTO().subscribe(res => this.player = res.playerDTO)
+        this.buySuccesful(element, idElement);
+      })
+    } else alert('Montant inssufisant');
 
-      console.log(res)
-      this.choosePlayerService.getBattleDTO().subscribe(res => this.player = res.playerDTO)
-    })
+  }
+
+  buySuccesful(element: string, idElement: number) {
+    let value = element.toLowerCase() + "Id";
+    let valueString = '';
+    for (let myElement of this.elements) {
+      if (myElement[value] == idElement) {
+        valueString = myElement.name
+        alert(`Vous avez bien achété l'element avec le nom: ${valueString}`)
+      }
+    }
+  }
+
+  checkEnoughMoney(element: string, idElement: number): boolean {
+    let result: boolean = false;
+    let value = element.toLowerCase() + "Id";
+    for (let myElement of this.elements) {
+      if (myElement[value] == idElement) {
+        if (myElement.price <= this.player.money) result = true;
+        else result = false;
+      }
+    }
+    return result;
   }
 
 }
