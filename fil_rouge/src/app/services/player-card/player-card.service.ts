@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Armor } from 'src/app/interfaces/armor';
 import { Player } from 'src/app/interfaces/player';
+import { Weapon } from 'src/app/interfaces/weapon';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -67,7 +69,10 @@ armorObservable$ = this.currentArmor.asObservable();
   getCurrentPlayer(idPlayer: number): Observable<Partial<Player>> {
     return this.http.post<Partial<Player>>(this.getPlayerUrl, idPlayer, { withCredentials: true })
   }
-  getCurrentArmor(idPlayer : number) : Observable<any>{
-    return this.http.post(this.getArmorUrl, idPlayer, { withCredentials: true })
+  getCurrentArmor(idPlayer : number) : Observable<Partial<Armor>>{
+    return this.http.post<Partial<Armor>>(this.getArmorUrl, idPlayer, { withCredentials: true })
+  }
+  getCurrentWeapon(idPlayer : number) : Observable<Partial<Weapon>>{
+    return this.http.post<Partial<Weapon>>(this.getWeaponUrl, idPlayer, { withCredentials: true })
   }
 }
