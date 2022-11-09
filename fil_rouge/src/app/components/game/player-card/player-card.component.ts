@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Player } from 'src/app/interfaces/player';
 import { ChoosePlayerService } from 'src/app/services/choose-player/choose-player.service';
+import { PlayerCardService } from 'src/app/services/player-card/player-card.service';
 
 @Component({
   selector: 'app-player-card',
@@ -17,7 +18,7 @@ export class PlayerCardComponent implements OnInit {
   weaponName :string="";
   armorEquiped : string="";
   armorName :string="";
-  constructor(private choosePlayerService: ChoosePlayerService) {
+  constructor(private choosePlayerService: ChoosePlayerService, private playerCardSerice : PlayerCardService) {
   }
 
   ngOnInit(): void {
