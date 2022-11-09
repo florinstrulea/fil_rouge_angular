@@ -43,7 +43,7 @@ export class ModalMainPageComponent implements OnInit {
   buyElement(element: string, idElement: number, idPlayer: number) {
     this.mainPageService.buyElement(element, idElement, idPlayer).subscribe(res => {
 
-      console.log(res.error)
+      console.log(res)
       this.choosePlayerService.getBattleDTO().subscribe(res => this.player = res.playerDTO)
     })
   }

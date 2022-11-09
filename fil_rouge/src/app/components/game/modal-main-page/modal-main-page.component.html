@@ -2,101 +2,129 @@
 <div class="myModal hidden text-center" #modal>
     <h1 class="text-danger " #modalTitle>{{houseName.toUpperCase()}}</h1>
     <div class="my-modal-aditional">
-        <div class="table-users">
-            <div class="header fs-3">Vous avez: <span class="text-danger">{{player.money}} unités de 💰</span></div>
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
+                    type="button" role="tab" aria-controls="nav-home" aria-selected="true">Achat</button>
+                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
+                    type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Vente</button>
 
-            <table *ngIf=" houseName=='weapons'" class="table table-dark border border-0">
-                <tr>
-                    <th class="img-container">Image</th>
-                    <th>Name</th>
-                    <th>Level</th>
-                    <th>Critical Hit</th>
-                    <th>Price</th>
-                    <th>Actions</th>
-                </tr>
-                <tbody class="border border-0">
-                    <tr *ngFor=" let element of elements; index as index" class="border border-0">
-                        <td class="border-top border-success"><img class="element-img"
-                                [src]="'../../../assets/equipement/weapons'+element.iconUrl +'.png'" alt=""></td>
-                        <td class="border-top border-success">{{element.name}}</td>
-                        <td class="border-top border-success">{{element.level}}</td>
-                        <td class="border-top border-success"> {{element.criticalHit}}</td>
-                        <td class="border-top border-success">{{element.price}}</td>
-                        <td class="border-top border-success">
-                            <span class="me-5 fs-3">
-                                <i class="bi bi-bag" title="Acheter element"
-                                    (click)="buyElement('Weapon',element.weaponId, player.id)">
-                                </i>
-                            </span><span class=" fs-3">
-                                <i class="bi bi-file-earmark-x" title="Vendre element"></i></span>
-                        </td>
-                    </tr>
-                </tbody>
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <div class="table-users">
+                    <div class="header fs-3">Vous avez: <span class="text-danger">{{player.money}} unités de 💰</span>
+                    </div>
 
-            </table>
+                    <table *ngIf=" houseName=='weapons'" class="table table-dark border border-0">
+                        <tr>
+                            <th class="img-container">Image</th>
+                            <th>Name</th>
+                            <th>Level</th>
+                            <th>Critical Hit</th>
+                            <th>Price</th>
+                            <th>Actions</th>
+                        </tr>
+                        <tbody class="border border-0">
+                            <tr *ngFor=" let element of elements; index as index" class="border border-0">
+                                <td class="border-top border-success"><img class="element-img"
+                                        [src]="'../../../assets/equipement/weapons'+element.iconUrl +'.png'" alt="">
+                                </td>
+                                <td class="border-top border-success">{{element.name}}</td>
+                                <td class="border-top border-success">{{element.level}}</td>
+                                <td class="border-top border-success"> {{element.criticalHit}}</td>
+                                <td class="border-top border-success">{{element.price}}</td>
+                                <td class="border-top border-success">
+                                    <span class="me-5 fs-3">
+                                        <i class="bi bi-bag" title="Acheter element"
+                                            (click)="buyElement('Weapon',element.weaponId, player.id)">
+                                        </i>
+                                    </span><span class=" fs-3">
+                                        <i class="bi bi-file-earmark-x" title="Vendre element"></i></span>
+                                </td>
+                            </tr>
+                        </tbody>
 
-            <table *ngIf="houseName=='armors'" class="table table-dark border border-0">
-                <tr>
-                    <th class="img-container">Image</th>
-                    <th>Name</th>
-                    <th>Level</th>
-                    <th>Dodge Rate</th>
-                    <th>Protection</th>
-                    <th>Price</th>
-                    <th>Actions</th>
-                </tr>
-                <tbody class="border border-0">
+                    </table>
+
+                    <table *ngIf="houseName=='armors'" class="table table-dark border border-0">
+                        <tr>
+                            <th class="img-container">Image</th>
+                            <th>Name</th>
+                            <th>Level</th>
+                            <th>Dodge Rate</th>
+                            <th>Protection</th>
+                            <th>Price</th>
+                            <th>Actions</th>
+                        </tr>
+                        <tbody class="border border-0">
 
 
-                    <tr *ngFor="let element of elements; index as index">
-                        <td class="border-top border-success"><img class="element-img"
-                                [src]="'../../../assets/equipement/armors'+element.iconUrl +'.png'" alt=""></td>
-                        <td class="border-top border-success">{{element.name}}</td>
-                        <td class="border-top border-success">{{element.level}}</td>
-                        <td class="border-top border-success">{{element.dodgeRate}}</td>
-                        <td class="border-top border-success">{{element.protection}}</td>
-                        <td class="border-top border-success">{{element.price}}</td>
-                        <td class="border-top border-success">
-                            <span class="me-5 fs-3">
-                                <i class="bi bi-bag" title="Acheter element" (click)="buyElement('
-                                    Armor',element.armorId, player.id)"></i>
-                            </span>
-                            <span class="fs-3">
-                                <i class="bi bi-file-earmark-x" title="Vendre element"></i>
-                            </span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                            <tr *ngFor="let element of elements; index as index">
+                                <td class="border-top border-success"><img class="element-img"
+                                        [src]="'../../../assets/equipement/armors'+element.iconUrl +'.png'" alt=""></td>
+                                <td class="border-top border-success">{{element.name}}</td>
+                                <td class="border-top border-success">{{element.level}}</td>
+                                <td class="border-top border-success">{{element.dodgeRate}}</td>
+                                <td class="border-top border-success">{{element.protection}}</td>
+                                <td class="border-top border-success">{{element.price}}</td>
+                                <td class="border-top border-success">
+                                    <span class="me-5 fs-3">
+                                        <i class="bi bi-bag" title="Acheter element"
+                                            (click)="buyElement('Armor',element.armorId, player.id)">
+                                        </i>
+                                    </span>
+                                    <span class="fs-3">
+                                        <i class="bi bi-file-earmark-x" title="Vendre element"></i>
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-            <table *ngIf="houseName=='potions'" class="table table-dark border border-0">
-                <tr>
-                    <th class="img-container">Image</th>
-                    <th>Name</th>
-                    <th>Level</th>
-                    <th>Dodge Rate</th>
-                    <th>Protection</th>
-                    <th>Price</th>
-                    <th>Actions</th>
-                </tr>
-                <tbody class="border border-0">
-                    <tr *ngFor="let element of elements; index as index">
-                        <td class="border-top border-success"><img class="element-img"
-                                [src]="'../../../assets/equipement/potions'+element.iconUrl +'.png'" alt=""></td>
-                        <td class="border-top border-success">{{element.name}}</td>
-                        <td class="border-top border-success">{{element.level}}</td>
-                        <td class="border-top border-success">{{element.dodgeRate}}</td>
-                        <td class="border-top border-success">{{element.protection}}</td>
-                        <td class="border-top border-success">{{element.price}}</td>
-                        <td class="border-top border-success"><span class="me-5 fs-3"><i class="bi bi-bag"
-                                    title="Acheter element"></i></span><span class="fs-3"> <i
-                                    class="bi bi-file-earmark-x" title="Vendre element"></i></span></td>
-                    </tr>
-                </tbody>
-            </table>
+                    <table *ngIf="houseName=='potions'" class="table table-dark border border-0">
+                        <tr>
+                            <th class="img-container">Image</th>
+                            <th>Name</th>
+                            <th>Level</th>
+                            <th>Dodge Rate</th>
+                            <th>Protection</th>
+                            <th>Price</th>
+                            <th>Actions</th>
+                        </tr>
+                        <tbody class="border border-0">
+                            <tr *ngFor="let element of elements; index as index">
+                                <td class="border-top border-success"><img class="element-img"
+                                        [src]="'../../../assets/equipement/potions'+element.iconUrl +'.png'" alt="">
+                                </td>
+                                <td class="border-top border-success">{{element.name}}</td>
+                                <td class="border-top border-success">{{element.level}}</td>
+                                <td class="border-top border-success">{{element.dodgeRate}}</td>
+                                <td class="border-top border-success">{{element.protection}}</td>
+                                <td class="border-top border-success">{{element.price}}</td>
+                                <td class="border-top border-success">
+                                    <span class="me-5 fs-3">
+                                        <i class="bi bi-bag" title="Acheter element"
+                                            (click)="buyElement('Potion',element.id, player.id)"></i>
+                                    </span>
+                                    <span class="fs-3">
+                                        <i class="bi bi-file-earmark-x" title="Vendre element"></i>
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
 
+
+                </div>
+            </div>
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                .Hello world !
+            </div>
 
         </div>
+
     </div>
     <button class="close-modal btn btn-secondary mx-auto" #btnCloseModal (click)="closeModal()">
         Fermer !
