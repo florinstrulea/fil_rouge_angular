@@ -55,7 +55,7 @@ export class PlayerCardComponent implements OnInit {
                     this.weaponName = res.name!=null? res.name: "No Weapon Equiped";  
                     if(res.id==this.curPlayer?.idWeaponEquiped){                    
 
-                      this.weaponEquipedImg = "assets/inventory" + res.iconUrl+".png";
+                      this.weaponEquipedImg = "assets/equipement/weapons" + res.iconUrl+".png";
                      
                     }
                                 

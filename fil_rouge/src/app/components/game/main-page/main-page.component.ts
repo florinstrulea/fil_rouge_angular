@@ -23,6 +23,7 @@ export class MainPageComponent implements OnInit {
       this.modal.player = res.playerDTO;
       this.player = res.playerDTO;
       this.inventoryCard.player = res.playerDTO;
+      this.inventoryCard.refreshFromInventory();
     })
 
   }

@@ -10,6 +10,12 @@ export class ArmorCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.player
+  }
+  refreshFromArmor(){
+    console.log("Dans Armor dans refresh");
+    
+    console.log(this.player.id);
   }
 
 }

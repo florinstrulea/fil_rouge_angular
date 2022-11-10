@@ -12,21 +12,25 @@ import { WeaponCardComponent } from './weapon-card/weapon-card.component';
 export class InventoryCardComponent implements OnInit {
   player: any = {};
 
-  constructor(private choosePlayerService:ChoosePlayerService) { }
+  constructor(private choosePlayerService:ChoosePlayerService) {
+   }
 
   @ViewChild(PotionCardComponent) potionCard!:PotionCardComponent
   @ViewChild(WeaponCardComponent) weaponCard!:WeaponCardComponent
   @ViewChild(ArmorCardComponent) armorCard!:ArmorCardComponent
 
   ngOnInit(): void {
+  
+  }
+  refreshFromInventory(){
     console.log('dans inventory');
-    
     console.log(this.player.id);
-    
-    // this.potionCard.player! = this.player;
-    // this.weaponCard.player =  this.player;
-    // this.armorCard.player =  this.player;
-    // this.choosePlayerService.getBattleDTO().subscribe(res => this.player = res.playerDTO)
+    this.potionCard.player = this.player;
+    this.weaponCard.player = this.player;
+    this.armorCard.player = this.player;
+    this.potionCard.refreshFromPotion();  
+    this.armorCard.refreshFromArmor();
+    this.weaponCard.refreshFromWeapon();
   }
 
 }
