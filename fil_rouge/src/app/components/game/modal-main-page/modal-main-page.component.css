@@ -38,3 +38,7 @@
 .element-img {
     width: 100%;
 }
+
+i:hover {
+    cursor: pointer;
+}

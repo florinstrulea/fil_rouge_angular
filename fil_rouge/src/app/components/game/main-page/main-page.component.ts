@@ -1,6 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { ChoosePlayerService } from 'src/app/services/choose-player/choose-player.service';
 import { ModalMainPageComponent } from '../modal-main-page/modal-main-page.component';
+import { PlayerCardComponent } from '../player-card/player-card.component';
 
 @Component({
   selector: 'app-main-page',
@@ -11,14 +13,15 @@ export class MainPageComponent implements OnInit {
   /*TODO : pour la partie inventaire du bas : chargé la photo du player qui a été choisit dans choose-player  + son nom*/
 
   houseName: string = '';
+  player: any = {};
 
-  constructor(private choosePlayerService: ChoosePlayerService) { }
+  constructor(private choosePlayerService: ChoosePlayerService, private router: Router) { }
 
   ngOnInit(): void {
     this.choosePlayerService.getBattleDTO().subscribe(res => {
       console.log(res);
       this.modal.player = res.playerDTO;
-
+      this.player = res.playerDTO;
     })
 
   }
@@ -33,6 +36,14 @@ export class MainPageComponent implements OnInit {
   open(value: string) {
     this.modal.houseName = value;
     this.modal.openModal();
+  }
+
+  goToWar() {
+    if (this.player.idArmorEquiped && this.player.idWeaponEquiped) {
+      this.router.navigateByUrl('/game/arena')
+    } else {
+      alert('Vous ne povez pas combattre sans equipement')
+    }
   }
 
 

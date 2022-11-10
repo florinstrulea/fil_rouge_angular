@@ -15,6 +15,8 @@ import { GameComponent } from './game.component';
 import { PlayerCardComponent } from '../../components/game/player-card/player-card.component';
 import { ModalMainPageComponent } from 'src/app/components/game/modal-main-page/modal-main-page.component';
 import { InventoryCardComponent } from '../../components/game/inventory-card/inventory-card.component';
+import { ArenaComponent } from 'src/app/components/game/arena/arena.component';
+
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import { InventoryCardComponent } from '../../components/game/inventory-card/inv
     MainPageComponent,
     PlayerCardComponent,
     ModalMainPageComponent,
-    InventoryCardComponent
+    InventoryCardComponent,
+    ArenaComponent,
 
   ],
   imports: [
