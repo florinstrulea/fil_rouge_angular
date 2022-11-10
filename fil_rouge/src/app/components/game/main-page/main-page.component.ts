@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ChoosePlayerService } from 'src/app/services/choose-player/choose-player.service';
+import { InventoryCardComponent } from '../inventory-card/inventory-card.component';
 import { ModalMainPageComponent } from '../modal-main-page/modal-main-page.component';
 import { PlayerCardComponent } from '../player-card/player-card.component';
 
@@ -19,13 +20,14 @@ export class MainPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.choosePlayerService.getBattleDTO().subscribe(res => {
-      console.log(res);
       this.modal.player = res.playerDTO;
       this.player = res.playerDTO;
+      this.inventoryCard.player = res.playerDTO;
     })
 
   }
   @ViewChild(ModalMainPageComponent) modal!: ModalMainPageComponent
+  @ViewChild(InventoryCardComponent) inventoryCard!:InventoryCardComponent
 
 
 
