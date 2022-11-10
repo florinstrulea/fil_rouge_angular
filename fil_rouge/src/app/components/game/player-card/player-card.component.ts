@@ -28,12 +28,13 @@ export class PlayerCardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.weaponEquipedImg = this.curPlayer?.idWeaponEquiped == null? "../../../../assets/player-card/no-weapon.png": "this.curPlayer.";
+
     this.armorEquipedImg = this.curPlayer?.idArmorEquiped == null? "../../../../assets/player-card/no-armor.png": "";
 
     this.choosePlayerSub = this.choosePlayerService.getBattleDTO().subscribe(res => {
+      let imgWeaponIfFound="";
       this.curPlayer = res.playerDTO;
-      this.levelImg = "../../../../assets/player-card/level-"+this.curPlayer?.level+".png";
+      this.levelImg = "assets/player-card/level-"+this.curPlayer?.level+".png";
               /*On récupère l'ArmorEquiped si idPlayer!=null*/
               if(!this.curPlayer?.id !==null){  
                 if(this.curPlayer?.idArmorEquiped!=null){
@@ -46,21 +47,34 @@ export class PlayerCardComponent implements OnInit {
               }
           
               /*On récupère la WeaponEquiped si idPlayer!=null*/
-              if(!this.curPlayer?.id !==null){  
+              if(!this.curPlayer?.id !==null){            
                 
-                if(this.curPlayer?.idWeaponEquiped!=null){
+                if(this.curPlayer?.idWeaponEquiped){
+                  console.log("je cherche la weapon.2");
                   this.playerSubscribtion = this.playerCardSerice.getCurrentWeapon((this.curPlayer?.id!) ).subscribe(res=>{
-                    this.weaponName = res.name!=null? res.name: "No Weapon Equiped";                    
+                    this.weaponName = res.name!=null? res.name: "No Weapon Equiped";  
+                    if(res.id==this.curPlayer?.idWeaponEquiped){                    
+
+                      this.weaponEquipedImg = "assets/inventory" + res.iconUrl+".png";
+                     
+                    }
+                                
                   })
                 }else{
                   this.weaponName = "No Weapon Equiped";
+                  this.weaponEquipedImg = "assets/player-card/no-weapon.png";
                 }
           
-              } 
+              }
+              
+              console.log("WeaponIMG : " + this.weaponEquipedImg );
+              console.log("this.curPlayer?.idWeaponEquiped  : " + this.curPlayer?.idWeaponEquiped  );
          
     })
+    /*On récupère la Weapon et l'Armor du player*/ 
 
-   
+
+    
   }
   ngAfterInitView(){
 
