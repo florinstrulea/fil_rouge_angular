@@ -21,29 +21,30 @@
             </button>
         </div>
         <div class="map__form map__form--gate">
-
-            <button class="map__button"><span class="fs-4 fw-bold text-light bg-danger rounded">Combat Zone</span><img
-                    class="map__image map__image--gate" src="../../../../assets/main-page/portail.png" alt=""></button>
+            <button class="map__button" (click)="goToWar()"><span
+                    class="fs-4 fw-bold text-light bg-danger rounded">Combat
+                    Zone</span><img class="map__image map__image--gate" src="../../../../assets/main-page/portail.png"
+                    alt=""></button>
         </div>
     </div>
 
     <div class="interface">
         <!-- Partie de gauche  Je veux afficher la photo du Player + Stats -->
-        <form class="interface__form">
+        <div class="interface__form">
             <app-player-card></app-player-card>
 
             <!-- <button class="interface__button interface__button--">
 
             </button> -->
-        </form>
+        </div>
         <!--  Partie de Droite je veux afficher les Item dispo => Potion , Weapon et armor -->
-        <form class="interface__form interface__form--objects" action="">
+        <div class="interface__form interface__form--objects" action="">
             <button class="interface__button interface__button--">
                 <p class="interface__text">Inventaire</p>
                 <img src="" alt="">
                 <p></p>
             </button>
-        </form>
+        </div>
     </div>
     <app-modal-main-page></app-modal-main-page>
 </main>
