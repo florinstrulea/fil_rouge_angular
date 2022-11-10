@@ -4,10 +4,12 @@
     <div class="my-modal-aditional">
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
-                    type="button" role="tab" aria-controls="nav-home" aria-selected="true">Achat</button>
-                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
-                    type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Vente</button>
+                <button class="nav-link active text-dark" id="nav-home-tab" data-bs-toggle="tab"
+                    data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
+                    aria-selected="true">Achat</button>
+                <button class="nav-link text-dark" id="nav-profile-tab" data-bs-toggle="tab"
+                    data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile"
+                    aria-selected="false">Vente</button>
 
             </div>
         </nav>
@@ -36,12 +38,11 @@
                                 <td class="border-top border-success"> {{element.criticalHit}}</td>
                                 <td class="border-top border-success">{{element.price}}</td>
                                 <td class="border-top border-success">
-                                    <span class="me-5 fs-3">
+                                    <span class=" fs-3">
                                         <i class="bi bi-bag" title="Acheter element"
                                             (click)="buyElement('Weapon',element.weaponId, player.id)">
                                         </i>
-                                    </span><span class=" fs-3">
-                                        <i class="bi bi-file-earmark-x" title="Vendre element"></i></span>
+                                    </span>
                                 </td>
                             </tr>
                         </tbody>
@@ -70,14 +71,12 @@
                                 <td class="border-top border-success">{{element.protection}}</td>
                                 <td class="border-top border-success">{{element.price}}</td>
                                 <td class="border-top border-success">
-                                    <span class="me-5 fs-3">
+                                    <span class="fs-3">
                                         <i class="bi bi-bag" title="Acheter element"
                                             (click)="buyElement('Armor',element.armorId, player.id)">
                                         </i>
                                     </span>
-                                    <span class="fs-3">
-                                        <i class="bi bi-file-earmark-x" title="Vendre element"></i>
-                                    </span>
+
                                 </td>
                             </tr>
                         </tbody>
@@ -104,13 +103,11 @@
                                 <td class="border-top border-success">{{element.protection}}</td>
                                 <td class="border-top border-success">{{element.price}}</td>
                                 <td class="border-top border-success">
-                                    <span class="me-5 fs-3">
+                                    <span class="fs-3">
                                         <i class="bi bi-bag" title="Acheter element"
                                             (click)="buyElement('Potion',element.potionId, player.id)"></i>
                                     </span>
-                                    <span class="fs-3">
-                                        <i class="bi bi-file-earmark-x" title="Vendre element"></i>
-                                    </span>
+
                                 </td>
                             </tr>
                         </tbody>
