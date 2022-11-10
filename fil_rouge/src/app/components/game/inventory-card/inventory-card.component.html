@@ -1,3 +1,13 @@
 <app-weapon-card></app-weapon-card>
-<app-potion-card [player]="player"></app-potion-card>
+
 <app-armor-card></app-armor-card>
+<div ngFor="let">
+    <div *ngIf="listPotionsExist==true; else elseBlock">
+        <div class="inventory-potions" *ngFor="let el of listImagesPotions">
+            <div class="potionImage">
+                <img src="{{el}}" alt="">
+            </div>
+        </div>
+    </div>
+    <ng-template #elseBlock>II n'y a aucune potion dans l'inventaire.</ng-template>
+</div>

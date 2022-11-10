@@ -19,6 +19,7 @@ import { ArenaComponent } from 'src/app/components/game/arena/arena.component';
 import { PotionCardComponent } from 'src/app/components/game/inventory-card/potion-card/potion-card.component';
 import { WeaponCardComponent } from 'src/app/components/game/inventory-card/weapon-card/weapon-card.component';
 import { ArmorCardComponent } from 'src/app/components/game/inventory-card/armor-card/armor-card.component';
+import { ModalaEquiperComponent } from '../../components/game/inventory-card/modal-equiper/modala-equiper/modala-equiper.component';
 
 
 
@@ -36,6 +37,7 @@ import { ArmorCardComponent } from 'src/app/components/game/inventory-card/armor
     PotionCardComponent,
     WeaponCardComponent,
     ArmorCardComponent,
+    ModalaEquiperComponent,
 
   ],
   imports: [

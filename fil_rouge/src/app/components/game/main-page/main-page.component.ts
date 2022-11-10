@@ -25,7 +25,8 @@ export class MainPageComponent implements OnInit {
     this.choosePlayerService.getBattleDTO().subscribe(res => {
       this.modal.player = res.playerDTO;
       this.player = res.playerDTO;
-      //this.inventoryCard.player = res.playerDTO;
+      this.inventoryCard.player = res.playerDTO;
+      this.inventoryCard.refreshFromInventory();
       console.log(res);
 
     })

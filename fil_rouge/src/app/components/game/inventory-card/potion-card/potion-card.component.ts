@@ -11,17 +11,12 @@ export class PotionCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log("Dans Potion");
+
+  }
+  refreshFromPotion() {
+    console.log("Dans Potion dans refresh");
     console.log(this.player.id);
-
-
   }
 
-  ngAfterViewInit() {
-    console.log('after view');
-
-
-
-  }
 
 }

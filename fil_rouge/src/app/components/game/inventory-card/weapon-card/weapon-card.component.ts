@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WeaponCardComponent implements OnInit {
   player: any = {};
+
   constructor() { }
 
   ngOnInit(): void {
+    console.log("dans weapon");
+    console.log(this.player.id);
+  }
+  refreshFromWeapon(){
+    console.log("Dans Potion dans refresh");
+    
+    console.log(this.player.id);
   }
 
 }
