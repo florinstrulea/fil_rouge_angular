@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-potion-card',
@@ -6,14 +6,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./potion-card.component.css']
 })
 export class PotionCardComponent implements OnInit {
-  player: any = {};
+  @Input() player: any = {}
+
   constructor() { }
 
   ngOnInit(): void {
     console.log("Dans Potion");
-    
     console.log(this.player.id);
-    
+
+
+  }
+
+  ngAfterViewInit() {
+    console.log('after view');
+
+
+
   }
 
 }

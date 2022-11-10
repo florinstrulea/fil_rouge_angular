@@ -18,16 +18,20 @@ export class MainPageComponent implements OnInit {
 
   constructor(private choosePlayerService: ChoosePlayerService, private router: Router) { }
 
+  @ViewChild(ModalMainPageComponent) modal!: ModalMainPageComponent
+  @ViewChild(InventoryCardComponent) inventoryCard!: InventoryCardComponent
+
   ngOnInit(): void {
     this.choosePlayerService.getBattleDTO().subscribe(res => {
       this.modal.player = res.playerDTO;
       this.player = res.playerDTO;
-      this.inventoryCard.player = res.playerDTO;
+      //this.inventoryCard.player = res.playerDTO;
+      console.log(res);
+
     })
 
   }
-  @ViewChild(ModalMainPageComponent) modal!: ModalMainPageComponent
-  @ViewChild(InventoryCardComponent) inventoryCard!:InventoryCardComponent
+
 
 
 
