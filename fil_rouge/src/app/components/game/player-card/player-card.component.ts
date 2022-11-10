@@ -28,7 +28,7 @@ export class PlayerCardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.weaponEquipedImg = this.curPlayer?.idWeaponEquiped == null? "../../../../assets/player-card/no-weapon.png": "";
+    this.weaponEquipedImg = this.curPlayer?.idWeaponEquiped == null? "../../../../assets/player-card/no-weapon.png": "this.curPlayer.";
     this.armorEquipedImg = this.curPlayer?.idArmorEquiped == null? "../../../../assets/player-card/no-armor.png": "";
 
     this.choosePlayerSub = this.choosePlayerService.getBattleDTO().subscribe(res => {
@@ -50,7 +50,7 @@ export class PlayerCardComponent implements OnInit {
                 
                 if(this.curPlayer?.idWeaponEquiped!=null){
                   this.playerSubscribtion = this.playerCardSerice.getCurrentWeapon((this.curPlayer?.id!) ).subscribe(res=>{
-                    this.armorName = res.name!=null? res.name: "No Weapon Equiped";                    
+                    this.weaponName = res.name!=null? res.name: "No Weapon Equiped";                    
                   })
                 }else{
                   this.weaponName = "No Weapon Equiped";
@@ -61,10 +61,6 @@ export class PlayerCardComponent implements OnInit {
     })
 
    
-
-
-
-
   }
   ngAfterInitView(){
 
