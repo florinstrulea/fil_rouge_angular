@@ -1,5 +1,5 @@
 export interface Potion {
-      id : number;
+      potionId : number;
       name : string;
       iconUrl : string;
       price : number;

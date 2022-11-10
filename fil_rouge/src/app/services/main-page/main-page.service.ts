@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -16,4 +16,5 @@ export class MainPageService {
   buyElement(element: string, idElement: number, idPlayer: number): Observable<any> {
     return this.http.post<any>(environment.apiUrl + 'shop/buy' + element, { idElement, idPlayer }, { withCredentials: true });
   }
+
 }

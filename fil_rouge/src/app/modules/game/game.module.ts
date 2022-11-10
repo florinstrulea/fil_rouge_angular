@@ -14,7 +14,13 @@ import { GameRoutingModule } from './game-routing.module';
 import { GameComponent } from './game.component';
 import { PlayerCardComponent } from '../../components/game/player-card/player-card.component';
 import { ModalMainPageComponent } from 'src/app/components/game/modal-main-page/modal-main-page.component';
+import { InventoryCardComponent } from '../../components/game/inventory-card/inventory-card.component';
 import { ArenaComponent } from 'src/app/components/game/arena/arena.component';
+import { PotionCardComponent } from 'src/app/components/game/inventory-card/potion-card/potion-card.component';
+import { WeaponCardComponent } from 'src/app/components/game/inventory-card/weapon-card/weapon-card.component';
+import { ArmorCardComponent } from 'src/app/components/game/inventory-card/armor-card/armor-card.component';
+import { ModalaEquiperComponent } from '../../components/game/inventory-card/modal-equiper/modala-equiper/modala-equiper.component';
+
 
 
 @NgModule({
@@ -26,7 +32,12 @@ import { ArenaComponent } from 'src/app/components/game/arena/arena.component';
     MainPageComponent,
     PlayerCardComponent,
     ModalMainPageComponent,
+    InventoryCardComponent,
     ArenaComponent,
+    PotionCardComponent,
+    WeaponCardComponent,
+    ArmorCardComponent,
+    ModalaEquiperComponent,
 
   ],
   imports: [
