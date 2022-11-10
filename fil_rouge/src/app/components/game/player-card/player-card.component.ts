@@ -62,13 +62,13 @@ export class PlayerCardComponent implements OnInit {
                   })
                 }else{
                   this.weaponName = "No Weapon Equiped";
-                  this.weaponEquipedImg = "assets/player-card/no-weapon.png";
+                  this.weaponEquipedImg = "/assets/player-card/no-weapon.png";
+                  console.log(this.weaponEquipedImg);
+                  
                 }
           
               }
               
-              console.log("WeaponIMG : " + this.weaponEquipedImg );
-              console.log("this.curPlayer?.idWeaponEquiped  : " + this.curPlayer?.idWeaponEquiped  );
          
     })
     /*On récupère la Weapon et l'Armor du player*/ 
