@@ -1,1 +1,33 @@
-<p>modala-equiper works!</p>
+<!-- =============Modal=============== -->
+<div class="myModal hidden text-center" #modal>
+    <h1 class="text-danger my-modal-message">I'm a modal window 😍</h1>
+    <div *ngIf="type=='Armor'">
+        <p>{{element.name}}</p>
+        <div><img class="element-img" [src]="'../../../assets/equipement/armors'+element.iconUrl +'.png'" alt=""></div>
+        <button class="close-modal btn btn-secondary fs-3 mx-auto" #btnCloseModal (click)="closeModal()">
+            Annuler
+        </button>
+        <button class="btn btn-success ms-5" (click)="equipElement('Armor',element.armorId)">
+            Equipper </button>
+    </div>
+    <div *ngIf="type=='Weapon'">
+        <p>{{element.name}}</p>
+        <div><img class="element-img" [src]="'../../../assets/equipement/weapons'+element.iconUrl +'.png'" alt=""></div>
+        <button class="close-modal btn btn-secondary fs-3 mx-auto" #btnCloseModal (click)="closeModal()">
+            Annuler
+        </button>
+        <button class="btn btn-success ms-5" (click)="equipElement('Weapon',element.weaponId)">
+            Equipper </button>
+    </div>
+    <div *ngIf="type=='Potion'">
+        <p>{{element.name}}</p>
+        <div><img class="element-img" [src]="'../../../assets/equipement/potions'+element.iconUrl +'.png'" alt=""></div>
+        <button class="close-modal btn btn-secondary fs-3 mx-auto" #btnCloseModal (click)="closeModal()">
+            Annuler
+        </button>
+        <button class="btn btn-success ms-5" (click)="consumatePotion('Potion',element.potionId)">
+            Equipper </button>
+    </div>
+
+</div>
+<div class="overlay hidden" #overlay></div>
