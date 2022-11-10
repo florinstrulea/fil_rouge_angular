@@ -20,6 +20,10 @@
                 <button class="  btn btn-order  btn-lg me-5 rounded-0 merriweather" routerLink="/auth/login">Connexion</button>
           
         </div>
+        <div class="profile" *ngIf="curAuth?.connected==true">
+            <button class="  btn btn-order  btn-lg me-5 rounded-0 merriweather" routerLink="/game/main-page">Back To Game</button>
+      
+    </div>
 
         
 
