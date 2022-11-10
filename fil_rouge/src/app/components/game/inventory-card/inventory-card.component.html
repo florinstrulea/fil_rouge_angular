@@ -1,12 +1,13 @@
 <app-weapon-card></app-weapon-card>
 
 <app-armor-card></app-armor-card>
-<div ngFor="let">
+<div ngFor="let el of listImagesPotions" >
     <h2>Weapons</h2>
-    <div *ngIf="listPotionsExist==true; else elseBlock">
+    <div *ngIf="listPotionsExist==true; else elseBlock" >
         <div class="inventory-potions" *ngFor="let el of listImagesPotions">
-            <div class="potionImage">
-                <img src="{{el}}" alt="">
+            <div class="potionImage" (click)="openOptionEquip(el)">
+
+                <img src="{{el.url}}" alt="">
             </div>
         </div>
     </div>

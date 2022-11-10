@@ -16,6 +16,7 @@ export class ModalMainPageComponent implements OnInit {
   houseName: string = "";
   elements = new Array();
   player: any = {}
+  refresh:boolean=false;
 
   constructor(private mainPageService: MainPageService, private choosePlayerService: ChoosePlayerService) { }
 
@@ -34,10 +35,14 @@ export class ModalMainPageComponent implements OnInit {
 
   }
 
-  closeModal() {
+  closeModal():boolean {
     this.modal.nativeElement.classList.add("hidden");
     this.overlay.nativeElement.classList.add("hidden");
-
+    this.choosePlayerService.getBattleDTO().subscribe(res=> {
+      console.log(res);
+      this.player = res.playerDTO})
+    this.refresh=true;
+    return true;
   }
 
   buyElement(element: string, idElement: number, idPlayer: number) {
@@ -73,5 +78,6 @@ export class ModalMainPageComponent implements OnInit {
     }
     return result;
   }
+
 
 }

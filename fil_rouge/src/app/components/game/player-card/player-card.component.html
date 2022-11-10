@@ -4,7 +4,7 @@
 <div class="layout wrap" *ngIf="curPlayer">
     <div class="card card-weapon">
         <div class="image-container">
-            <img class="card-img-top" alt="...">
+            <img [src]="weaponEquipedImg" class="card-img-top" alt="...">
         </div>
         <span class="item-title">{{weaponName}}</span>
     </div>

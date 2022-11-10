@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ChoosePlayerService } from 'src/app/services/choose-player/choose-player.service';
 import { InventoryCardComponent } from '../inventory-card/inventory-card.component';
@@ -10,7 +10,7 @@ import { PlayerCardComponent } from '../player-card/player-card.component';
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.css']
 })
-export class MainPageComponent implements OnInit {
+export class MainPageComponent implements OnInit, OnChanges {
   /*TODO : pour la partie inventaire du bas : chargé la photo du player qui a été choisit dans choose-player  + son nom*/
 
   houseName: string = '';
@@ -27,19 +27,9 @@ export class MainPageComponent implements OnInit {
       this.player = res.playerDTO;
       this.inventoryCard.player = res.playerDTO;
       this.inventoryCard.refreshFromInventory();
-      console.log(res);
-
     })
 
   }
-
-
-
-
-  close() {
-    this.modal.closeModal();
-  }
-
   open(value: string) {
     this.modal.houseName = value;
     this.modal.openModal();
@@ -49,10 +39,19 @@ export class MainPageComponent implements OnInit {
     if (this.player.idArmorEquiped && this.player.idWeaponEquiped) {
       this.router.navigateByUrl('/game/arena')
     } else {
-      alert('Vous ne povez pas combattre sans equipement')
+      alert('Vous ne pouvez pas combattre sans equipement!')
     }
   }
 
+  ngOnChanges(changes: SimpleChanges){
+    console.log(this.modal.refresh);
+    console.log("AVANT dans le ngOnChanges");
+    if(this.modal.closeModal()){
+      console.log("dans le ngOnChanges");
+      
+      this.inventoryCard.ngOnInit();
+    }
+  }
 
 
 

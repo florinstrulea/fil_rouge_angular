@@ -23,11 +23,6 @@ export class InventoryCardComponent implements OnInit {
   @ViewChild(WeaponCardComponent) weaponCard!: WeaponCardComponent
   @ViewChild(ArmorCardComponent) armorCard!: ArmorCardComponent
 
-  afterViewInit() {
-    // this.potionCard.player = this.player;
-    // this.weaponCard.player = this.player;
-    // this.armorCard.player = this.player;
-  }
 
   ngOnInit(): void {
 
@@ -37,20 +32,27 @@ export class InventoryCardComponent implements OnInit {
       let arr: any[] = this.player.listePotions;
       for (let el of arr) {
         let url = "assets/equipement/potions" + el.iconUrl + ".png"
-        this.listImagesPotions.push(url);
+        let objet={
+          id:0,
+          url:"",
+          
+        };
+        objet.id=el.potionId;
+        objet.url = url;
+
+        this.listImagesPotions.push(objet);
         this.listPotionsExist = true;
       }
     }
     else this.listPotionsExist = false;
-
-    console.log('dans inventory');
-    console.log(this.player.id);
-    // this.potionCard.player = this.player;
-    // this.weaponCard.player = this.player;
-    // this.armorCard.player = this.player;
-    // this.potionCard.refreshFromPotion();
-    // this.armorCard.refreshFromArmor();
-    // this.weaponCard.refreshFromWeapon();
   }
+  equipElement(Object:string){
+
+    
+  }
+  openOptionEquip(el:object){
+
+  }
+
 
 }
