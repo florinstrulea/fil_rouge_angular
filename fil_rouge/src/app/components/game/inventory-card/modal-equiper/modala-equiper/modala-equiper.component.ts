@@ -34,11 +34,12 @@ export class ModalaEquiperComponent implements OnInit {
   }
 
   equipElement(value: string, idElement: number) {
-    this.playerCardService.equipElement(value, idElement, this.player.id);
+    this.playerCardService.equipElement(value, idElement, this.player.id).subscribe(res => console.log());
+    this.closeModal();
   }
 
   consumatePotion(value: string, idElement: number) {
-    this.playerCardService.consumeElement(value, idElement, this.player.id);
+    this.playerCardService.consumeElement(value, idElement, this.player.id).subscribe(res => console.log());
   }
 
 

@@ -82,6 +82,7 @@ export class PlayerCardService {
   }
 
   equipElement(value: string, idElement: number, idPlayer: number): Observable<any> {
+
     return this.http.put(this.equipElementUrl + value, { idElement, idPlayer }, { withCredentials: true })
   }
   consumeElement(value: string, idElement: number, idPlayer: number): Observable<any> {
