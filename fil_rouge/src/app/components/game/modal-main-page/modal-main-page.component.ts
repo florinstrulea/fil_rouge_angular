@@ -37,6 +37,7 @@ export class ModalMainPageComponent implements OnInit {
   closeModal() {
     this.modal.nativeElement.classList.add("hidden");
     this.overlay.nativeElement.classList.add("hidden");
+    this.choosePlayerService.getBattleDTO().subscribe(res => this.player = res.playerDTO)
 
   }
 
@@ -73,5 +74,7 @@ export class ModalMainPageComponent implements OnInit {
     }
     return result;
   }
+
+
 
 }

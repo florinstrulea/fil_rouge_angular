@@ -27,11 +27,9 @@ export class MainPageComponent implements OnInit {
   }
   @ViewChild(ModalMainPageComponent) modal!: ModalMainPageComponent
 
-
-
-  close() {
-    this.modal.closeModal();
-  }
+  // close() {
+  //   this.modal.closeModal();
+  // }
 
   open(value: string) {
     this.modal.houseName = value;
