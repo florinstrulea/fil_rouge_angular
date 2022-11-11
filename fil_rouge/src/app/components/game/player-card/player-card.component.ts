@@ -12,71 +12,72 @@ import { PlayerCardService } from 'src/app/services/player-card/player-card.serv
 export class PlayerCardComponent implements OnInit {
   choosePlayerSub = new Subscription();
   playerSubscribtion = new Subscription();
-  curPlayer?: Partial<Player>;
+  player: any;
   /*Img assets*/
   playerImg: string = "../../../../assets/choose-player" + sessionStorage.getItem("photoHeroUrl");
-  armorEquipedImg : string="";
-  weaponEquipedImg : string="";
-  moneyImg:string="../../../../assets/player-card/money.png";
-  hpImg:string="../../../../assets/player-card/hp.png";
-  experienceImg:string="../../../../assets/player-card/xp.png";
-  levelImg:string="../../../../assets/player-card/level-"+1+".png";/*on l'initialise*/
+  armorEquipedImg: string = "";
+  weaponEquipedImg: string = "";
+  moneyImg: string = "../../../../assets/player-card/money.png";
+  hpImg: string = "../../../../assets/player-card/hp.png";
+  experienceImg: string = "../../../../assets/player-card/xp.png";
+  levelImg: string = "../../../../assets/player-card/level-" + 1 + ".png";/*on l'initialise*/
 
-  weaponName :string="";
-  armorName? :string="";
-  constructor(private choosePlayerService: ChoosePlayerService, private playerCardSerice : PlayerCardService) {
+  weaponName: string = "";
+  armorName?: string = "";
+
+  constructor(private choosePlayerService: ChoosePlayerService, private playerCardService: PlayerCardService) {
   }
 
   ngOnInit(): void {
-
-    this.armorEquipedImg = this.curPlayer?.idArmorEquiped == null? "../../../../assets/player-card/no-armor.png": "";
+    this.playerSubscribtion = this.playerCardService.playerObservable$.subscribe(res => this.player = res)
+    this.armorEquipedImg = this.player?.idArmorEquiped == null ? "../../../../assets/player-card/no-armor.png" : "";
 
     this.choosePlayerSub = this.choosePlayerService.getBattleDTO().subscribe(res => {
-      let imgWeaponIfFound="";
-      this.curPlayer = res.playerDTO;
-      this.levelImg = "assets/player-card/level-"+this.curPlayer?.level+".png";
-              /*On récupère l'ArmorEquiped si idPlayer!=null*/
-              if(!this.curPlayer?.id !==null){  
-                if(this.curPlayer?.idArmorEquiped!=null){
-                  this.playerSubscribtion = this.playerCardSerice.getCurrentArmor((this.curPlayer?.id!) ).subscribe(res=>{
-                    this.armorName = res.name!=null? res.name: "No Armor Equiped";                   
-                  })
-                }else{
-                  this.armorName = "No Armor Equiped";
-                }          
-              }
-          
-              /*On récupère la WeaponEquiped si idPlayer!=null*/
-              if(!this.curPlayer?.id !==null){            
-                
-                if(this.curPlayer?.idWeaponEquiped){
-                  console.log("je cherche la weapon.2");
-                  this.playerSubscribtion = this.playerCardSerice.getCurrentWeapon((this.curPlayer?.id!) ).subscribe(res=>{
-                    this.weaponName = res.name!=null? res.name: "No Weapon Equiped";  
-                    if(res.id==this.curPlayer?.idWeaponEquiped){                    
+      let imgWeaponIfFound = "";
+      this.player = res.playerDTO;
+      this.levelImg = "assets/player-card/level-" + this.player?.level + ".png";
+      /*On récupère l'ArmorEquiped si idPlayer!=null*/
+      if (!this.player?.id !== null) {
+        if (this.player?.idArmorEquiped != null) {
+          this.playerSubscribtion = this.playerCardService.getCurrentArmor((this.player?.id!)).subscribe(res => {
+            this.armorName = res.name != null ? res.name : "No Armor Equiped";
+          })
+        } else {
+          this.armorName = "No Armor Equiped";
+        }
+      }
 
-                      this.weaponEquipedImg = "assets/equipement/weapons" + res.iconUrl+".png";
-                     
-                    }
-                                
-                  })
-                }else{
-                  this.weaponName = "No Weapon Equiped";
-                  this.weaponEquipedImg = "../../../../assets/player-card/no-weapon.png";
-                  console.log(this.weaponEquipedImg);
-                  
-                }
-          
-              }
-              
-         
+      /*On récupère la WeaponEquiped si idPlayer!=null*/
+      if (!this.player?.id !== null) {
+
+        if (this.player?.idWeaponEquiped) {
+          console.log("je cherche la weapon.2");
+          this.player = this.playerCardService.getCurrentWeapon((this.player?.id!)).subscribe(res => {
+            this.weaponName = res.name != null ? res.name : "No Weapon Equiped";
+            if (res.id == this.player?.idWeaponEquiped) {
+
+              this.weaponEquipedImg = "assets/equipement/weapons" + res.iconUrl + ".png";
+
+            }
+
+          })
+        } else {
+          this.weaponName = "No Weapon Equiped";
+          this.weaponEquipedImg = "../../../../assets/player-card/no-weapon.png";
+          console.log(this.weaponEquipedImg);
+
+        }
+
+      }
+
+
     })
-    /*On récupère la Weapon et l'Armor du player*/ 
+    /*On récupère la Weapon et l'Armor du player*/
 
 
-    
+
   }
-  ngAfterInitView(){
+  ngAfterInitView() {
 
   }
 

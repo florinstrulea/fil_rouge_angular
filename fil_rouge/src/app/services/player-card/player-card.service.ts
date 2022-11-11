@@ -18,7 +18,7 @@ export class PlayerCardService {
 
 
 
-  public currentPlayer = new BehaviorSubject({
+  public current_player = new BehaviorSubject({
     alive: true,
     critical: 0,
     defense: 0,
@@ -31,9 +31,9 @@ export class PlayerCardService {
     idArmorEquiped: 0,
     idWeaponEquiped: 0,
     level: 0,
-    listArmor: {},
-    listWeapon: {},
-    listPotions: {},
+    listArmor: [],
+    listWeapon: [],
+    listPotions: [],
     money: 0,
     nameHero: "",
     namePlayer: "",
@@ -63,7 +63,7 @@ export class PlayerCardService {
     price: 0,
     category: "",
   });
-  playerObservable$ = this.currentPlayer.asObservable();
+  playerObservable$ = this.current_player.asObservable();
   weaponObservable$ = this.currentWeapon.asObservable();
   armorObservable$ = this.currentArmor.asObservable();
 
@@ -87,6 +87,13 @@ export class PlayerCardService {
   }
   consumeElement(value: string, idElement: number, idPlayer: number): Observable<any> {
     return this.http.put(this.consumeElementUrl + value, { idElement, idPlayer }, { withCredentials: true })
+  }
+
+  getPlayerObservable$() {
+    return this.current_player.value;
+  }
+  setPlayerObservable$(player: any) {
+    this.current_player.next(player);
   }
 
 }

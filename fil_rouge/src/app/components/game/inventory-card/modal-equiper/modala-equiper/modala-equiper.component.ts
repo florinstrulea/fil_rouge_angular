@@ -31,10 +31,16 @@ export class ModalaEquiperComponent implements OnInit {
     this.modal.nativeElement.classList.add("hidden");
     this.overlay.nativeElement.classList.add("hidden");
 
+
   }
 
   equipElement(value: string, idElement: number) {
-    this.playerCardService.equipElement(value, idElement, this.player.id).subscribe(res => console.log());
+    this.playerCardService.equipElement(value, idElement, this.player.id).subscribe(res => {
+      this.playerCardService.setPlayerObservable$(res.playerDTO);
+      this.player = res.playerDTO;
+      console.log()
+    });
+
     this.closeModal();
   }
 

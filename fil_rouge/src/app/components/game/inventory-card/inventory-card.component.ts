@@ -1,5 +1,7 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { ChoosePlayerService } from 'src/app/services/choose-player/choose-player.service';
+import { PlayerCardService } from 'src/app/services/player-card/player-card.service';
 import { ArmorCardComponent } from './armor-card/armor-card.component';
 import { ModalaEquiperComponent } from './modal-equiper/modala-equiper/modala-equiper.component';
 import { PotionCardComponent } from './potion-card/potion-card.component';
@@ -19,9 +21,9 @@ export class InventoryCardComponent implements OnInit {
   listImagesWeapons = new Array();
   listImagesArmors = new Array();
 
-  constructor(private choosePlayerService: ChoosePlayerService) {
+  constructor(private choosePlayerService: ChoosePlayerService, private playerCardService: PlayerCardService) {
   }
-
+  sub: Subscription = new Subscription();
 
   @ViewChild(PotionCardComponent) potionCard!: PotionCardComponent
   @ViewChild(WeaponCardComponent) weaponCard!: WeaponCardComponent
@@ -30,6 +32,7 @@ export class InventoryCardComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.sub = this.playerCardService.playerObservable$.subscribe(res => this.player = res)
     // this.choosePlayerService.getBattleDTO().subscribe(res => this.player = res.playerDTO)
   }
   open(value: string, obj: {}) {

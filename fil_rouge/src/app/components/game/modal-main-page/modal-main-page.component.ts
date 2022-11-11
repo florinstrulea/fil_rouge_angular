@@ -1,6 +1,7 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { ChoosePlayerService } from 'src/app/services/choose-player/choose-player.service';
 import { MainPageService } from 'src/app/services/main-page/main-page.service';
+import { PlayerCardService } from 'src/app/services/player-card/player-card.service';
 
 @Component({
   selector: 'app-modal-main-page',
@@ -18,7 +19,7 @@ export class ModalMainPageComponent implements OnInit {
   player: any = {}
   refresh: boolean = false;
 
-  constructor(private mainPageService: MainPageService, private choosePlayerService: ChoosePlayerService) { }
+  constructor(private mainPageService: MainPageService, private choosePlayerService: ChoosePlayerService, private playerCardService: PlayerCardService) { }
 
   ngOnInit(): void {
 
@@ -41,8 +42,10 @@ export class ModalMainPageComponent implements OnInit {
     this.choosePlayerService.getBattleDTO().subscribe(res => {
       console.log(res);
       this.player = res.playerDTO
+      this.playerCardService.setPlayerObservable$(res.playerDTO);
     })
     this.refresh = true;
+
     return true;
   }
 
@@ -52,6 +55,7 @@ export class ModalMainPageComponent implements OnInit {
         console.log(res)
         this.choosePlayerService.getBattleDTO().subscribe(res => this.player = res.playerDTO)
         this.buySuccesful(element, idElement);
+
       })
     } else alert('Montant inssufisant');
 
