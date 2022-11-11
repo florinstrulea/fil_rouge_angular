@@ -24,6 +24,8 @@ export class MainPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.choosePlayerService.getBattleDTO().subscribe(res => {
+      console.log(res);
+
       this.modal.player = res.playerDTO;
       this.player = res.playerDTO;
       this.inventoryCard.player = res.playerDTO;
