@@ -25,11 +25,11 @@ export class ArenaComponent implements OnInit {
   constructor(private arenaService: ArenaService, private journalService: JournalService, private router: Router, private renderer?: Renderer2) { }
 
   ngOnInit(): void {
-    // this.sub = this.journalService.battleDTOObservable$.subscribe(res => {
-    //   this.player = res.playerDTO;
-    //   this.monster = res.monsterDTO;
+    this.sub = this.journalService.battleDTOObservable$.subscribe(res => {
+      this.player = res.playerDTO;
+      this.monster = res.monsterDTO;
 
-    // })
+    })
 
     this.arenaService.getWariors().subscribe(res => {
       console.log(res)
