@@ -6,9 +6,9 @@
                     <div class="card-body">
                         <small>Point de vie</small>
                         <div class="progress">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                                aria-label="Animated striped example" aria-valuenow="200" aria-valuemin="0"
-                                aria-valuemax="200" [style.width]="player.hp+'%'">{{player.hp}}
+                            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated"
+                                role="progressbar" aria-label="Animated striped example" aria-valuenow="200"
+                                aria-valuemin="0" aria-valuemax="200" [style.width]="30+'%'">{{player.hp}}
                             </div>
                         </div>
                         <p class="text-primary fw-bold fs-3">{{player.namePlayer}}</p>
@@ -19,9 +19,11 @@
                 <div class="mt-5 pt-5 p-4 col-md-3" id="monster">
                     <div class="card-body">
                         <small>Point de vie</small>
-                        <div class="progress mb-3" style="height: 5px">
-                            <progress class="bg-primary" role="progressbar" style="width: 80%" value="20"
-                                max="100"></progress>
+                        <div class="progress">
+                            <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated"
+                                role="progressbar" aria-label="Animated striped example" aria-valuenow="200"
+                                aria-valuemin="0" aria-valuemax="200" [style.width]="70+'%'">{{monster.hp}}
+                            </div>
                         </div>
                         <p class="text-primary fw-bold fs-3">{{monster.name}}</p>
                         <div class="hero-image-container"><img [src]="monsterImage" class=""></div>
@@ -41,9 +43,14 @@
             </div>
             <div class="affichageFight col-md-10">
                 <h4>Journal de Combat</h4>
-                <!--
+                <div class="overflow-auto" #journal>
+                    <p class="text-danger">Test</p>
+                    <!--
+
                         ou ici plus bas
                     -->
+                </div>
+
             </div>
         </div>
     </div>

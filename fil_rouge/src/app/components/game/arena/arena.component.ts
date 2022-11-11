@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Player } from 'src/app/interfaces/player';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { ArenaService } from 'src/app/services/arena/arena.service';
+import { JournalService } from 'src/app/services/arena/journal.service';
 
 
 @Component({
@@ -13,10 +14,21 @@ export class ArenaComponent implements OnInit {
   monsterImage: string = '';
   player: any = {}
   monster: any = {}
-  //sessionStorage.getItem('photoHeroUrl')!;
-  constructor(private arenaService: ArenaService) { }
+  sub: Subscription = new Subscription();
+  battleDTOBefore: any = {}
+
+
+
+  @ViewChild("journal") journal!: ElementRef
+
+  constructor(private arenaService: ArenaService, private journalService: JournalService, private renderer?: Renderer2) { }
 
   ngOnInit(): void {
+    // this.sub = this.journalService.battleDTOObservable$.subscribe(res => {
+    //   this.player = res.playerDTO;
+    //   this.monster = res.monsterDTO;
+
+    // })
     this.arenaService.getWariors().subscribe(res => {
       console.log(res)
       this.monsterImage = 'assets/arena/' + res.monsterDTO.name + '.png';
@@ -26,7 +38,20 @@ export class ArenaComponent implements OnInit {
   }
 
   fight() {
-    this.arenaService.attack().subscribe(res => console.log(res));
+    this.arenaService.attack().subscribe(res => {
+      this.journalService.setPlayerObservable$(res);
+      this.createJournalText();
+      console.log(res)
+    });
+
+
   }
 
+  createJournalText() {
+    const paragraph = this.renderer?.createElement('p');
+    this.renderer?.setProperty(paragraph, 'className', 'text-danger')
+    this.renderer?.setProperty(paragraph, 'textContent', 'text-danger')
+    this.renderer?.appendChild(this.journal.nativeElement, paragraph)
+    return paragraph;
+  }
 }
