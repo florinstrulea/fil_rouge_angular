@@ -4,11 +4,12 @@
             <div class="adversaries d-flex justify-content-between">
                 <div class="mt-5 pt-5 col-md-3" id="hero">
                     <div class="card-body">
-                        <small>Point de vie</small>
-                        <div class="progress">
-                            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated"
-                                role="progressbar" aria-label="Animated striped example" aria-valuenow="200"
-                                aria-valuemin="0" aria-valuemax="200" [style.width]="30+'%'">{{player.hp}}
+                        <p class="text-black fs-4">Points de vie</p>
+                        <div class="progress" style="height:30px; width:300px; ">
+                            <div class="progress-bar bg-success progress-bar-animated" role="progressbar"
+                                aria-label="Animated striped example" aria-valuenow="200" aria-valuemin="0"
+                                aria-valuemax="200" [style.width]="player.hp+'%'"><span
+                                    class="fs-5 bg-success">{{player.hp}}</span>
                             </div>
                         </div>
                         <p class="text-primary fw-bold fs-3">{{player.namePlayer}}</p>
@@ -18,14 +19,15 @@
                 </div>
                 <div class="mt-5 pt-5 p-4 col-md-3" id="monster">
                     <div class="card-body">
-                        <small>Point de vie</small>
-                        <div class="progress">
-                            <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated"
-                                role="progressbar" aria-label="Animated striped example" aria-valuenow="200"
-                                aria-valuemin="0" aria-valuemax="200" [style.width]="70+'%'">{{monster.hp}}
+                        <p class="text-black fs-4">Points de vie</p>
+                        <div class="progress " style="height:30px; width:300px; ">
+                            <div class="progress-bar bg-danger progress-bar-animated" role="progressbar"
+                                aria-label="Animated striped example" aria-valuenow="5" aria-valuemin="0"
+                                aria-valuemax="" [style.width]="monster.hp+'%'">
+                                <span class="fs-5">{{monster.hp}}</span>
                             </div>
                         </div>
-                        <p class="text-primary fw-bold fs-3">{{monster.name}}</p>
+                        <p class="text-danger fw-bold fs-4 text-capitalize">{{monster.name}}</p>
                         <div class="hero-image-container"><img [src]="monsterImage" class=""></div>
                     </div>
                     <img src="" class="">
@@ -44,7 +46,6 @@
             <div class="affichageFight col-md-10 overflow-auto">
                 <h4>Journal de Combat</h4>
                 <div class="overflow-auto" #journal>
-                    <p class="text-danger">Test</p>
                     <!--
 
                         ou ici plus bas
@@ -54,4 +55,5 @@
             </div>
         </div>
     </div>
+    <app-modal-arena></app-modal-arena>
 </div>

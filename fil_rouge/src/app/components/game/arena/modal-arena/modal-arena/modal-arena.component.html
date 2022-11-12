@@ -1,0 +1,28 @@
+<!-- =============Modal=============== -->
+<div class="myModal hidden text-center" #modal>
+    <h1 class="text-danger my-modal-message">I'm a modal window 😍</h1>
+
+    <div class="banner d-flex justify-content-center text-center pt-5">
+        <div class="container py-5 ">
+            <div class="row col-12  ">
+                <h1 class="title mb-5 "> You win ! take a decision</h1>
+                <div class="col-6">
+                    <button class="  btn btn-order  btn-lg me-5 rounded-0 merriweather">
+                        <i class="bi bi-arrow-left"></i> Return to
+                        Village
+                    </button>
+                </div>
+                <div class="col-6">
+                    <button class="  btn btn-order   btn-lg me-5 rounded-0 merriweather">Next
+                        Fight <i class="bi bi-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="close-modal btn btn-secondary fs-3 mx-auto" #btnCloseModal (click)="closeModal()"> Annuler </button>
+    <button class="btn btn-success ms-5"> </button>
+
+</div>
+<div class="overlay hidden" #overlay></div>
