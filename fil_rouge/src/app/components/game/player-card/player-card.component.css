@@ -7,7 +7,7 @@
 
 }
 .wrap {
-    max-width: 900px;
+    max-width: 300px;
     margin: 0 auto;
     padding-left: 1em;
     padding-right: 1em;
@@ -37,18 +37,27 @@
     transition: transform 0.2s ease-in-out;
  }
  .card img.large {
-    width: 65%;
+    width: 45%;
  }
  .card:hover img {
-    transform:translateY(-10%);
+    transform:translateY(-20%);
  }
+ /* .card:hover {
+    transform:translateY(-20%);
+ } */
  .item-title {
     position: absolute;
     left:1em;
     bottom:1em;
+    z-index: 99;
+    font-weight: bold;
+    color: aliceblue;
+ }
+ .equiped{
+    font-size:10px;
  }
  .image-container {
-    position:relative;
+    position:absolute;
  }
  .shadow {
     position:absolute;

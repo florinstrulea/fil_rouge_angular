@@ -43,11 +43,11 @@ body {
 
 .interface {
   grid-column: 1/span 12;
-  grid-row: 2/span 1;
+  grid-row: 1/span 2;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   column-gap: 20px;
-  /* background-image: url("../../../../assets/main-page/GrassBackGround.png"); */
+  background-image: url("../../../../assets/main-page/GrassBackGround.png");
   background-color: rgb(69, 100, 92);
   /* background-repeat: no-repeat; */
   background-size: cover;
@@ -58,8 +58,8 @@ body {
 .interface__form {
   text-align: center;
   border: solid 2px #5ca463;
-  grid-column: span 3;
-  margin-top: 15px;
+  grid-column: span 2;
+  margin-top: 0px;
   height: 250px;
   padding-top: 5px;
 }
@@ -105,5 +105,5 @@ body {
 }
 
 .interface__form--objects {
-  grid-column: 5/span 8;
+  grid-column: 3/span 8;
 }

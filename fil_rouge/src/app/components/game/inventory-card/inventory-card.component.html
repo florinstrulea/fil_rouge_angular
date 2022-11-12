@@ -1,7 +1,6 @@
-<!-- <app-weapon-card></app-weapon-card>
-
-<app-armor-card></app-armor-card> -->
-
+<header>
+    <div class="wrap text-light fs-6 fw-bold">Inventory Card</div>
+</header>
 <div>
     <h2>Potions</h2>
     <div *ngIf="player.listePotions; else elseBlock">
@@ -24,9 +23,9 @@
     </div>
     <ng-template #elseBlock>II n'y a aucune armor dans l'inventaire.</ng-template>
 </div>
-<div ngFor="let el of listImagesWeapons">
+<div class="inventory-weapon"ngFor="let el of listImagesWeapons">
     <h2>Weapons</h2>
-    <div *ngIf="player.listWeapon; else elseBlock">
+    <div *ngIf="player.listWeapon; else elseBlock" class="col-2 flex">
         <div class="inventory" *ngFor="let el of player.listWeapon">
             <div class="elImage">
                 <img [src]="'../../../assets/equipement/weapons'+el.iconUrl +'.png'" alt="" (click)="open('Weapon',el)">
