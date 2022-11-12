@@ -3,16 +3,9 @@
     box-shadow: 0px 4px 4px rgba(0,0,0,0.15);
     color:#fff;
     padding: 0.8em ;
-    margin-bottom:2em;
-
+    /* margin-bottom:2em; */
 }
-.wrap {
-    max-width: auto;
-    margin: 0 auto;
-    padding-left: 1em;
-    padding-right: 1em;
-    background-color: rgb(138, 76, 0);
- }
+
  .card {
     background: #fff;
     background-color: rgb(185, 110, 17);
@@ -24,7 +17,7 @@
     display:grid;
     justify-items: center;
     align-items: center;
-    padding-top: 1em;
+    padding-top: 0em;
     padding-bottom: 1em;
  }
 
@@ -45,97 +38,13 @@
  /* .card:hover {
     transform:translateY(-20%);
  } */
- .item-title {
-    position: absolute;
-    /* left:1em;
-    bottom:1em; */
-    z-index: 99;
-    top:0em;
-    font-weight: bold;
-    color: aliceblue;
- }
- .equiped{
-    font-size:10px;
- }
- .image-container {
-    position:relative;
-    width: 50px;
-    height: 50px;
- }
- .shadow {
-    position:absolute;
-    bottom:1em;
-    border: 0;
-    left: 50%;
-    transform: translateX(-50%);
- }
+
+
 
 /*----------------------------------------*/
 
-.layout{
-    display: grid;
 
-    /*1fr means 1 fraction of the grid*/
-    grid-template-columns: repeat(9, 1fr);
-    grid-template-rows: repeat(1, 1fr);
-    /*gap to space the elements grid*/
-    grid-gap:1em
-  
-}
-.card { 
-    grid-column: 1 / 4;
-    grid-row: 1 / 2;
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(1, 1fr);
 
-}
-.card-container-weapon{
-    grid-column: 1 /3;
-    grid-row: 1 / 3;
-
-}
-.card-container-weapon{
-
-}
-.card-container-armor{
-
-}
-.card-container-potion{
-
-}
-.inventory{
-    display: flex;
-    /* flex-wrap: wrap; */
-    width: 100%;
-    height: 235px;
-}
-
-@media (max-width:800px){
-    .card {
-        grid-column: span 2;
-    }
-    .card-container-weapon{
-        grid-column: 1 / 5;
-        grid-row:  1 / 2;
-    }
-    .card-container-armor{
-        grid-column: 1 / 5;
-        grid-row:  2 / 3;
-    }
-    .card-container-potion{
-        grid-column: 1 / 5;
-        grid-row:  3 / 4;
-    }
-}
-@media (max-width: 400px) {
-    .card {
-       grid-column: span 4;
-    }
-    .item-title {
-       position:relative;
-       left:0;
-    }
- }
 
 
 
@@ -154,10 +63,10 @@
   }
   
     .wrapper {
-      width: 50px;
+      width: auto;
       display: flex;
       grid-gap: 10px;
-      grid-template-columns: repeat(6, 40px);
+      grid-template-columns: repeat(3, 1fr);
       grid-template-rows: auto;
     }
 .weapon img{
