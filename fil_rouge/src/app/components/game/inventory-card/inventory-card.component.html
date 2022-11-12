@@ -1,15 +1,15 @@
-<header>
+<!-- <header>
   <div class="wrap text-light fs-6 fw-bold">Inventory Card</div>
-</header>
-<div class="inventory row">
+</header> -->
+<div class="inventory col-12">
 
 
-    <div class="card-container-weapon col-5">
+    <div class="card-container-weapon col-5  overflow-auto">
         <h4 class="text-light bg-dark">Weapons</h4>
         <div class="wrapper">
-          <div class="weapon">
+          <div class="weapon ">
             <div *ngIf="player.listWeapon; else elseBlock">
-              <div class="box" *ngFor="let el of player.listWeapon">
+              <div class="box overflow-auto" *ngFor="let el of player.listWeapon">
                 <img [src]="'../../../assets/equipement/weapons'+el.iconUrl +'.png'" alt="" (click)="open('Weapon',el)">
               </div>
             </div>
@@ -22,7 +22,7 @@
 
 
 
-      <div class="card-container-armor col-5">
+      <div class="card-container-armor col-5  overflow-auto">
         <h4 class="text-light bg-dark">Armors</h4>
         <div class="wrapper">
           <div class="armor">
@@ -38,7 +38,7 @@
     
     
     
-    <div class="card-container-potion col-2">
+    <div class="card-container-potion col-2  overflow-auto">
         <h4 class="text-light bg-dark">Potions</h4>
         <div class="wrapper">
           <div class="potion">
