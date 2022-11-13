@@ -25,6 +25,7 @@ export class ModalComponent implements OnInit {
     playerDTO: {}
   };
   ngOnInit(): void {
+
   }
 
   onSubmit() {

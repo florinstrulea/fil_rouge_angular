@@ -66,9 +66,12 @@ export class ArenaComponent implements OnInit {
       console.log(res);
 
       if (!res.monsterDTO.alive) {
+        this.modal.monsterIsAlive = false;
         this.modal.openModal();
-        // this.arenaService.killMonster().subscribe(res1 => console.log(res1));
-        // this.choosePlayerService.getBattleDTO().subscribe(res => console.log(res));
+
+      } else if (!res.playerDTO.alive) {
+        this.modal.playerIsAlive = false;
+        this.modal.openModal();
       }
 
 
