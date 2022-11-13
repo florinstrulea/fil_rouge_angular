@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-modal-arena',
@@ -11,7 +12,7 @@ export class ModalArenaComponent implements OnInit {
   @ViewChild('overlay') overlay!: ElementRef
   @ViewChild('btnCloseModal') btnCloseModal!: ElementRef
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -25,6 +26,7 @@ export class ModalArenaComponent implements OnInit {
   closeModal() {
     this.modal.nativeElement.classList.add("hidden");
     this.overlay.nativeElement.classList.add("hidden");
+    this.router.navigateByUrl('/game/main-page');
 
 
   }
