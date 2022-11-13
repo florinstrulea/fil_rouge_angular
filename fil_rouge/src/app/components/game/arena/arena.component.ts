@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ArenaService } from 'src/app/services/arena/arena.service';
 import { JournalService } from 'src/app/services/arena/journal.service';
+import { ChoosePlayerService } from 'src/app/services/choose-player/choose-player.service';
 import { ModalArenaComponent } from './modal-arena/modal-arena/modal-arena.component';
 
 
@@ -33,7 +34,7 @@ export class ArenaComponent implements OnInit {
 
   @ViewChild("journal") journal!: ElementRef
 
-  constructor(private arenaService: ArenaService, private journalService: JournalService, private router: Router, private renderer?: Renderer2) { }
+  constructor(private arenaService: ArenaService, private journalService: JournalService, private router: Router, private choosePlayerService: ChoosePlayerService, private renderer?: Renderer2) { }
 
   ngOnInit(): void {
 
@@ -62,10 +63,20 @@ export class ArenaComponent implements OnInit {
       this.calcDamageReceivedByPlayer(res);
       this.calcDamageReceivedByMonster(res);
       this.createJournalText();
-      if (!res.playerDTO.alive || !res.monsterDTO.alive) {
-        this.modal.openModal();
-      }
       console.log(res);
+
+      if (!res.monsterDTO.alive) {
+        this.modal.openModal();
+        // this.arenaService.killMonster().subscribe(res1 => console.log(res1));
+        // this.choosePlayerService.getBattleDTO().subscribe(res2 => {
+        //   console.log(res2);
+
+
+        // })
+      }
+
+
+
 
 
     });
