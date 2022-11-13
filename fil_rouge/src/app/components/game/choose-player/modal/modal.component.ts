@@ -35,6 +35,7 @@ export class ModalComponent implements OnInit {
 
     this.choosePlayerService.choosePlayer(player).subscribe(res => {
       if (res) {
+        sessionStorage.setItem("playerChosen", 'true');
 
         for (let photo of this.listPhotos) {
           if (photo.id == this.heroId) {

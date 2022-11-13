@@ -30,14 +30,19 @@ export class ModalArenaComponent implements OnInit {
   closeModal() {
     this.modal.nativeElement.classList.add("hidden");
     this.overlay.nativeElement.classList.add("hidden");
-    if (!this.monsterIsAlive)
+    if (!this.monsterIsAlive) {
       this.router.navigateByUrl('/game/main-page');
+      sessionStorage.removeItem('monsterLifePoints');
+      sessionStorage.removeItem('playerLifePoints');
+    }
+
     else if (!this.playerIsAlive) {
       this.arenaService.killPlayer().subscribe(() => {
         this.router.navigateByUrl('/game/choose-player');
+        sessionStorage.setItem('playerChosen', 'false');
         sessionStorage.removeItem('photoHeroUrl');
         sessionStorage.removeItem('monsterLifePoints');
-        sessionStorage.removeItem('playerLifePoints');
+        sessionStorage.removeItem('playerggLifePoints');
       });
     }
 
