@@ -23,6 +23,8 @@ export class LoginComponent implements OnInit {
     let formData = new FormData();
     formData.append('username', this.user.get('username')!.value!);
     formData.append('password', this.user.get('password')!.value!);
+    console.log(formData);
+
     this.authService.login(formData).subscribe((luser: FormData) => {
       console.log(luser);
       // if (this.authService.isUser(luser)) {
