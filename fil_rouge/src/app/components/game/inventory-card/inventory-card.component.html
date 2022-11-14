@@ -9,40 +9,25 @@
       <div class="text-center my-2" *ngIf="player.listWeapon; else elseBlock1">
         <button type="button" class="btn btn-primary position-relative mx-auto">
           Weapons
-          <span
-            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-          >
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
             {{ player.listWeapon.length }}
             <span class="visually-hidden">Weapons</span>
           </span>
         </button>
       </div>
-      <ng-template #elseBlock1
-        ><button
-          type="button"
-          class="btn btn-primary position-relative mx-auto"
-        >
+      <ng-template #elseBlock1><button type="button" class="btn btn-primary position-relative mx-auto">
           Weapons
-          <span
-            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-          >
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
             0
             <span class="visually-hidden">Weapons</span>
           </span>
-        </button></ng-template
-      >
+        </button></ng-template>
 
       <div class="overflow-auto">
-        <div
-          *ngIf="player.listWeapon"
-          class="d-flex flex-wrap justify-content-center"
-        >
+        <div *ngIf="player.listWeapon" class="d-flex flex-wrap justify-content-center">
           <div class="box" *ngFor="let el of player.listWeapon">
-            <img
-              [src]="'../../../assets/equipement/weapons' + el.iconUrl + '.png'"
-              alt=""
-              (click)="open('Weapon', el)"
-            />
+            <img [src]="'../../../assets/equipement/weapons' + el.iconUrl + '.png'" alt=""
+              (click)="open('Weapon', el)" />
           </div>
         </div>
       </div>
@@ -55,9 +40,7 @@
       <div class="text-center my-2" *ngIf="player.listArmor; else elseBlock2">
         <button type="button" class="btn btn-primary position-relative mx-auto">
           Armors
-          <span
-            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-          >
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
             {{ player.listArmor.length }}
             <span class="visually-hidden">Armors</span>
           </span>
@@ -66,25 +49,16 @@
       <ng-template #elseBlock2>
         <button type="button" class="btn btn-primary position-relative mx-auto">
           Armors
-          <span
-            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-          >
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
             0
             <span class="visually-hidden">Armors</span>
           </span>
-        </button></ng-template
-      >
+        </button>
+      </ng-template>
       <div class="overflow-auto">
-        <div
-          *ngIf="player.listArmor"
-          class="d-flex flex-wrap justify-content-center"
-        >
+        <div *ngIf="player.listArmor" class="d-flex flex-wrap justify-content-center">
           <div class="box" *ngFor="let el of player.listArmor">
-            <img
-              [src]="'../../../assets/equipement/armors' + el.iconUrl + '.png'"
-              alt=""
-              (click)="open('Armor', el)"
-            />
+            <img [src]="'../../../assets/equipement/armors' + el.iconUrl + '.png'" alt="" (click)="open('Armor', el)" />
           </div>
         </div>
       </div>
@@ -93,47 +67,29 @@
 
     <!-- ****************************START - POTION ************************ -->
     <div class="col-sm-12 col-md-6 col-lg-4 mt-2">
-      <div
-        class="text-center my-2"
-        *ngIf="player.listePotions; else elseBlock3"
-      >
+      <div class="text-center my-2" *ngIf="player.listePotions; else elseBlock3">
         <button type="button" class="btn btn-primary position-relative mx-auto">
           Potions
-          <span
-            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-          >
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
             {{ player.listePotions.length }}
             <span class="visually-hidden">Armors</span>
           </span>
         </button>
       </div>
       <div class="overflow-auto">
-        <div
-          *ngIf="player.listePotions"
-          class="d-flex flex-wrap justify-content-center"
-        >
+        <div *ngIf="player.listePotions" class="d-flex flex-wrap justify-content-center">
           <div class="box" *ngFor="let el of player.listePotions">
-            <img
-              [src]="'../../../assets/equipement/potions' + el.iconUrl + '.png'"
-              alt=""
-              (click)="open('Potion', el)"
-            />
+            <img [src]="'../../../assets/equipement/potions' + el.iconUrl + '.png'" alt=""
+              (click)="open('Potion', el)" />
           </div>
         </div>
-        <ng-template #elseBlock3
-          ><button
-            type="button"
-            class="btn btn-primary position-relative mx-auto"
-          >
+        <ng-template #elseBlock3><button type="button" class="btn btn-primary position-relative mx-auto">
             Potions
-            <span
-              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-            >
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
               0
               <span class="visually-hidden">Potions</span>
             </span>
-          </button></ng-template
-        >
+          </button></ng-template>
       </div>
     </div>
     <!-- ****************************END - POTION ************************ -->
