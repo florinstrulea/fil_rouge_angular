@@ -9,7 +9,7 @@ import { WeaponCardComponent } from './weapon-card/weapon-card.component';
 @Component({
   selector: 'app-inventory-card',
   templateUrl: './inventory-card.component.html',
-  styleUrls: ['./inventory-card.component.css']
+  styleUrls: ['./inventory-card.component.css'],
 })
 export class InventoryCardComponent implements OnInit {
   player: any = {};
@@ -20,18 +20,18 @@ export class InventoryCardComponent implements OnInit {
   listImagesWeapons = new Array();
   listImagesArmors = new Array();
 
-  constructor(private playerCardService: PlayerCardService) {
-  }
+  constructor(private playerCardService: PlayerCardService) {}
   sub: Subscription = new Subscription();
 
-  @ViewChild(PotionCardComponent) potionCard!: PotionCardComponent
-  @ViewChild(WeaponCardComponent) weaponCard!: WeaponCardComponent
-  @ViewChild(ArmorCardComponent) armorCard!: ArmorCardComponent
-  @ViewChild(ModalaEquiperComponent) modalComp!: ModalaEquiperComponent
-
+  @ViewChild(PotionCardComponent) potionCard!: PotionCardComponent;
+  @ViewChild(WeaponCardComponent) weaponCard!: WeaponCardComponent;
+  @ViewChild(ArmorCardComponent) armorCard!: ArmorCardComponent;
+  @ViewChild(ModalaEquiperComponent) modalComp!: ModalaEquiperComponent;
 
   ngOnInit(): void {
-    this.sub = this.playerCardService.playerObservable$.subscribe(res => this.player = res)
+    this.sub = this.playerCardService.playerObservable$.subscribe(
+      (res) => (this.player = res)
+    );
   }
   open(value: string, obj: {}) {
     this.modalComp.openModal();
@@ -41,21 +41,17 @@ export class InventoryCardComponent implements OnInit {
 
   // refreshFromInventory() {
   // }
-  equipElement(Object: string) {
-
-  }
-  openOptionEquip(el: object) {
-  }
+  equipElement(Object: string) {}
+  openOptionEquip(el: object) {}
 
   populatePotions() {
     if (this.player.listePotions) {
       let arr: any[] = this.player.listePotions;
       for (let el of arr) {
-        let url = "assets/equipement/potions" + el.iconUrl + ".png"
+        let url = 'assets/equipement/potions' + el.iconUrl + '.png';
         let objet = {
           id: 0,
-          url: "",
-
+          url: '',
         };
         objet.id = el.potionId;
         objet.url = url;
@@ -63,19 +59,17 @@ export class InventoryCardComponent implements OnInit {
         this.listImagesPotions.push(objet);
         this.listPotionsExist = true;
       }
-    }
-    else this.listPotionsExist = false;
+    } else this.listPotionsExist = false;
   }
 
   populateWeapons() {
     if (this.player.listePotions) {
       let arr: any[] = this.player.listePotions;
       for (let el of arr) {
-        let url = "assets/equipement/weapons" + el.iconUrl + ".png"
+        let url = 'assets/equipement/weapons' + el.iconUrl + '.png';
         let objet = {
           id: 0,
-          url: "",
-
+          url: '',
         };
         objet.id = el.weaponId;
         objet.url = url;
@@ -83,18 +77,16 @@ export class InventoryCardComponent implements OnInit {
         this.listImagesWeapons.push(objet);
         this.listWeaponsExist = true;
       }
-    }
-    else this.listWeaponsExist = false;
+    } else this.listWeaponsExist = false;
   }
   populateArmors() {
     if (this.player.listeArmors) {
       let arr: any[] = this.player.listeArmors;
       for (let el of arr) {
-        let url = "assets/equipement/armors" + el.iconUrl + ".png"
+        let url = 'assets/equipement/armors' + el.iconUrl + '.png';
         let objet = {
           id: 0,
-          url: "",
-
+          url: '',
         };
         objet.id = el.armorId;
         objet.url = url;
@@ -102,9 +94,6 @@ export class InventoryCardComponent implements OnInit {
         this.listImagesArmors.push(objet);
         this.listArmorsExist = true;
       }
-    }
-    else this.listArmorsExist = false;
+    } else this.listArmorsExist = false;
   }
-
-
 }

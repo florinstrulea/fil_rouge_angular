@@ -1,40 +1,65 @@
-<main class="container-fluid row w-100">
-    <div class="map col-12">
-
-        <div class="map__form map__form--maison" data-house="weapons">
-            <button class="map__button"><span class="fs-4 fw-bold text-light bg-dark rounded"
-                    data-house="weapons">Weapon
-                    Shop</span><img class="map__image map__image--maison" src="../../../../assets/main-page/Maison1.png"
-                    alt="" data-house="weapons" (click)="open('weapons')">
-            </button>
-        </div>
-        <div class="map__form map__form--maison2">
-            <button class="map__button"><span class="fs-4 fw-bold text-light bg-dark rounded">Armor Shop</span><img
-                    class="map__image map__image--maison2" src="../../../../assets/main-page/Maison2.png" alt=""
-                    (click)="open('armors')">
-            </button>
-        </div>
-        <div class="map__form map__form--maison3 ms-5">
-            <button class="map__button"><span class="fs-4 fw-bold text-light bg-dark rounded">Potion Shop</span><img
-                    class="map__image map__image--maison3" src="../../../../assets/main-page/Maison3.png" alt=""
-                    (click)="open('potions')">
-            </button>
-        </div>
-        <div class="map__form map__form--gate">
-            <button class="map__button" (click)="goToWar()"><span
-                    class="fs-4 fw-bold text-light bg-danger rounded">Combat
-                    Zone</span><img class="map__image map__image--gate" src="../../../../assets/main-page/portail.png"
-                    alt=""></button>
-        </div>
+<main class="container-fluid p-0 m-0 main-page">
+  <div class="map">
+    <div class="map__form map__form--gate">
+      <button class="map__button" (click)="goToWar()">
+        <span class="fs-4 fw-bold text-light bg-danger rounded"
+          >Combat Zone</span
+        ><img
+          class="map__image map__image--gate"
+          src="../../../../assets/main-page/portail.png"
+          alt=""
+        />
+      </button>
     </div>
-
+    <div class="map__form map__form--maison" data-house="weapons">
+      <button class="map__button">
+        <span
+          class="fs-4 fw-bold text-light bg-dark rounded"
+          data-house="weapons"
+          >Weapon Shop
+        </span>
+        <img
+          class="map__image map__image--maison"
+          src="../../../../assets/main-page/Maison1.png"
+          alt=""
+          data-house="weapons"
+          (click)="open('weapons')"
+        />
+      </button>
+    </div>
+    <div class="map__form map__form--maison2">
+      <button class="map__button">
+        <span class="fs-4 fw-bold text-light bg-dark rounded">Armor Shop</span
+        ><img
+          class="map__image map__image--maison2"
+          src="../../../../assets/main-page/Maison2.png"
+          alt=""
+          (click)="open('armors')"
+        />
+      </button>
+    </div>
+    <div class="map__form map__form--maison3 ms-5">
+      <button class="map__button">
+        <span class="fs-4 fw-bold text-light bg-dark rounded">Potion Shop</span
+        ><img
+          class="map__image map__image--maison3"
+          src="../../../../assets/main-page/Maison3.png"
+          alt=""
+          (click)="open('potions')"
+        />
+      </button>
+    </div>
+  </div>
+  <div class="container-fluid m-0 p-0">
     <div class="interface">
-        <div class="interface__form">
-            <app-player-card></app-player-card>
-        </div>
-        <div class="interface__form interface__form--objects" action="">
-                <app-inventory-card></app-inventory-card>
-        </div>
+      <div class="interface__form">
+        <app-player-card></app-player-card>
+      </div>
+      <div class="interface__form interface__form--objects" action="">
+        <app-inventory-card></app-inventory-card>
+      </div>
     </div>
-    <app-modal-main-page></app-modal-main-page>
+  </div>
+
+  <app-modal-main-page></app-modal-main-page>
 </main>

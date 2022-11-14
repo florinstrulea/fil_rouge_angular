@@ -1,5 +1,7 @@
 <header>
-  <div class="wrap text-light fs-6 fw-bold">Inventory Card</div>
+  <div class="wrap text-light fs-6 fw-bold fs-3">
+    <span class="text-underline">Inventory Card</span>
+  </div>
 </header>
 <div class="container">
   <div class="row justify-content-center">
@@ -7,27 +9,43 @@
 
     <div class="col-sm-12 col-md-6 col-lg-4 mt-2">
       <div class="text-center my-2" *ngIf="player.listWeapon; else elseBlock1">
-        <button type="button" class="btn btn-primary position-relative mx-auto">
+        <span
+          class="border-bottom text-dark position-relative mx-auto fs-5 fw-bold"
+        >
           Weapons
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          <span
+            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary"
+          >
             {{ player.listWeapon.length }}
             <span class="visually-hidden">Weapons</span>
           </span>
-        </button>
+        </span>
       </div>
-      <ng-template #elseBlock1><button type="button" class="btn btn-primary position-relative mx-auto">
+      <ng-template #elseBlock1>
+        <span
+          class="border-bottom text-dark position-relative mx-auto fs-5 fw-bold"
+        >
           Weapons
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          <span
+            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+          >
             0
             <span class="visually-hidden">Weapons</span>
           </span>
-        </button></ng-template>
+        </span></ng-template
+      >
 
       <div class="overflow-auto">
-        <div *ngIf="player.listWeapon" class="d-flex flex-wrap justify-content-center">
+        <div
+          *ngIf="player.listWeapon"
+          class="d-flex flex-wrap justify-content-center"
+        >
           <div class="box" *ngFor="let el of player.listWeapon">
-            <img [src]="'../../../assets/equipement/weapons' + el.iconUrl + '.png'" alt=""
-              (click)="open('Weapon', el)" />
+            <img
+              [src]="'../../../assets/equipement/weapons' + el.iconUrl + '.png'"
+              alt=""
+              (click)="open('Weapon', el)"
+            />
           </div>
         </div>
       </div>
@@ -38,27 +56,42 @@
     <!-- ****************************START - ARMOR ************************ -->
     <div class="col-sm-12 col-md-6 col-lg-4 mt-2">
       <div class="text-center my-2" *ngIf="player.listArmor; else elseBlock2">
-        <button type="button" class="btn btn-primary position-relative mx-auto">
+        <span
+          class="border-bottom text-dark position-relative mx-auto fs-5 fw-bold"
+        >
           Armors
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          <span
+            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark"
+          >
             {{ player.listArmor.length }}
             <span class="visually-hidden">Armors</span>
           </span>
-        </button>
+        </span>
       </div>
       <ng-template #elseBlock2>
-        <button type="button" class="btn btn-primary position-relative mx-auto">
+        <span
+          class="border-bottom text-dark position-relative mx-auto fs-5 fw-bold"
+        >
           Armors
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          <span
+            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+          >
             0
             <span class="visually-hidden">Armors</span>
           </span>
-        </button>
+        </span>
       </ng-template>
       <div class="overflow-auto">
-        <div *ngIf="player.listArmor" class="d-flex flex-wrap justify-content-center">
+        <div
+          *ngIf="player.listArmor"
+          class="d-flex flex-wrap justify-content-center"
+        >
           <div class="box" *ngFor="let el of player.listArmor">
-            <img [src]="'../../../assets/equipement/armors' + el.iconUrl + '.png'" alt="" (click)="open('Armor', el)" />
+            <img
+              [src]="'../../../assets/equipement/armors' + el.iconUrl + '.png'"
+              alt=""
+              (click)="open('Armor', el)"
+            />
           </div>
         </div>
       </div>
@@ -67,33 +100,52 @@
 
     <!-- ****************************START - POTION ************************ -->
     <div class="col-sm-12 col-md-6 col-lg-4 mt-2">
-      <div class="text-center my-2" *ngIf="player.listePotions; else elseBlock3">
-        <button type="button" class="btn btn-primary position-relative mx-auto">
+      <div
+        class="text-center my-2"
+        *ngIf="player.listePotions; else elseBlock3"
+      >
+        <span
+          class="border-bottom text-dark position-relative mx-auto fs-5 fw-bold"
+        >
           Potions
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          <span
+            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success"
+          >
             {{ player.listePotions.length }}
             <span class="visually-hidden">Armors</span>
           </span>
-        </button>
+        </span>
       </div>
       <div class="overflow-auto">
-        <div *ngIf="player.listePotions" class="d-flex flex-wrap justify-content-center">
+        <div
+          *ngIf="player.listePotions"
+          class="d-flex flex-wrap justify-content-center"
+        >
           <div class="box" *ngFor="let el of player.listePotions">
-            <img [src]="'../../../assets/equipement/potions' + el.iconUrl + '.png'" alt=""
-              (click)="open('Potion', el)" />
+            <img
+              [src]="'../../../assets/equipement/potions' + el.iconUrl + '.png'"
+              alt=""
+              (click)="open('Potion', el)"
+            />
           </div>
         </div>
-        <ng-template #elseBlock3><button type="button" class="btn btn-primary position-relative mx-auto">
+        <ng-template #elseBlock3>
+          <span
+            class="border-bottom text-dark position-relative mx-auto fs-5 fw-bold"
+          >
             Potions
-            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            <span
+              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success"
+            >
               0
               <span class="visually-hidden">Potions</span>
             </span>
-          </button></ng-template>
+          </span></ng-template
+        >
       </div>
     </div>
     <!-- ****************************END - POTION ************************ -->
   </div>
 </div>
 
-<app-modala-equiper></app-modala-equiper>
+<app-modala-equiper #target></app-modala-equiper>

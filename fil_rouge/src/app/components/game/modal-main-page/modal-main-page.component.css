@@ -9,13 +9,14 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80%;
+  width: 70%;
   background-color: rgb(69, 100, 92);
-  padding: 3rem;
+  padding: 1rem;
   border-radius: 5px;
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
   z-index: 10;
   color: white;
+  font-size: clamp(0.5rem, 0.3026rem + 1.0526vw, 1.25rem);
 }
 
 .overlay {
@@ -41,4 +42,10 @@
 
 i:hover {
   cursor: pointer;
+  transform: translateY(-10%);
+}
+
+table {
+  width: 80%;
+  margin: 0 auto;
 }

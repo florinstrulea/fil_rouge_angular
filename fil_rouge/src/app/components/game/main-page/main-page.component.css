@@ -13,18 +13,24 @@ button {
   border: none;
 }
 
-body {
+/* body {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
+  
+} */
+
+.main-page {
+  max-height: 100vh;
+  overflow: none;
 }
 
-.container {
+/* .container-fluid {
   grid-column: 1 / span 12;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  height: auto;
-}
+  max-height: 100%;
+} */
 
 .map {
   grid-column: 1 / span 12;
@@ -36,7 +42,6 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
-  height: auto;
 }
 
 .interface {
