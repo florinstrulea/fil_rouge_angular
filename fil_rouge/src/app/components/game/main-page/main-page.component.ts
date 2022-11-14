@@ -52,14 +52,6 @@ export class MainPageComponent implements OnInit {
     }
   }
 
-  // ngOnChanges(changes: SimpleChanges){
-  //   console.log(this.modal.refresh);
-  //   console.log("AVANT dans le ngOnChanges");
-  //   if(this.modal.closeModal()){
-  //     console.log("dans le ngOnChanges");
-
-  //     this.inventoryCard.ngOnInit();
-  //   }
 }
 
 

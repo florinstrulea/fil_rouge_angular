@@ -31,7 +31,6 @@ export class ModalaEquiperComponent implements OnInit {
     this.modal.nativeElement.classList.add("hidden");
     this.overlay.nativeElement.classList.add("hidden");
 
-
   }
 
   equipElement(value: string, idElement: number) {
@@ -45,7 +44,14 @@ export class ModalaEquiperComponent implements OnInit {
   }
 
   consumatePotion(value: string, idElement: number) {
-    this.playerCardService.consumeElement(value, idElement, this.player.id).subscribe(res => console.log());
+    this.playerCardService.consumeElement(value, idElement, this.player.id).subscribe(res => {
+      this.playerCardService.setPlayerObservable$(res.playerDTO);
+      this.player = res.playerDTO;
+      console.log("Consule Potion res :")
+      console.log(res)
+    });
+
+    this.closeModal();
   }
 
 

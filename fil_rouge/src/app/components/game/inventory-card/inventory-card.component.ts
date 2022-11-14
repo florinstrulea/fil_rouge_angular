@@ -21,7 +21,7 @@ export class InventoryCardComponent implements OnInit {
   listImagesWeapons = new Array();
   listImagesArmors = new Array();
 
-  constructor(private choosePlayerService: ChoosePlayerService, private playerCardService: PlayerCardService) {
+  constructor(private playerCardService: PlayerCardService) {
   }
   sub: Subscription = new Subscription();
 
@@ -33,7 +33,6 @@ export class InventoryCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.sub = this.playerCardService.playerObservable$.subscribe(res => this.player = res)
-    // this.choosePlayerService.getBattleDTO().subscribe(res => this.player = res.playerDTO)
   }
   open(value: string, obj: {}) {
     this.modalComp.openModal();
@@ -42,18 +41,11 @@ export class InventoryCardComponent implements OnInit {
   }
 
   refreshFromInventory() {
-
-
-    // this.populatePotions();
-    // this.populateArmors();
-    // this.populateWeapons();
   }
   equipElement(Object: string) {
 
-
   }
   openOptionEquip(el: object) {
-
   }
 
   populatePotions() {

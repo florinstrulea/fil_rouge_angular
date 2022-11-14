@@ -6,13 +6,13 @@
         <div class="image-container">
             <img [src]="weaponEquipedImg" class="card-img-top" alt="...">
         </div>
-        <span class="item-title">{{weaponName}}</span>
+        <span class="item-title equiped">{{weaponName}}</span>
     </div>
 
     <div class="card card-player-img">
         <div class="image-container">
             <img [src]="playerImg" class="card-img-top" alt="...">
-            <span class="item-title fw-bold">{{player.namePlayer}}</span>
+            <span class="item-title fw-bold text-light">{{player.namePlayer}}</span>
         </div>
     </div>
 
@@ -20,33 +20,33 @@
         <div class="image-container">
             <img [src]="armorEquipedImg" class="card-img-top" alt="...">
         </div>
-        <span class="item-title">{{armorName}}</span>
+        <span class="item-title equiped">{{armorName}}</span>
     </div>
 
     <div class="card card-health">
         <div class="image-container">
             <img [src]="hpImg" class="card-img-top" alt="...">
         </div>
-        <span class="item-title">Hp : {{player.hp}}</span><br>
+        <span class="item-title">{{player.hp}}</span><br>
     </div>
     <div class="card card-money">
 
         <div class="image-container">
             <img [src]="moneyImg" class="card-img-top" alt="...">
         </div>
-        <span class="item-title">Money : {{player.money}}</span><br>
+        <span class="item-title">{{player.money}}</span><br>
     </div>
     <div class="card card-experience">
         <div class="image-container">
             <img [src]="experienceImg" class="card-img-top" alt="...">
         </div>
-        <span class="item-title">XP : {{player.experience}}</span><br>
+        <span class="item-title">{{player.experience}}</span><br>
     </div>
     <div class="card card-level">
         <div class="image-container">
             <img [src]="levelImg" class="card-img-top" alt="...">
         </div>
-        <span class="item-title">Level : {{player.level}}</span><br>
+        <span class="item-title"></span><br>
     </div>
 
 </div>
