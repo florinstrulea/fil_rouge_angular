@@ -15,18 +15,26 @@ export class ChoosePlayerComponent implements OnInit {
     {
       id: 1,
       link: "/Warrior_F_equiped.png",
+      description:"La warrior est une guerrière redoutable qui ne craint pas le danger, elle souhaite préparer un avenir sans danger pour la communauté",
+      name:"Guerriere",
     },
     {
       id: 2,
       link: "/Warrior_Male_equiped.png",
+      description:"Le warrior est un guerrier renommé, il aime chasser les monstres qui rôdent autour de la cité",
+      name:"Guerrier",
     },
     {
       id: 7,
       link: "/Archer_Female.png",
+      description:"Manieuse orpaire à l'arc, elle décoche son arc de façon magistrale er rate rarement sa cible",
+      name:"Archerette",
     },
     {
       id: 8,
       link: "/Archer_Male.png",
+      description:"Archer solitaire, c'est un adversaire impassible mais toujours prêt à en découdre avec les monstres de la contrée",
+      name:"Archer",
     },
 
 
@@ -36,8 +44,8 @@ export class ChoosePlayerComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getHeroId(event: Event) {
-    this.heroId = (event.target as HTMLElement).getAttribute("data-id")!;
+  getHeroId(number: string) {
+    this.heroId = number;
     console.log("heroId",this.heroId);
   }
 

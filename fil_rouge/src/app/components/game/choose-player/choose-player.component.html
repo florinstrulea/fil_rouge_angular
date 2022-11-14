@@ -11,73 +11,21 @@
             </div>
         </div>
         <div class="row col-md-12">
-            <div class="col-md-3 choose-player">
+            <div class="col-md-3 choose-player" *ngFor="let el of listPhotos" >
                 <div class="card ">
-
-                    <!-- Button trigger modal -->
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#playerModal"
-                        data-id="1" (click)="getHeroId($event)">
+                        data-id={{el.id}} (click)="getHeroId(''+el.id)">
                         Choose player
                     </button>
 
-                    <img [src]="warriorFemale" class="card-img-top" alt="..." id="img-1">
+                    <img [src]="'../../../assets/choose-player' + el.link+ '' " class="card-img-top" alt="..." id="img-1">
                     <div class="card-body" class="essaiDisplay">
-                        <h5 class="card-title text-center">Warrior Female</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a
-                            to additional content. This content is a little bit longer.</p>
+                        <h5 class="card-title text-center">{{el.name}}</h5>
+                        <p class="card-text">{{el.description}}</p>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3 choose-player ">
-                <div class="card">
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#playerModal"
-                        data-id="2" (click)="getHeroId($event)">
-                        Choose player
-                    </button>
+            </div>            
 
-                    <img [src]="warriorMale" class="card-img-top" alt="...">
-                    <div class="card-body" class="essaiDisplay">
-                        <h5 class="card-title text-center">Warior Male</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a
-                            to additional content. This content is a little bit longer.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 choose-player">
-                <div class="card ">
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#playerModal"
-                        data-id="7" (click)="getHeroId($event)">
-                        Choose player
-                    </button>
-
-                    <img [src]="archerFemale" class="card-img-top" alt="...">
-                    <div class="card-body" class="essaiDisplay">
-                        <h5 class="card-title text-center">Archer Female</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a
-                            natural lead-in
-                            to additional content.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 choose-player">
-                <div class="card">
-
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#playerModal"
-                        data-id="8" (click)="getHeroId($event)">
-                        Choose player
-                    </button>
-                    <img [src]="archerMale" class="card-img-top" alt="...">
-                    <div class="card-body" class="essaiDisplay">
-                        <h5 class="card-title text-center">Archer Male</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a
-                            natural lead-in
-                            to additional content. This content is a little bit longer.</p>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </section>
