@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg cc-navbar position-fixed navbar-dark  w-100 fs-4">
+  <div class="container-fluid">
+
+
+    <a class="navbar-brand" routerLink="">FloYoRa Adventures</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item" *ngIf="!curAuth?.connected"><a class="nav-link" routerLink="/auth/login">Login</a>
+        </li>
+        <li class="nav-item" *ngIf="!curAuth?.connected"><a class="nav-link" routerLink="/auth/register">Register</a>
+        </li>
+        <li class="nav-item" *ngIf="curAuth?.connected"><a class="nav-link" (click)="logout()">Logout</a></li>
+        <li class="profile" *ngIf="curAuth?.connected">
+            <a class="nav-link text-success " routerLink="/profile"><i class="bi bi-person-circle"></i>
+                Bienvenue {{ curAuth?.user?.firstName }} {{ curAuth?.user?.lastName }} !</a>
+          
+        </li>
+
+
+            </ul>
+
+        </div>
+
+
+    </div>
+</nav>

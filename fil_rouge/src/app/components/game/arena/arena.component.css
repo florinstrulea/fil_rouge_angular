@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Redressed&family=Merriweather:wght@300;400;700&display=swap');
+
+/* class pour gerer la police */
+.redressed {
+    font-family: 'Redressed', cursive;
+}
+
+.merriweather {
+    font-family: 'Merriweather', serif;
+}
+
+.background {
+    background-image: url("./../../../../assets/arena/Background_stage1_road.png");
+    /* doonner une certaine auteur a limage */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+
+}
+
+
+
+.row {
+    margin-top: 80px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.btn-order {
+    text-transform: uppercase;
+    color: black;
+    border-color: black;
+    transition: 0.5s ease-in-out;
+
+}
+
+.btn-order:hover,
+.btn-order:active {
+    color: black;
+    background-color: var(--bs-teal);
+    scale: 115%;
+
+}
+
+.affichageFight {
+    text-align: center;
+    margin-top: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: white;
+    height: 350px;
+}
+
+#sceneFight {
+    margin: 0 auto;
+    width: 80%;
+
+}
+
+.hero-image-container {
+    width: 70%;
+}
+
+.hero-image-container img {
+    width: 100%;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--bs-teal);
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #b30000;
+}

@@ -1,14 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthComponent } from './auth/auth.component';
+
 import { NotFoundComponent } from './components/others/not-found/not-found.component';
+import { AuthComponent } from './modules/auth/auth.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 
 const routes: Routes = [
   {
+    path: '',
+    component: HomepageComponent,
+  },
+  {
     path: 'auth',
-    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
+    loadChildren: () => import('./modules/auth/auth.module').then((m) => m.AuthModule),
     component: AuthComponent,
   },
+
+  { path: 'game', loadChildren: () => import('./modules/game/game.module').then(m => m.GameModule) },
   {
     path: '**',
     component: NotFoundComponent,
@@ -19,4 +27,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
