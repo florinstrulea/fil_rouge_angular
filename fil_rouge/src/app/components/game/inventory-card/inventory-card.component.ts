@@ -1,6 +1,5 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { ChoosePlayerService } from 'src/app/services/choose-player/choose-player.service';
 import { PlayerCardService } from 'src/app/services/player-card/player-card.service';
 import { ArmorCardComponent } from './armor-card/armor-card.component';
 import { ModalaEquiperComponent } from './modal-equiper/modala-equiper/modala-equiper.component';
@@ -40,8 +39,8 @@ export class InventoryCardComponent implements OnInit {
     this.modalComp.type = value;
   }
 
-  refreshFromInventory() {
-  }
+  // refreshFromInventory() {
+  // }
   equipElement(Object: string) {
 
   }
