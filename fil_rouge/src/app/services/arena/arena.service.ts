@@ -10,6 +10,7 @@ export class ArenaService {
   arenaUrl = environment.apiUrl + "arena/start";
   fightUrl = environment.apiUrl + "arena/fight";
   runUrl = environment.apiUrl + "arena/escape";
+  killPlayerUrl = environment.apiUrl + "arena/killPlayer"
   constructor(private http: HttpClient) { }
 
   getWariors(): Observable<any> {
@@ -21,5 +22,9 @@ export class ArenaService {
 
   runEscape(): Observable<any> {
     return this.http.get<any>(this.runUrl, { withCredentials: true })
+  }
+
+  killPlayer(): Observable<any> {
+    return this.http.get<any>(this.killPlayerUrl, { withCredentials: true })
   }
 }
