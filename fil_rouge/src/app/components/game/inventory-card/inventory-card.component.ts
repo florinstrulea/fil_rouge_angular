@@ -40,8 +40,8 @@ export class InventoryCardComponent implements OnInit {
     this.modalComp.type = value;
   }
 
-  refreshFromInventory() {
-  }
+  // refreshFromInventory() {
+  // }
   equipElement(Object: string) {
 
   }
