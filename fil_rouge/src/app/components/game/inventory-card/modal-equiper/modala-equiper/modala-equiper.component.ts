@@ -24,7 +24,7 @@ export class ModalaEquiperComponent implements OnInit {
   openModal() {
     this.modal.nativeElement.classList.remove('hidden');
     this.overlay.nativeElement.classList.remove('hidden');
-    this.modal.nativeElement.scrollIntoView();
+    this.modal.nativeElement.scrollIntoView(false);
     this.choosePlayerService
       .getBattleDTO()
       .subscribe((res) => (this.player = res.playerDTO));
