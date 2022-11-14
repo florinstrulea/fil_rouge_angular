@@ -21,7 +21,7 @@ export class InventoryCardComponent implements OnInit {
   listImagesWeapons = new Array();
   listImagesArmors = new Array();
 
-  constructor(private choosePlayerService: ChoosePlayerService, private playerCardService: PlayerCardService) {
+  constructor(private playerCardService: PlayerCardService) {
   }
   sub: Subscription = new Subscription();
 

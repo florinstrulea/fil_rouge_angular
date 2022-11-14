@@ -23,6 +23,7 @@
                     <div class="box card" *ngFor="let el of player.listWeapon">
                         <img [src]="'../../../assets/equipement/weapons' + el.iconUrl + '.png'" alt=""
                             (click)="open('Weapon', el)" />
+                            <span>{{el.name}}</span>
                     </div>
                 </div>
                 <ng-template #elseBlock>II n'y a aucune Weapon dans l'inventaire.</ng-template>
