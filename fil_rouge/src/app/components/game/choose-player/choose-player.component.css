@@ -1,10 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Redressed&family=Merriweather:wght@300;400;700&display=swap');
 
-/* class pour gerer la police */
-.redressed {
-    font-family: 'Redressed', cursive;
-}
-
 .merriweather {
     font-family: 'Merriweather', serif;
 }
@@ -20,24 +15,24 @@
 /*****************************/
 
 /* PARTI navbar du haut */
-.cc-navbar {
+/* .cc-navbar {
     background-color: rgba(0, 0, 0, 0.55);
     font-family: 'Merriweather', sans-serif;
     box-shadow: 1px 1px 3px rgba(255, 255, 255, 0.54);
     z-index: 99;
-}
+} */
 
-.cc-navbar .nav-link {
+/* .cc-navbar .nav-link {
     border-bottom: 1px solid transparent;
     transition: padding-bottom 0.4s ease-in-out, border-color 0.3s ease;
 
 }
 
 .cc-navbar .nav-link:hover {
-    /* quand on va survolé cette navlink */
+
     padding-bottom: 2px;
     border-bottom-color: white;
-}
+} */
 
 /*************************************************/
 /****************** CARD qui contient  l'image****/
@@ -138,3 +133,24 @@ a {
     text-decoration: none;
     color: white;
 }
+
+@media screen and (max-width: 800px) {
+    .body{
+        background-color: red;
+    }
+    .choose-player:hover .card {
+        height: auto;
+        transition-delay: 0.3s;
+        background-color: aqua;
+        width: 100%;
+        transition: 0.3s ease-in-out;
+    }
+    .choose-player {
+        height: auto;
+        transition-delay: 0.3s;
+        background-color: aqua;
+        width: 100%;
+        transition: 0.3s ease-in-out;
+    }
+    .card-body{width:900px}
+  }

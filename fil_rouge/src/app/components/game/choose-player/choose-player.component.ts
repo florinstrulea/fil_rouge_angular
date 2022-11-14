@@ -15,7 +15,7 @@ export class ChoosePlayerComponent implements OnInit {
     {
       id: 1,
       link: "/Warrior_F_equiped.png",
-      description:"La warrior est une guerrière redoutable qui ne craint pas le danger, elle souhaite préparer un avenir sans danger pour la communauté",
+      description:"La warrior est une guerrière redoutable qui ne craint pas le danger, elle souhaite préparer un avenir sans danger",
       name:"Guerriere",
     },
     {
