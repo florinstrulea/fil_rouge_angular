@@ -1,86 +1,143 @@
 <header>
-    <div class="wrap text-light fs-6 fw-bold">Inventory Card</div>
+  <div class="wrap text-light fs-6 fw-bold">Inventory Card</div>
 </header>
-<div class="container-fluid row col-12">
-
-    
+<div class="container">
+  <div class="row justify-content-center">
     <!-- ****************************START - WEAPON ************************ -->
-    <div class="inventory col-4">
-        <div class="overflow-auto col-12 mt-2">
-            <div class="weapon">
-                <div *ngIf="player.listWeapon; else elseBlock">
 
+    <div class="col-sm-12 col-md-6 col-lg-4 mt-2">
+      <div class="text-center my-2" *ngIf="player.listWeapon; else elseBlock1">
+        <button type="button" class="btn btn-primary position-relative mx-auto">
+          Weapons
+          <span
+            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+          >
+            {{ player.listWeapon.length }}
+            <span class="visually-hidden">Weapons</span>
+          </span>
+        </button>
+      </div>
+      <ng-template #elseBlock1
+        ><button
+          type="button"
+          class="btn btn-primary position-relative mx-auto"
+        >
+          Weapons
+          <span
+            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+          >
+            0
+            <span class="visually-hidden">Weapons</span>
+          </span>
+        </button></ng-template
+      >
 
-                    <button type="button" class="btn btn-primary position-relative">
-                        Weapons
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                            {{ player.listWeapon.length }}
-                            <span class="visually-hidden">Weapons</span>
-                        </span>
-                    </button>
-
-
-                    <div class="box card" *ngFor="let el of player.listWeapon">
-                        <img [src]="'../../../assets/equipement/weapons' + el.iconUrl + '.png'" alt=""
-                            (click)="open('Weapon', el)" />
-                            <span>{{el.name}}</span>
-                    </div>
-                </div>
-                <ng-template #elseBlock>II n'y a aucune Weapon dans l'inventaire.</ng-template>
-            </div>
+      <div class="overflow-auto">
+        <div
+          *ngIf="player.listWeapon"
+          class="d-flex flex-wrap justify-content-center"
+        >
+          <div class="box" *ngFor="let el of player.listWeapon">
+            <img
+              [src]="'../../../assets/equipement/weapons' + el.iconUrl + '.png'"
+              alt=""
+              (click)="open('Weapon', el)"
+            />
+          </div>
         </div>
+      </div>
     </div>
+
     <!-- ****************************END - WEAPON ************************ -->
 
     <!-- ****************************START - ARMOR ************************ -->
-    <div class="inventory col-4">
-        <div class="overflow-auto">
-                <div class="weapon col-12 mt-2">
-                    <div *ngIf="player.listArmor; else elseBlock">
-                        <button type="button" class="btn btn-primary position-relative">
-                            Armors
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                {{ player.listArmor.length }}
-                                <span class="visually-hidden">Weapons</span>
-                            </span>
-                        </button>
-                        <div class="box card" *ngFor="let el of player.listArmor">
-                            <img [src]="
-                  '../../../assets/equipement/armors' + el.iconUrl + '.png'
-                " alt="" (click)="open('Armor', el)" />
-                        </div>
-                    </div>
-                    <ng-template #elseBlock>II n'y a aucune armure dans l'inventaire.</ng-template>
-                </div>
-            </div>
-
+    <div class="col-sm-12 col-md-6 col-lg-4 mt-2">
+      <div class="text-center my-2" *ngIf="player.listArmor; else elseBlock2">
+        <button type="button" class="btn btn-primary position-relative mx-auto">
+          Armors
+          <span
+            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+          >
+            {{ player.listArmor.length }}
+            <span class="visually-hidden">Armors</span>
+          </span>
+        </button>
+      </div>
+      <ng-template #elseBlock2>
+        <button type="button" class="btn btn-primary position-relative mx-auto">
+          Armors
+          <span
+            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+          >
+            0
+            <span class="visually-hidden">Armors</span>
+          </span>
+        </button></ng-template
+      >
+      <div class="overflow-auto">
+        <div
+          *ngIf="player.listArmor"
+          class="d-flex flex-wrap justify-content-center"
+        >
+          <div class="box" *ngFor="let el of player.listArmor">
+            <img
+              [src]="'../../../assets/equipement/armors' + el.iconUrl + '.png'"
+              alt=""
+              (click)="open('Armor', el)"
+            />
+          </div>
+        </div>
+      </div>
     </div>
     <!-- ****************************END - ARMOR ************************ -->
-    
-    <!-- ****************************START - POTION ************************ -->
-    <div class="inventory col-4">
-        <div class="overflow-auto">
-                <div class="weapon col-12 mt-2">
-                    <div *ngIf="player.listePotions; else elseBlock">
-                        <button type="button" class="btn btn-primary position-relative">
-                            Potions
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                {{ player.listePotions.length }}
-                                <span class="visually-hidden">Potions</span>
-                            </span>
-                        </button>
-                        <div class="box card" *ngFor="let el of player.listePotions">
-                            <img [src]="
-                  '../../../assets/equipement/potions' + el.iconUrl + '.png'
-                " alt="" (click)="open('Potion', el)" />
-                        </div>
-                    </div>
-                    <ng-template #elseBlock>II n'y a aucune Potion dans l'inventaire.</ng-template>
-                </div>
-            </div>
 
+    <!-- ****************************START - POTION ************************ -->
+    <div class="col-sm-12 col-md-6 col-lg-4 mt-2">
+      <div
+        class="text-center my-2"
+        *ngIf="player.listePotions; else elseBlock3"
+      >
+        <button type="button" class="btn btn-primary position-relative mx-auto">
+          Potions
+          <span
+            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+          >
+            {{ player.listePotions.length }}
+            <span class="visually-hidden">Armors</span>
+          </span>
+        </button>
+      </div>
+      <div class="overflow-auto">
+        <div
+          *ngIf="player.listePotions"
+          class="d-flex flex-wrap justify-content-center"
+        >
+          <div class="box" *ngFor="let el of player.listePotions">
+            <img
+              [src]="'../../../assets/equipement/potions' + el.iconUrl + '.png'"
+              alt=""
+              (click)="open('Potion', el)"
+            />
+          </div>
+        </div>
+        <ng-template #elseBlock3
+          ><button
+            type="button"
+            class="btn btn-primary position-relative mx-auto"
+          >
+            Potions
+            <span
+              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+            >
+              0
+              <span class="visually-hidden">Potions</span>
+            </span>
+          </button></ng-template
+        >
+      </div>
     </div>
     <!-- ****************************END - POTION ************************ -->
+  </div>
 </div>
 
 <app-modala-equiper></app-modala-equiper>

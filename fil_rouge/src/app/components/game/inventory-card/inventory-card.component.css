@@ -1,79 +1,48 @@
-.header{
-    background: #1D415C;
-    box-shadow: 0px 4px 4px rgba(0,0,0,0.15);
-    color:#fff;
-    padding: 0.8em ;
-    /* margin-bottom:2em; */
+.header {
+  background: #1d415c;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  color: #fff;
+  padding: 0.8em;
+  /* margin-bottom:2em; */
 }
 
- .card {
-    background: #fff;
-    background-color: rgb(185, 110, 17);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-    border-radius: 10px;
-    border-color: #1D415C;
-    border:3px solid;
-    /* position:relative; */
-    /* display:grid; */
-    /* justify-items: center; */
-    /* align-items: center; */
-    padding-top: 0em;
-    /* padding-bottom: 1em; */
-    width: 200px;
-    /* height: 200px; */
- }
-
- .card img {
-    /* display: block; */
-    position:relative;
-    /* z-index:1; */
-    width: 100%;
-    margin:0 auto;
-    transition: transform 0.2s ease-in-out;
- }
- .card img.large {
-    width: 45%;
- }
- .card:hover img {
-    transform:translateY(-20%);
- }
- /* .card:hover {
-    transform:translateY(-20%);
- } */
-
-
+.card {
+  background: #fff;
+  background-color: rgb(185, 110, 17);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  border-color: #1d415c;
+  border: 3px solid;
+  /* position:relative; */
+  /* display:grid; */
+  /* justify-items: center; */
+  /* align-items: center; */
+  padding-top: 0em;
+  /* padding-bottom: 1em; */
+  /* width: 60px;
+  height: 60px; */
+  /* height: 200px; */
+}
 
 /*----------------------------------------*/
 
-
 .box {
-   background-color: rgb(99, 76, 0);
-   color: rgb(0, 90, 150);
-   border-radius: 5px;
-   padding: 20px;
-   /* font-size: 150%; */
-   /* width: 100%; */
- }
-  
-  .box:nth-child(even) {
-    background-color: rgb(158, 201, 76);
-    color: #000;
-  }
-  
-    /* .wrapper {
-      width: auto;
-      display: flex;
-      grid-gap: 10px;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: auto;
-    } */
-.weapon img{
-    width: 50px;
+  background-color: rgb(99, 76, 0);
+  color: rgb(0, 90, 150);
+  border-radius: 5px;
+  height: 60px;
+  width: 60px;
+  margin: 5px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  border: 3px solid #1d415c;
+}
 
+.box:hover {
+  transform: translateY(-20%);
 }
-.armor img{
-    width: 50px;
-}
-.potion img{
-    width: 50px;
+
+.box img {
+  width: 100%;
+  height: auto;
 }
