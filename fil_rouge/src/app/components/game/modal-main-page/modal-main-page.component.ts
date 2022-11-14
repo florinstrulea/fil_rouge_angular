@@ -24,7 +24,22 @@ export class ModalMainPageComponent implements OnInit {
     private playerCardService: PlayerCardService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.choosePlayerService
+      .getBattleDTO()
+      .subscribe((res) => (this.player = res.playerDTO));
+  }
+
+  removeArmorFromList() {
+    if (this.player.listArmor != null) {
+      for (let armor of this.player.listArmor) {
+        let elements2 = this.elements.filter(
+          (el) => armor.armorId != el.armorId
+        );
+        this.elements = elements2;
+      }
+    }
+  }
 
   openModal() {
     this.modal.nativeElement.classList.remove('hidden');
@@ -56,9 +71,11 @@ export class ModalMainPageComponent implements OnInit {
         .buyElement(element, idElement, idPlayer)
         .subscribe((res) => {
           console.log(res);
-          this.choosePlayerService
-            .getBattleDTO()
-            .subscribe((res) => (this.player = res.playerDTO));
+          this.choosePlayerService.getBattleDTO().subscribe((res) => {
+            this.player = res.playerDTO;
+            //this.removeArmorFromList();
+          });
+
           this.buySuccesful(element, idElement);
         });
     } else alert('Montant inssufisant');
@@ -70,7 +87,7 @@ export class ModalMainPageComponent implements OnInit {
     for (let myElement of this.elements) {
       if (myElement[value] == idElement) {
         valueString = myElement.name;
-        alert(`Vous avez bien achété l'element avec le nom: ${valueString}`);
+        alert(`Vous avez bien achété l'${element} avec le nom: ${valueString}`);
       }
     }
   }

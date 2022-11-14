@@ -40,7 +40,7 @@
   width: 100%;
 }
 
-i:hover {
+.basket:hover {
   cursor: pointer;
   transform: translateY(-10%);
 }

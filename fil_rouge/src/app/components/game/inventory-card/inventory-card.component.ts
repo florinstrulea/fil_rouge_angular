@@ -45,8 +45,8 @@ export class InventoryCardComponent implements OnInit {
   openOptionEquip(el: object) {}
 
   populatePotions() {
-    if (this.player.listePotions) {
-      let arr: any[] = this.player.listePotions;
+    if (this.player.listPotion) {
+      let arr: any[] = this.player.listPotion;
       for (let el of arr) {
         let url = 'assets/equipement/potions' + el.iconUrl + '.png';
         let objet = {
@@ -63,8 +63,8 @@ export class InventoryCardComponent implements OnInit {
   }
 
   populateWeapons() {
-    if (this.player.listePotions) {
-      let arr: any[] = this.player.listePotions;
+    if (this.player.listPotion) {
+      let arr: any[] = this.player.listPotion;
       for (let el of arr) {
         let url = 'assets/equipement/weapons' + el.iconUrl + '.png';
         let objet = {

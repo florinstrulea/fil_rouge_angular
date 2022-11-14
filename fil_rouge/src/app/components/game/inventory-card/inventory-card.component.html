@@ -100,10 +100,7 @@
 
     <!-- ****************************START - POTION ************************ -->
     <div class="col-sm-12 col-md-6 col-lg-4 mt-2">
-      <div
-        class="text-center my-2"
-        *ngIf="player.listePotions; else elseBlock3"
-      >
+      <div class="text-center my-2" *ngIf="player.listPotion; else elseBlock3">
         <span
           class="border-bottom text-dark position-relative mx-auto fs-5 fw-bold"
         >
@@ -111,17 +108,17 @@
           <span
             class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success"
           >
-            {{ player.listePotions.length }}
+            {{ player.listPotion.length }}
             <span class="visually-hidden">Armors</span>
           </span>
         </span>
       </div>
       <div class="overflow-auto">
         <div
-          *ngIf="player.listePotions"
+          *ngIf="player.listPotion"
           class="d-flex flex-wrap justify-content-center"
         >
-          <div class="box" *ngFor="let el of player.listePotions">
+          <div class="box" *ngFor="let el of player.listPotion">
             <img
               [src]="'../../../assets/equipement/potions' + el.iconUrl + '.png'"
               alt=""
