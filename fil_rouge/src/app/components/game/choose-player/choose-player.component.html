@@ -1,30 +1,27 @@
-<section class="banner d-flex justify-content-center align-items-center p-0 mb-0 ">
+<section class="banner d-flex justify-content-center align-items-center p-0 mb-0  ">
     <div class="container">
         <div class="row ">
             <div class="cc-menu  col-md-12 merriweather text-center text-light ">
                 <h3 class=" ">Nos personnages</h3>
-                <div class="card-body text-light text-center">
-                    <h5 class="card-title">Choose a character</h5>
-                    <p class="card-text">You have the possibility to choice a Male or a Female
-                        character</p>
-                </div>
+                <h5 class="card-title">Selectionnez votre héros</h5>
             </div>
         </div>
         <div class="row col-md-12 box-player">
-            <div class="col-md-3 choose-player" *ngFor="let el of listPhotos" >
+            <div class="col-sm-6  col-md-5 col-lg-3 choose-player" *ngFor="let el of listPhotos">
                 <div class="card ">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#playerModal"
-                        data-id={{el.id}} (click)="getHeroId(''+el.id)">
-                        Choose player
+                    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal"
+                        data-bs-target="#playerModal" data-id={{el.id}} (click)="getHeroId(''+el.id)">
+                        Choisir un personnage
                     </button>
 
-                    <img [src]="'../../../assets/choose-player' + el.link+ '' " class="card-img-top" alt="..." id="img-1">
+                    <img [src]="'../../../assets/choose-player' + el.link+ '' " class="card-img-top" alt="..."
+                        id="img-1">
                     <div class="card-body" class="essaiDisplay">
                         <h5 class="card-title text-center">{{el.name}}</h5>
                         <p class="card-text">{{el.description}}</p>
                     </div>
                 </div>
-            </div>            
+            </div>
 
         </div>
     </div>

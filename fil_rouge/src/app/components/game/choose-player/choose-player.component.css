@@ -7,11 +7,11 @@
 /* Banniere du haut Profil */
 .banner {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(src\assets\choose-player\battleback1_0.png) center center fixed
-      no-repeat;
+    url(src\assets\choose-player\battleback1_0.png) center center fixed no-repeat;
   background-size: cover;
   /* doonner une certaine auteur a limage */
-  height: 100vh;
+
+  height: 100%;
 }
 
 /*****************************/
@@ -39,11 +39,9 @@
 /*************************************************/
 /****************** CARD qui contient  l'image****/
 .card {
-  background: linear-gradient(
-    45deg,
-    rgba(29, 236, 197, 0.5),
-    rgba(91, 14, 214, 0.5) 100%
-  );
+  background: linear-gradient(45deg,
+      rgba(29, 236, 197, 0.5),
+      rgba(91, 14, 214, 0.5) 100%);
 }
 
 #txtwht {
@@ -54,7 +52,7 @@
 
 .container .card {
   max-width: 300px;
-  height: 280px;
+  height: 380px;
   margin: 30px 10px;
   padding: 20px 15px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
@@ -66,7 +64,7 @@
 }
 
 .choose-player:hover .card {
-  height: 450px;
+  height: 500px;
   transition-delay: 0.3s;
   background-color: aqua;
   transition: 0.3s ease-in-out;
@@ -134,10 +132,15 @@ a {
   color: white;
 }
 
+.cc-menu {
+  margin-top: 150px;
+}
+
 @media screen and (max-width: 800px) {
   .body {
     background-color: red;
   }
+
   .choose-player:hover .card {
     height: auto;
     transition-delay: 0.3s;
@@ -145,13 +148,14 @@ a {
     width: 100%;
     transition: 0.3s ease-in-out;
   }
+
   .choose-player {
     height: auto;
     transition-delay: 0.3s;
-    background-color: aqua;
     width: 100%;
     transition: 0.3s ease-in-out;
   }
+
   .card-body {
     width: 900px;
   }
