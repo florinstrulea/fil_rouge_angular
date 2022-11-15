@@ -38,8 +38,11 @@
 
                 <button id="attack" type="button" class="btn btn-order btn-lg me-5 rounded-0 merriweather p-3 col-md-3 "
                     (click)="fight()">Attack</button>
+
                 <button id="inventory" type="button"
-                    class="btn btn-order btn-lg me-5 rounded-0 merriweather p-3 col-md-3">Potions</button>
+                    class="btn btn-order btn-lg me-5 rounded-0 merriweather p-3 col-md-3" (click)="openModalConsumePotion()">Potions</button>
+
+
                 <button id="run" type="button" class="btn btn-order btn-lg rounded-0 merriweather p-3 col-md-3"
                     (click)="runBack()">Run</button>
             </div>
@@ -56,4 +59,5 @@
         </div>
     </div>
     <app-modal-arena></app-modal-arena>
+    <app-modalapotion></app-modalapotion>
 </div>

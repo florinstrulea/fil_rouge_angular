@@ -24,6 +24,7 @@ export class ModalArenaComponent implements OnInit {
   openModal() {
     this.modal.nativeElement.classList.remove("hidden");
     this.overlay.nativeElement.classList.remove("hidden");
+    
 
   }
 

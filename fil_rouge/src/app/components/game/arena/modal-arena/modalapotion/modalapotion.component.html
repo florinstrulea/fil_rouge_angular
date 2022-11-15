@@ -1,0 +1,66 @@
+<!-- =============Modal=============== -->
+<div class="myModal hidden text-center" #modal>
+  <h1 class="text-danger my-modal-message">My Potions 😍</h1>
+
+  <div class="banner d-flex justify-content-center text-center pt-5">
+    <div class="container py-5">
+      <div class="row col-12">
+        <h1 class="title mb-5" *ngIf="player.listPotion != 0; else noPotionMsg">You want to restore your HP</h1>
+        <ng-template #noPotionMsg>
+          <h1 class="title mb-5">You can't restore your HP</h1>
+        </ng-template>
+
+        <h1 class="title mb-5">current HP : {{ player.hp }}</h1>
+        <table *ngIf="player.listPotion != 0; else noPotionBlock" class="table table-dark border border-0">
+          <tr>
+            <th class="img-container">Image</th>
+            <th>Name</th>
+            <th>Level</th>
+            <th>Points restored</th>
+            <th>Price</th>
+            <th>Actions</th>
+          </tr>
+          <tbody class="border border-0" *ngFor="let potion of player.listPotion; index as index">
+            <tr *ngIf="notInList(potion.name, player.listPotions)">
+              <td class="border-top border-success">
+                <img class="element-img" [src]="
+                    '../../../assets/equipement/potions' +
+                    potion.iconUrl +
+                    '.png'
+                  " alt="" />
+              </td>
+              <td class="border-top border-success">{{ potion.name }}</td>
+              <td class="border-top border-success">{{ potion.level }}</td>
+              <td class="border-top border-success">
+                {{ potion.hpRestore }}
+              </td>
+
+              <td class="border-top border-success">{{ potion.price }}</td>
+              <td class="border-top border-success">
+                <div class="fs-3 basket">
+                  <i class="bi bi-bag" title="Consommer element"
+                    (click)="consumatePotion('Potion', potion.potionId)"></i>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <ng-template #noPotionBlock>
+          <span class="border-bottom text-dark position-relative mx-auto fs-5 fw-bold">YOU HAVE NO POTION
+            <!-- <span
+              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+            >
+              0
+              <span class="visually-hidden">NO POTION</span>
+            </span> -->
+          </span></ng-template>
+      </div>
+    </div>
+  </div>
+
+  <button class="close-modal btn btn-secondary fs-3 mx-auto" #btnCloseModal (click)="closeModal()">
+    Fermer
+  </button>
+</div>
+<div class="overlay hidden" #overlay></div>
