@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+  position: absolute;
+}
+
 img {
   width: 100%;
 }
@@ -12,12 +16,6 @@ button {
   background: none;
   border: none;
 }
-
-/* body {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  
-} */
 
 .main-page {
   max-height: 100vh;
@@ -33,11 +31,6 @@ button {
 } */
 
 .map {
-  grid-column: 1 / span 12;
-  grid-row: 1 / span 1;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(8, 1fr);
   background-image: url("../../../../assets/main-page/GrassMaze.png");
   background-size: cover;
   background-repeat: no-repeat;
@@ -45,14 +38,9 @@ button {
 }
 
 .interface {
-  grid-column: 1 / span 12;
-  grid-row: 1 / span 2;
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  column-gap: 20px;
   background-image: url("../../../../assets/main-page/GrassBackGround.png");
   background-color: rgb(69, 100, 92);
-  /* background-repeat: no-repeat; */
+
   background-size: cover;
   width: 100%;
   padding: 10px;
@@ -68,11 +56,25 @@ button {
   height: 100%;
 }
 
-.interface__img {
-  height: 80px;
+.gate {
 }
 
-.map__form--maison {
+.gate-image-container {
+  width: 20%;
+  height: 20%;
+  margin: 20%;
+}
+
+.gate-image-container img {
+  width: 100%;
+  height: 100%;
+}
+
+/* .interface__img {
+  height: 80px;
+} */
+
+/* .map__form--maison {
   grid-column: 1 / span 4;
   grid-row: 4 / span 7;
 }
@@ -110,4 +112,4 @@ button {
 
 .interface__form--objects {
   grid-column: 4 / span 8;
-}
+} */

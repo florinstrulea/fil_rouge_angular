@@ -81,7 +81,7 @@
                 </td>
                 <td class="border-top border-success">{{ element.price }}</td>
                 <td class="border-top border-success">
-                  <span class="fs-3">
+                  <div class="fs-3 basket">
                     <i
                       class="bi bi-bag"
                       title="Acheter element"
@@ -90,7 +90,7 @@
                       "
                     >
                     </i>
-                  </span>
+                  </div>
                 </td>
               </tr>
             </tbody>
@@ -135,14 +135,14 @@
                 </td>
                 <td class="border-top border-success">{{ element.price }}</td>
                 <td class="border-top border-success">
-                  <span class="fs-3">
+                  <div class="fs-3 basket">
                     <i
                       class="bi bi-bag"
                       title="Acheter element"
                       (click)="buyElement('Armor', element.armorId, player.id)"
                     >
                     </i>
-                  </span>
+                  </div>
                 </td>
               </tr>
             </tbody>
