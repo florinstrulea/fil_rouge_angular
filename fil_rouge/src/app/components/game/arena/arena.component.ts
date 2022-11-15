@@ -5,6 +5,7 @@ import { ArenaService } from 'src/app/services/arena/arena.service';
 import { JournalService } from 'src/app/services/arena/journal.service';
 import { ChoosePlayerService } from 'src/app/services/choose-player/choose-player.service';
 import { ModalArenaComponent } from './modal-arena/modal-arena/modal-arena.component';
+import { ModalapotionComponent } from './modal-arena/modalapotion/modalapotion.component';
 
 
 @Component({
@@ -30,6 +31,7 @@ export class ArenaComponent implements OnInit {
   damageReceivedByMonster: number = 0;
 
   @ViewChild(ModalArenaComponent) modal!: ModalArenaComponent
+  @ViewChild(ModalapotionComponent) modalPotion!:ModalapotionComponent;
 
 
   @ViewChild("journal") journal!: ElementRef
@@ -135,6 +137,11 @@ export class ArenaComponent implements OnInit {
     this.hpMonsterAfter = res.monsterDTO.hp;
     sessionStorage.setItem('monsterLifePoints', res.monsterDTO.hp);
     this.damageReceivedByMonster = this.hpMonsterBefore - this.hpMonsterAfter;
+  }
+
+  openModalConsumePotion(){
+    this.modalPotion.openModal();
+
   }
 
 
