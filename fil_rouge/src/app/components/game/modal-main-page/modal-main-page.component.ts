@@ -17,6 +17,7 @@ export class ModalMainPageComponent implements OnInit {
   elements = new Array();
   player: any = {};
   refresh: boolean = false;
+  value: boolean = false;
 
   constructor(
     private mainPageService: MainPageService,
@@ -30,15 +31,12 @@ export class ModalMainPageComponent implements OnInit {
       .subscribe((res) => (this.player = res.playerDTO));
   }
 
-  removeArmorFromList() {
-    if (this.player.listArmor != null) {
-      for (let armor of this.player.listArmor) {
-        let elements2 = this.elements.filter(
-          (el) => armor.armorId != el.armorId
-        );
-        this.elements = elements2;
-      }
-    }
+  notInList(value: string, list: []): boolean {
+    let elements2 = [];
+    if (list != null) {
+      elements2 = list.filter((el: any) => el.name == value);
+      return elements2.length > 0 ? false : true;
+    } else return true;
   }
 
   openModal() {
@@ -46,8 +44,10 @@ export class ModalMainPageComponent implements OnInit {
     this.overlay.nativeElement.classList.remove('hidden');
     this.modal.nativeElement.scrollIntoView(false);
     this.elements = new Array();
+
     this.mainPageService.getElements(this.houseName).subscribe((res) => {
       this.elements = res;
+
       console.log(res);
     });
   }

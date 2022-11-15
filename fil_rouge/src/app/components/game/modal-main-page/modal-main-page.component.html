@@ -55,10 +55,13 @@
               <th>Price</th>
               <th>Actions</th>
             </tr>
-            <tbody class="border border-0">
+            <tbody
+              class="border border-0"
+              *ngFor="let element of elements; index as index"
+            >
               <tr
-                *ngFor="let element of elements; index as index"
                 class="border border-0"
+                *ngIf="notInList(element.name, player.listWeapon)"
               >
                 <td class="border-top border-success">
                   <img
@@ -106,8 +109,11 @@
               <th>Price</th>
               <th>Actions</th>
             </tr>
-            <tbody class="border border-0">
-              <tr *ngFor="let element of elements; index as index">
+            <tbody
+              class="border border-0"
+              *ngFor="let element of elements; index as index"
+            >
+              <tr *ngIf="notInList(element.name, player.listArmor)">
                 <td class="border-top border-success">
                   <img
                     class="element-img"
@@ -154,8 +160,11 @@
               <th>Price</th>
               <th>Actions</th>
             </tr>
-            <tbody class="border border-0">
-              <tr *ngFor="let element of elements; index as index">
+            <tbody
+              class="border border-0"
+              *ngFor="let element of elements; index as index"
+            >
+              <tr *ngIf="notInList(element.name, player.listPotion)">
                 <td class="border-top border-success">
                   <img
                     class="element-img"
