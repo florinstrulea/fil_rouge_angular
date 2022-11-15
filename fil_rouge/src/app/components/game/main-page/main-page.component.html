@@ -1,6 +1,6 @@
 <main class="main-page">
   <div class="container-fluid p-0 m-0 map">
-    <div class="">
+    <div class="gate-container">
       <div class="gate mx-auto" (click)="goToWar()">
         <div class="text-center">
           <span class="fs-4 fw-bold text-light bg-danger rounded"
@@ -14,43 +14,53 @@
       </div>
     </div>
 
-    <div class="map__form map__form--maison col-md-4" data-house="weapons">
-      <button class="map__button">
+    <div
+      class="row justify-content-center houses px-0 mx-0"
+      data-house="weapons"
+    >
+      <div class="col-sm-12 col-md-6 col-xl-4 text-center">
         <span
-          class="fs-4 fw-bold text-light bg-dark rounded"
+          class="fs-4 fw-bold text-light bg-primary rounded"
           data-house="weapons"
           >Weapon Shop
         </span>
-        <img
-          class="map__image map__image--maison"
-          src="../../../../assets/main-page/Maison1.png"
-          alt=""
-          data-house="weapons"
-          (click)="open('weapons')"
-        />
-      </button>
-    </div>
-    <div class="map__form map__form--maison2">
-      <button class="map__button">
-        <span class="fs-4 fw-bold text-light bg-dark rounded">Armor Shop</span
-        ><img
-          class="map__image map__image--maison2"
-          src="../../../../assets/main-page/Maison2.png"
-          alt=""
-          (click)="open('armors')"
-        />
-      </button>
-    </div>
-    <div class="map__form map__form--maison3 ms-5">
-      <button class="map__button">
-        <span class="fs-4 fw-bold text-light bg-dark rounded">Potion Shop</span
-        ><img
-          class="map__image map__image--maison3"
-          src="../../../../assets/main-page/Maison3.png"
-          alt=""
-          (click)="open('potions')"
-        />
-      </button>
+        <div class="house-image-container mx-auto">
+          <img
+            class=""
+            src="../../../../assets/main-page/Maison1.png"
+            alt=""
+            data-house="weapons"
+            (click)="open('weapons')"
+          />
+        </div>
+      </div>
+
+      <div class="col-sm-12 col-md-6 col-xl-4 text-center">
+        <span class="fs-4 fw-bold text-light bg-dark rounded">Armor Shop</span>
+        <div class="house-image-container mx-auto">
+          <img
+            class=""
+            src="../../../../assets/main-page/Maison2.png"
+            alt=""
+            (click)="open('armors')"
+          />
+        </div>
+      </div>
+      <div
+        class="map__form map__form--maison3 col-sm-12 col-md-6 col-xl-4 text-center"
+      >
+        <span class="fs-4 fw-bold text-light bg-success rounded"
+          >Potion Shop</span
+        >
+        <div class="house-image-container mx-auto">
+          <img
+            class=""
+            src="../../../../assets/main-page/Maison3.png"
+            alt=""
+            (click)="open('potions')"
+          />
+        </div>
+      </div>
     </div>
   </div>
   <div class="container-fluid m-0 p-0">
