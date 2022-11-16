@@ -1,7 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { ArenaService } from 'src/app/services/arena/arena.service';
+import { JournalService } from 'src/app/services/arena/journal.service';
+
 import { ChoosePlayerService } from 'src/app/services/choose-player/choose-player.service';
 import { PlayerCardService } from 'src/app/services/player-card/player-card.service';
 
@@ -20,7 +21,7 @@ export class ModalapotionComponent implements OnInit {
 
   sub : Subscription = new Subscription();
 
-  constructor(private choosePlayerService:ChoosePlayerService, private router: Router, private playerCardService:PlayerCardService) { }
+  constructor(private choosePlayerService:ChoosePlayerService, private journalService: JournalService, private playerCardService:PlayerCardService) { }
 
   ngOnInit(): void {
     this.choosePlayerService
@@ -42,24 +43,24 @@ export class ModalapotionComponent implements OnInit {
   closeModal() {
     this.modal.nativeElement.classList.add('hidden');
     this.overlay.nativeElement.classList.add('hidden');
+
+    // this.router.navigateByUrl('/game/arena');
   }
   
   consumatePotion(value: string, idElement: number) {
-    if (this.checkEnoughMoney(value, idElement)) {
+
       this.playerCardService
       .consumeElement(value, idElement, this.player.id)
       .subscribe((res) => {
-        this.playerCardService.setPlayerObservable$(res.playerDTO);
         this.player = res.playerDTO;
+        this.journalService.setPlayerObservable$(res);
         console.log('Consume Potion res :');
         console.log(res);
       });
       this.consumateSuccesful(value, idElement);
 
     // this.closeModal();
-    }else{
-      alert('Montant inssufisant');
-    }
+
 
 
   }
