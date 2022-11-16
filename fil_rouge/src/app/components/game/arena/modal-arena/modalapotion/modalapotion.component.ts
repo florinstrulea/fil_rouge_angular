@@ -9,35 +9,42 @@ import { PlayerCardService } from 'src/app/services/player-card/player-card.serv
 @Component({
   selector: 'app-modalapotion',
   templateUrl: './modalapotion.component.html',
-  styleUrls: ['./modalapotion.component.css']
+  styleUrls: ['./modalapotion.component.css'],
 })
 export class ModalapotionComponent implements OnInit {
-  @ViewChild("modal") modal!: ElementRef
-  @ViewChild('overlay') overlay!: ElementRef
-  @ViewChild('btnCloseModal') btnCloseModal!: ElementRef
+  @ViewChild('modal') modal!: ElementRef;
+  @ViewChild('overlay') overlay!: ElementRef;
+  @ViewChild('btnCloseModal') btnCloseModal!: ElementRef;
 
   playerIsAlive = true;
-  player : any = {}
+  player: any = {};
 
-  sub : Subscription = new Subscription();
+  sub: Subscription = new Subscription();
 
-  constructor(private choosePlayerService:ChoosePlayerService, private journalService: JournalService, private playerCardService:PlayerCardService) { }
+  constructor(
+    private choosePlayerService: ChoosePlayerService,
+    private journalService: JournalService,
+    private playerCardService: PlayerCardService
+  ) {}
 
   ngOnInit(): void {
-    this.choosePlayerService
-    .getBattleDTO()
-    .subscribe((res) => (this.player = res.playerDTO));
+    // this.choosePlayerService
+    //   .getBattleDTO()
+    //   .subscribe((res) => (this.player = res.playerDTO));
+
+    this.sub = this.journalService.battleDTOObservable$.subscribe((res) => {
+      this.player = res.playerDTO;
+      //this.monster = res.monsterDTO;
+    });
   }
 
   openModal() {
     this.modal.nativeElement.classList.remove('hidden');
     this.overlay.nativeElement.classList.remove('hidden');
     this.modal.nativeElement.scrollIntoView(false);
-    this.choosePlayerService
-      .getBattleDTO()
-      .subscribe((res) => {
-        this.player = res.playerDTO
-      });
+    this.choosePlayerService.getBattleDTO().subscribe((res) => {
+      this.player = res.playerDTO;
+    });
   }
 
   closeModal() {
@@ -46,23 +53,20 @@ export class ModalapotionComponent implements OnInit {
 
     // this.router.navigateByUrl('/game/arena');
   }
-  
-  consumatePotion(value: string, idElement: number) {
 
-      this.playerCardService
+  consumatePotion(value: string, idElement: number) {
+    this.playerCardService
       .consumeElement(value, idElement, this.player.id)
       .subscribe((res) => {
         this.player = res.playerDTO;
         this.journalService.setPlayerObservable$(res);
+        sessionStorage.setItem('playerLifePoints', res.playerDTO.hp);
         console.log('Consume Potion res :');
         console.log(res);
       });
-      this.consumateSuccesful(value, idElement);
+    this.consumateSuccesful(value, idElement);
 
     // this.closeModal();
-
-
-
   }
   notInList(value: string, list: []): boolean {
     let elements2 = [];
@@ -94,5 +98,4 @@ export class ModalapotionComponent implements OnInit {
     }
     return result;
   }
-
 }
