@@ -45,7 +45,8 @@ export class ModalapotionComponent implements OnInit {
   }
   
   consumatePotion(value: string, idElement: number) {
-    this.playerCardService
+    if (this.checkEnoughMoney(value, idElement)) {
+      this.playerCardService
       .consumeElement(value, idElement, this.player.id)
       .subscribe((res) => {
         this.playerCardService.setPlayerObservable$(res.playerDTO);
@@ -53,8 +54,14 @@ export class ModalapotionComponent implements OnInit {
         console.log('Consume Potion res :');
         console.log(res);
       });
+      this.consumateSuccesful(value, idElement);
 
     // this.closeModal();
+    }else{
+      alert('Montant inssufisant');
+    }
+
+
   }
   notInList(value: string, list: []): boolean {
     let elements2 = [];
@@ -62,6 +69,29 @@ export class ModalapotionComponent implements OnInit {
       elements2 = list.filter((el: any) => el.name == value);
       return elements2.length > 0 ? false : true;
     } else return true;
+  }
+
+  consumateSuccesful(element: string, idElement: number) {
+    let value = element.toLowerCase() + 'Id';
+    let valueString = '';
+    for (let myElement of this.player.listPotion) {
+      if (myElement[value] == idElement) {
+        valueString = myElement.name;
+        alert(`Vous avez bien achété l'${element} avec le nom: ${valueString}`);
+      }
+    }
+  }
+
+  checkEnoughMoney(element: string, idElement: number): boolean {
+    let result: boolean = false;
+    let value = element.toLowerCase() + 'Id';
+    for (let myElement of this.player.listPotion) {
+      if (myElement[value] == idElement) {
+        if (myElement.price <= this.player.money) result = true;
+        else result = false;
+      }
+    }
+    return result;
   }
 
 }
