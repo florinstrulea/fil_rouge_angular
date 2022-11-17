@@ -56,13 +56,6 @@ export class ArenaComponent implements OnInit {
     this.sub = this.journalService.battleDTOObservable$.subscribe((res) => {
       this.player = res.playerDTO;
       this.monster = res.monsterDTO;
-      this.playerPercentage =
-        (this.player.hp * 100) /
-        Number(sessionStorage.getItem('playerFullLife'));
-      this.monsterPercentage =
-        (this.monster.hp * 100) /
-        Number(sessionStorage.getItem('monsterFullLife'));
-      console.log(this.monster.hp);
     });
 
     this.arenaService.getWariors().subscribe((res) => {
@@ -73,7 +66,7 @@ export class ArenaComponent implements OnInit {
       this.player = res.playerDTO;
       this.monster = res.monsterDTO;
       sessionStorage.setItem('playerFullLife', res.playerDTO.hp);
-      sessionStorage.setItem('monsterFullLife', res.playerDTO.hp);
+      sessionStorage.setItem('monsterFullLife', res.monsterDTO.hp);
     });
   }
 
@@ -82,6 +75,12 @@ export class ArenaComponent implements OnInit {
       this.journalService.setPlayerObservable$(res);
       this.calcDamageReceivedByPlayer(res);
       this.calcDamageReceivedByMonster(res);
+      this.playerPercentage =
+        (Number(sessionStorage.getItem('playerLifePoints')) * 100) /
+        Number(sessionStorage.getItem('playerFullLife'));
+      this.monsterPercentage =
+        (Number(sessionStorage.getItem('monsterLifePoints')) * 100) /
+        Number(sessionStorage.getItem('monsterFullLife'));
       this.createJournalText();
       console.log(res);
 
