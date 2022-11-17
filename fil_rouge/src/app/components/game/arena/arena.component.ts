@@ -65,7 +65,17 @@ export class ArenaComponent implements OnInit {
       this.monsterImage = 'assets/arena/' + res.monsterDTO.name + '.png';
       this.player = res.playerDTO;
       this.monster = res.monsterDTO;
-      sessionStorage.setItem('playerFullLife', res.playerDTO.hp);
+      if (
+        Number(sessionStorage.getItem('playerLifePoints')) <
+        Number(sessionStorage.getItem('playerFullLife'))
+      ) {
+        this.playerPercentage =
+          (Number(sessionStorage.getItem('playerLifePoints')) * 100) /
+          Number(sessionStorage.getItem('playerFullLife'));
+      } else {
+        sessionStorage.setItem('playerFullLife', res.playerDTO.hp);
+      }
+
       sessionStorage.setItem('monsterFullLife', res.monsterDTO.hp);
     });
   }
@@ -89,6 +99,8 @@ export class ArenaComponent implements OnInit {
         this.modal.openModal();
       } else if (!res.playerDTO.alive) {
         this.modal.playerIsAlive = false;
+        sessionStorage.setItem('playerFullLife', '0');
+        this.playerPercentage = 100;
         this.modal.openModal();
       }
     });
