@@ -43,6 +43,15 @@ export class ModalapotionComponent implements OnInit {
     this.modal.nativeElement.classList.add('hidden');
     this.overlay.nativeElement.classList.add('hidden');
   }
+
+  refreshPlayer():any{
+    return this.choosePlayerService
+    .getBattleDTO()
+    .subscribe((res) => {
+      this.player = res.playerDTO
+      this.playerCardService.setPlayerObservable$(res.playerDTO);
+    });
+  }
   
   consumatePotion(value: string, idElement: number) {
     if (this.checkEnoughMoney(value, idElement)) {

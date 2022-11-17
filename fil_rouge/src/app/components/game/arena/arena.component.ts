@@ -141,6 +141,7 @@ export class ArenaComponent implements OnInit {
 
   openModalConsumePotion(){
     this.modalPotion.openModal();
+    
 
   }
 
