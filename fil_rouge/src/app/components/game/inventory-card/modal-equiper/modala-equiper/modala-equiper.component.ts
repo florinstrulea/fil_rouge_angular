@@ -17,6 +17,7 @@ export class ModalaEquiperComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {}
+
   @ViewChild('modal') modal!: ElementRef;
   @ViewChild('overlay') overlay!: ElementRef;
   @ViewChild('btnCloseModal') btnCloseModal!: ElementRef;

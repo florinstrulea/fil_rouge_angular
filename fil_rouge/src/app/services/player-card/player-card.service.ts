@@ -7,16 +7,14 @@ import { Weapon } from 'src/app/interfaces/weapon';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PlayerCardService {
-  getPlayerUrl: string = environment.apiUrl + "inventory/showAll";
-  getArmorUrl: string = environment.apiUrl + "inventory/currentArmor/";
-  getWeaponUrl: string = environment.apiUrl + "inventory/currentWeapon/";
-  equipElementUrl: string = environment.apiUrl + "inventory/equip";
-  consumeElementUrl: string = environment.apiUrl + "inventory/consume";
-
-
+  getPlayerUrl: string = environment.apiUrl + 'inventory/showAll';
+  getArmorUrl: string = environment.apiUrl + 'inventory/currentArmor/';
+  getWeaponUrl: string = environment.apiUrl + 'inventory/currentWeapon/';
+  equipElementUrl: string = environment.apiUrl + 'inventory/equip';
+  consumeElementUrl: string = environment.apiUrl + 'inventory/consume';
 
   public current_player = new BehaviorSubject({
     alive: true,
@@ -24,7 +22,7 @@ export class PlayerCardService {
     defense: 0,
     dodge: 0,
     experience: 0,
-    gender: "",
+    gender: '',
     hp: 0,
     hpMax: 0,
     id: 0,
@@ -35,13 +33,12 @@ export class PlayerCardService {
     listWeapon: [],
     listPotions: [],
     money: 0,
-    nameHero: "",
-    namePlayer: "",
-    race: "",
+    nameHero: '',
+    namePlayer: '',
+    race: '',
     speed: 0,
-    strength: 0
-
-  })
+    strength: 0,
+  });
   public currentWeapon = new BehaviorSubject({
     weaponId: 0,
     type: 0,
@@ -49,28 +46,30 @@ export class PlayerCardService {
     level: 0,
     price: 0,
     criticalHit: 0,
-    iconUrl: "",
-    name: ""
+    iconUrl: '',
+    name: '',
   });
   public currentArmor = new BehaviorSubject({
     armorId: 0,
-    name: "",
-    iconUrl: "",
+    name: '',
+    iconUrl: '',
     type: 0,
     protection: 0,
     dodgeRate: 0,
     level: 0,
     price: 0,
-    category: "",
+    category: '',
   });
   playerObservable$ = this.current_player.asObservable();
   weaponObservable$ = this.currentWeapon.asObservable();
   armorObservable$ = this.currentArmor.asObservable();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getCurrentPlayer(idPlayer: number): Observable<Partial<Player>> {
-    return this.http.post<Partial<Player>>(this.getPlayerUrl, idPlayer, { withCredentials: true })
+    return this.http.post<Partial<Player>>(this.getPlayerUrl, idPlayer, {
+      withCredentials: true,
+    });
   }
 
   getCurrentArmor(idPlayer: string): Observable<any> {
@@ -78,15 +77,30 @@ export class PlayerCardService {
   }
 
   getCurrentWeapon(idPlayer: string): Observable<any> {
-    return this.http.get<any>(this.getWeaponUrl + idPlayer)
+    return this.http.get<any>(this.getWeaponUrl + idPlayer);
   }
 
-  equipElement(value: string, idElement: number, idPlayer: number): Observable<any> {
-
-    return this.http.put(this.equipElementUrl + value, { idElement, idPlayer }, { withCredentials: true })
+  equipElement(
+    value: string,
+    idElement: number,
+    idPlayer: number
+  ): Observable<any> {
+    return this.http.post(
+      this.equipElementUrl + value,
+      { idElement, idPlayer },
+      { withCredentials: true }
+    );
   }
-  consumeElement(value: string, idElement: number, idPlayer: number): Observable<any> {
-    return this.http.put(this.consumeElementUrl + value, { idElement, idPlayer }, { withCredentials: true })
+  consumeElement(
+    value: string,
+    idElement: number,
+    idPlayer: number
+  ): Observable<any> {
+    return this.http.post(
+      this.consumeElementUrl + value,
+      { idElement, idPlayer },
+      { withCredentials: true }
+    );
   }
 
   getPlayerObservable$() {
@@ -95,5 +109,4 @@ export class PlayerCardService {
   setPlayerObservable$(player: any) {
     this.current_player.next(player);
   }
-
 }

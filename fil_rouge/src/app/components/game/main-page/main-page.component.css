@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+  position: absolute;
+}
+
 img {
   width: 100%;
 }
@@ -13,15 +17,8 @@ button {
   border: none;
 }
 
-/* body {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  
-} */
-
 .main-page {
-  max-height: 100vh;
-  overflow: none;
+  min-height: 100vh;
 }
 
 /* .container-fluid {
@@ -33,26 +30,17 @@ button {
 } */
 
 .map {
-  grid-column: 1 / span 12;
-  grid-row: 1 / span 1;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(8, 1fr);
   background-image: url("../../../../assets/main-page/GrassMaze.png");
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
+  padding-bottom: 20rem;
+  /* min-height: 100vh; */
 }
 
 .interface {
-  grid-column: 1 / span 12;
-  grid-row: 1 / span 2;
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  column-gap: 20px;
   background-image: url("../../../../assets/main-page/GrassBackGround.png");
   background-color: rgb(69, 100, 92);
-  /* background-repeat: no-repeat; */
   background-size: cover;
   width: 100%;
   padding: 10px;
@@ -61,53 +49,164 @@ button {
 .interface__form {
   text-align: center;
   border: solid 2px #5ca463;
-  grid-column: span 3;
+
   margin-top: 0px;
   height: 250px;
   padding-top: 5px;
   height: 100%;
 }
 
-.interface__img {
-  height: 80px;
+.gate-container {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.map__form--maison {
-  grid-column: 1 / span 4;
-  grid-row: 4 / span 7;
+.houses {
+  padding-bottom: 5rem;
 }
 
-.map__form--maison2 {
-  grid-column: 5 / span 4;
-  grid-row: 5 / span 7;
+.gate-image-container {
+  width: 20%;
+  height: 20%;
+  cursor: pointer;
 }
 
-.map__form--maison3 {
-  grid-column: 8 / span 4;
-  grid-row: 5 / span 7;
+.gate-image-container img {
+  width: 100%;
+  height: 100%;
 }
 
-.map__form--gate {
-  grid-column: 10 / span 4;
-  grid-row: 2 / span 7;
+.house-image-container {
+  cursor: pointer;
 }
 
-.map__image--gate {
-  height: 330px;
+.house-image-container img {
+  width: 100%;
+  height: 100%;
 }
 
-.map__image--maison {
-  height: 330px;
+@media screen and (max-width: 300px) {
+  .houses {
+    padding-top: 22rem;
+  }
+  .gate-container {
+    top: 32%;
+  }
+  .gate-image-container {
+    width: 80%;
+    height: 80%;
+  }
 }
 
-.map__image--maison2 {
-  height: 230px;
+@media screen and (min-width: 301px) and (max-width: 576px) {
+  .houses {
+    padding-top: 28rem;
+  }
+  .gate-container {
+    top: 32%;
+  }
+  .gate-image-container {
+    width: 80%;
+    height: 80%;
+  }
+}
+@media screen and (min-width: 577px) and (max-width: 768px) {
+  .houses {
+    padding-top: 28rem;
+  }
+  .gate-container {
+    top: 30%;
+  }
+  .gate-image-container {
+    width: 60%;
+    height: 60%;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 992px) {
+  .houses {
+    padding-top: 28rem;
+  }
+  .gate-container {
+    top: 30%;
+  }
+  .gate-image-container {
+    width: 55%;
+    height: 55%;
+  }
+}
+@media screen and (min-width: 993px) and (max-width: 1200px) {
+  .houses {
+    padding-top: 28rem;
+  }
+  .gate-container {
+    top: 30%;
+  }
+  .gate-image-container {
+    width: 40%;
+    height: 40%;
+  }
+}
+@media screen and (min-width: 1201px) {
+  .houses {
+    padding-top: 30rem;
+  }
+  .gate-container {
+    top: 25%;
+  }
+  .gate-image-container {
+    width: 30%;
+    height: 30%;
+  }
+  .arrows {
+    left: 95%;
+  }
 }
 
-.map__image--maison3 {
-  height: 330px;
+.arrows {
+  width: 60px;
+  height: 72px;
+  position: absolute;
+
+  /* margin-left: -30px;
+  bottom: 20px; */
 }
 
-.interface__form--objects {
-  grid-column: 4 / span 8;
+.arrows path {
+  stroke: red;
+  fill: transparent;
+  stroke-width: 5px;
+  animation: arrow 3.5s infinite;
+  -webkit-animation: arrow 3.5s infinite;
+}
+
+@keyframes arrow {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.arrows path.a1 {
+  animation-delay: -1s;
+  -webkit-animation-delay: -1s; /* Safari 和 Chrome */
+}
+
+.arrows path.a2 {
+  animation-delay: -0.5s;
+  -webkit-animation-delay: -0.5s; /* Safari 和 Chrome */
+}
+
+.arrows path.a3 {
+  animation-delay: 0s;
+  -webkit-animation-delay: 0s; /* Safari 和 Chrome */
 }
