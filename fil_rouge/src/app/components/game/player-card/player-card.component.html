@@ -2,6 +2,7 @@
 <div class="player_card_container" *ngIf="player">
 
   <div class="player_equipements">
+
     <div class="card_equipements">
       <div class="image-container">
         <img [src]="weaponEquipedImg" class="card-img-top" alt="...">
@@ -51,7 +52,7 @@
       <div class="image-container">
         <img [src]="levelImg" class="card-img-top" alt="...">
       </div>
-      <span class="title"></span><br>
+      <span class="title">Lvl : {{player.level}}</span><br>
     </div>
   </div>
 
