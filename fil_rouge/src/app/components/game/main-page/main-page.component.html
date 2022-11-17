@@ -3,9 +3,7 @@
     <div class="gate-container">
       <div class="gate mx-auto" (click)="goToWar()">
         <div class="text-center">
-          <span class="fs-4 fw-bold text-light bg-danger rounded"
-            >Combat Zone</span
-          >
+          <span class="fs-4 fw-bold text-light bg-danger rounded">Combat Zone</span>
         </div>
 
         <div class="gate-image-container mx-auto">
@@ -14,10 +12,7 @@
       </div>
     </div>
 
-    <div
-      class="row justify-content-center houses px-0 mx-0"
-      data-house="weapons"
-    >
+    <div class="row justify-content-center houses px-0 mx-0" data-house="weapons">
       <div class="ms-auto">
         <svg class="arrows">
           <path class="a1" d="M0 0 L30 32 L60 0"></path>
@@ -26,56 +21,34 @@
         </svg>
       </div>
       <div class="col-sm-12 col-md-6 col-xl-4 text-center">
-        <span
-          class="fs-4 fw-bold text-light bg-primary rounded"
-          data-house="weapons"
-          >Weapon Shop
+        <span class="fs-4 fw-bold text-light bg-primary rounded" data-house="weapons">Weapon Shop
         </span>
         <div class="house-image-container mx-auto">
-          <img
-            class=""
-            src="../../../../assets/main-page/Maison1.png"
-            alt=""
-            data-house="weapons"
-            (click)="open('weapons')"
-          />
+          <img class="" src="../../../../assets/main-page/Maison1.png" alt="" data-house="weapons"
+            (click)="open('weapons')" />
         </div>
       </div>
 
       <div class="col-sm-12 col-md-6 col-xl-4 text-center">
         <span class="fs-4 fw-bold text-light bg-dark rounded">Armor Shop</span>
         <div class="house-image-container mx-auto">
-          <img
-            class=""
-            src="../../../../assets/main-page/Maison2.png"
-            alt=""
-            (click)="open('armors')"
-          />
+          <img class="" src="../../../../assets/main-page/Maison2.png" alt="" (click)="open('armors')" />
         </div>
       </div>
-      <div
-        class="map__form map__form--maison3 col-sm-12 col-md-6 col-xl-4 text-center"
-      >
-        <span class="fs-4 fw-bold text-light bg-success rounded"
-          >Potion Shop</span
-        >
+      <div class="map__form map__form--maison3 col-sm-12 col-md-6 col-xl-4 text-center">
+        <span class="fs-4 fw-bold text-light bg-success rounded">Potion Shop</span>
         <div class="house-image-container mx-auto">
-          <img
-            class=""
-            src="../../../../assets/main-page/Maison3.png"
-            alt=""
-            (click)="open('potions')"
-          />
+          <img class="" src="../../../../assets/main-page/Maison3.png" alt="" (click)="open('potions')" />
         </div>
       </div>
     </div>
   </div>
   <div class="container-fluid m-0 p-0">
-    <div class="interface">
-      <div class="interface__form">
+    <div class="interface row">
+      <div class="interface__form col-md-4">
         <app-player-card></app-player-card>
       </div>
-      <div class="interface__form interface__form--objects" action="">
+      <div class="interface__form interface__form--objects col-md-8 h-auto" action="">
         <app-inventory-card></app-inventory-card>
       </div>
     </div>

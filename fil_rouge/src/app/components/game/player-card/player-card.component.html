@@ -1,52 +1,65 @@
-<header>
-    <div class="wrap text-light fs-6 fw-bold">PlayerCard</div>
-</header>
-<div class="layout wrap" *ngIf="player">
-    <div class="card card-weapon">
-        <div class="image-container">
-            <img [src]="weaponEquipedImg" class="card-img-top" alt="...">
-        </div>
-        <span class="item-title equiped">{{weaponName}}</span>
+<div class="title">PlayerCard</div>
+<div class="player_card_container" *ngIf="player">
+
+  <div class="player_equipements">
+    <div class="card_equipements">
+      <div class="image-container">
+        <img [src]="weaponEquipedImg" class="card-img-top" alt="...">
+      </div>
+      <span class="title">{{weaponName}}</span>
     </div>
 
-    <div class="card card-player-img">
-        <div class="image-container">
-            <img [src]="playerImg" class="card-img-top" alt="...">
-            <span class="item-title fw-bold text-light">{{player.namePlayer}}</span>
-        </div>
+    <div class="card_equipements">
+      <div class="image-container">
+        <img [src]="playerImg" class="card-img-top" alt="...">
+        <span class="title">{{player.namePlayer}}</span>
+      </div>
     </div>
 
-    <div class="card card-armor">
-        <div class="image-container">
-            <img [src]="armorEquipedImg" class="card-img-top" alt="...">
-        </div>
-        <span class="item-title equiped">{{armorName}}</span>
+    <div class="card_equipements">
+      <div class="image-container">
+        <img [src]="armorEquipedImg" class="card-img-top" alt="...">
+      </div>
+      <span class="title">{{armorName}}</span>
+    </div>
+  </div>
+
+
+
+
+  <div class="player_stats">
+    <div class="card_stats">
+      <div class="image-container">
+        <img [src]="hpImg" class="card-img-top" alt="...">
+      </div>
+      <span class="title">{{player.hp}}</span><br>
     </div>
 
-    <div class="card card-health">
-        <div class="image-container">
-            <img [src]="hpImg" class="card-img-top" alt="...">
-        </div>
-        <span class="item-title">{{player.hp}}</span><br>
+    <div class="card_stats">
+      <div class="image-container">
+        <img [src]="moneyImg" class="card-img-top" alt="...">
+      </div>
+      <span class="title">{{player.money}}</span><br>
     </div>
-    <div class="card card-money">
+    <div class="card_stats">
+      <div class="image-container">
+        <img [src]="experienceImg" class="card-img-top" alt="...">
+      </div>
+      <span class="title">{{player.experience}}</span><br>
+    </div>
+    <div class="card_stats">
+      <div class="image-container">
+        <img [src]="levelImg" class="card-img-top" alt="...">
+      </div>
+      <span class="title"></span><br>
+    </div>
+  </div>
 
-        <div class="image-container">
-            <img [src]="moneyImg" class="card-img-top" alt="...">
-        </div>
-        <span class="item-title">{{player.money}}</span><br>
-    </div>
-    <div class="card card-experience">
-        <div class="image-container">
-            <img [src]="experienceImg" class="card-img-top" alt="...">
-        </div>
-        <span class="item-title">{{player.experience}}</span><br>
-    </div>
-    <div class="card card-level">
-        <div class="image-container">
-            <img [src]="levelImg" class="card-img-top" alt="...">
-        </div>
-        <span class="item-title"></span><br>
-    </div>
+
+
+
+
+
+
 
 </div>
