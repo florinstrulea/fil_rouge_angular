@@ -56,10 +56,6 @@ export class ModalapotionComponent implements OnInit {
       'playerFullLife',
       sessionStorage.getItem('playerLifePoints')!
     );
-
-    this.journalService.setPercentageObservable$(
-      Number(sessionStorage.getItem('playerLifePoints')!)
-    );
   }
 
   consumatePotion(value: string, idElement: number) {
@@ -73,6 +69,9 @@ export class ModalapotionComponent implements OnInit {
         console.log(res);
       });
     this.consumateSuccesful(value, idElement);
+    this.journalService.setPercentageObservable$(
+      Number(sessionStorage.getItem('playerLifePoints')!)
+    );
 
     // this.closeModal();
   }
