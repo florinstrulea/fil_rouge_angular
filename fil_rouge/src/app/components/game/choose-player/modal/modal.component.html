@@ -1,50 +1,26 @@
 <!-- Modal -->
-<div
-  class="modal fade"
-  id="playerModal"
-  tabindex="-1"
-  aria-labelledby="playerModalLabel"
-  aria-hidden="true"
->
+<div class="modal fade" id="playerModal" tabindex="-1" aria-labelledby="playerModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="fs-5 text-center" id="exampleModalLabel">
-          Choisissez un nom pour votre jouer
-        </h1>
-        <button
-          type="button"
-          class="btn-close text-danger"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body">
-        <form action="" [formGroup]="modalForm" (ngSubmit)="onSubmit()">
-          <input
-            type="text"
-            id="playerName"
-            formControlName="playerName"
-            required="required"
-          />
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Anuler
-            </button>
-            <button
-              type="submit"
-              class="btn btn-primary"
-              data-bs-dismiss="modal"
-            >
-              Valider
-            </button>
+      <div class="modal-content ">
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+              <button type="button" class="btn-close text-danger " data-bs-dismiss="modal"
+                  aria-label="Close"></button>
           </div>
-        </form>
+          <div class="modal-body text-center">
+              <div>
+                  <h1 class=" text-white fs-5 text-center" id="exampleModalLabel">Choisissez un nom pour votre joueur
+                  </h1>
+
+              </div>
+              <form action="" [formGroup]=" modalForm" (ngSubmit)="onSubmit()">
+                  <input type="text" id="playerName" formControlName="playerName">
+                  <div class="mt-4 ">
+                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Annuler</button>
+                      <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Valider</button>
+                  </div>
+              </form>
+          </div>
+
       </div>
-    </div>
   </div>
 </div>
