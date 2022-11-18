@@ -4,61 +4,34 @@
   font-family: "Merriweather", serif;
 }
 
-/* Banniere du haut Profil */
 .banner {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(src\assets\choose-player\battleback1_0.png) center center fixed
-      no-repeat;
+   background:
+    url(src\assets\choose-player\battleback1_0.png) no-repeat center center;
   background-size: cover;
-  /* doonner une certaine auteur a limage */
-  height: 100vh;
-}
+  background-attachment: fixed;
+  background-position: center;
+  height: auto;
 
-/*****************************/
 
-/* PARTI navbar du haut */
-/* .cc-navbar {
-    background-color: rgba(0, 0, 0, 0.55);
-    font-family: 'Merriweather', sans-serif;
-    box-shadow: 1px 1px 3px rgba(255, 255, 255, 0.54);
-    z-index: 99;
-} */
-
-/* .cc-navbar .nav-link {
-    border-bottom: 1px solid transparent;
-    transition: padding-bottom 0.4s ease-in-out, border-color 0.3s ease;
 
 }
-
-.cc-navbar .nav-link:hover {
-
-    padding-bottom: 2px;
-    border-bottom-color: white;
-} */
 
 /*************************************************/
 /****************** CARD qui contient  l'image****/
-.card {
-  background: linear-gradient(
-    45deg,
-    rgba(29, 236, 197, 0.5),
-    rgba(91, 14, 214, 0.5) 100%
-  );
-}
-
-#txtwht {
-  color: white;
-}
 
 /* Partie CARD SELECTION PERSONNAGE */
 
-.container .card {
+.card {
+  background: linear-gradient(45deg,
+  rgba(29, 236, 197, 0.5),
+  rgba(91, 14, 214, 0.5) 100%);
   max-width: 300px;
-  height: 280px;
+   height: 380px;
   margin: 30px 10px;
-  padding: 20px 15px;
+  padding: 50px 15px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
   transition: 0.3s ease-in-out;
+  overflow: hidden;
 }
 
 .essaiDisplay {
@@ -66,7 +39,7 @@
 }
 
 .choose-player:hover .card {
-  height: 450px;
+  height: 500px;
   transition-delay: 0.3s;
   background-color: aqua;
   transition: 0.3s ease-in-out;
@@ -78,7 +51,7 @@
 
 @media (max-width: 330px) {
   .container .card .imgContainer {
-    left: -2px;
+    /* left: -2px; */
   }
 }
 
@@ -134,25 +107,46 @@ a {
   color: white;
 }
 
+@media screen and (min-width: 800px) {
+  .banner {
+
+    min-height: 100vh;
+  }
+
+  /* .cc-menu {
+    margin-top: 120px;
+  } */
+}
+
 @media screen and (max-width: 800px) {
   .body {
     background-color: red;
   }
+
   .choose-player:hover .card {
-    height: auto;
     transition-delay: 0.3s;
     background-color: aqua;
     width: 100%;
     transition: 0.3s ease-in-out;
   }
+
   .choose-player {
-    height: auto;
     transition-delay: 0.3s;
-    background-color: aqua;
     width: 100%;
     transition: 0.3s ease-in-out;
   }
-  .card-body {
-    width: 900px;
+
+  .cc-menu {
+    margin-top: 100px;
   }
+  
+
+}
+.img_player{
+  height: 280px;
+  
+}
+.img_player img{
+  height: 100%;
+  width: 100%;
 }
