@@ -26,6 +26,7 @@ export class ArenaComponent implements OnInit {
   monster: any = {};
 
   sub: Subscription = new Subscription();
+  subPercentage: Subscription = new Subscription();
 
   hpPlayerBefore: number = 0;
   hpMonsterBefore: number = 0;
@@ -58,6 +59,10 @@ export class ArenaComponent implements OnInit {
       this.monster = res.monsterDTO;
     });
 
+    this.subPercentage = this.journalService.lifePercentage.subscribe(
+      (res) => (this.playerPercentage = res)
+    );
+
     this.arenaService.getWariors().subscribe((res) => {
       sessionStorage.setItem('playerLifePoints', res.playerDTO.hp);
       sessionStorage.setItem('monsterLifePoints', res.monsterDTO.hp);
@@ -65,6 +70,7 @@ export class ArenaComponent implements OnInit {
       this.monsterImage = 'assets/arena/' + res.monsterDTO.name + '.png';
       this.player = res.playerDTO;
       this.monster = res.monsterDTO;
+      // let value = Number(sessionStorage.getItem('playerFullLife'));
       if (
         Number(sessionStorage.getItem('playerLifePoints')) <
         Number(sessionStorage.getItem('playerFullLife'))
