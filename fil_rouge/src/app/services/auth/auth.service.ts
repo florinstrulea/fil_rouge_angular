@@ -12,25 +12,26 @@ import { AuthStatus } from 'src/app/interfaces/auth-status';
   providedIn: 'root',
 })
 export class Auth {
-
   private curUser = new BehaviorSubject<AuthStatus>({
     connected: false,
   });
 
   curUserObservable = this.curUser.asObservable();
 
-  userUrl: string = environment.apiUrl + "register";
-  loginUrl: string = environment.apiUrl + "login";
-  logoutUrl: string = environment.apiUrl + "logout";
+  userUrl: string = environment.apiUrl + 'register';
+  loginUrl: string = environment.apiUrl + 'login';
+  logoutUrl: string = environment.apiUrl + 'logout';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   register(user: User): Observable<User | Status> {
     return this.http.post<User | Status>(this.userUrl, user);
   }
 
   getUser(): Observable<User | Status> {
-    return this.http.get<User | Status>(this.loginUrl, { withCredentials: true });
+    return this.http.get<User | Status>(this.loginUrl, {
+      withCredentials: true,
+    });
   }
   logout(): Observable<Status> {
     return this.http.get<Status>(this.logoutUrl, { withCredentials: true });
@@ -42,10 +43,10 @@ export class Auth {
     return this.curUser.value;
   }
   isUser(obj: any): obj is User {
-    return "userName" in obj;
+    return 'userName' in obj;
   }
   isStatus(obj: any): obj is Status {
-    return "response" in obj;
+    return 'response' in obj;
   }
   isConnected(): boolean {
     return this.curUser.value.connected;
@@ -55,7 +56,8 @@ export class Auth {
     const formData = new FormData();
     formData.append('username', user.username);
     formData.append('password', user.password);
-    return this.http.post<any>(this.loginUrl, formData, { withCredentials: true });
+    return this.http.post<any>(this.loginUrl, formData, {
+      withCredentials: true,
+    });
   }
-
 }

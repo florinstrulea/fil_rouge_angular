@@ -50,7 +50,7 @@ export class ModalapotionComponent implements OnInit {
   closeModal() {
     this.modal.nativeElement.classList.add('hidden');
     this.overlay.nativeElement.classList.add('hidden');
-
+    let value: number = Number(sessionStorage.getItem('playerFull'));
     // this.router.navigateByUrl('/game/arena');
   }
 

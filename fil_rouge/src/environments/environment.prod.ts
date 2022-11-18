@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl : "http://localhost:8080/"
+  apiUrl: 'https://florin.snx.ovh:8443/rpg2d/',
 };
