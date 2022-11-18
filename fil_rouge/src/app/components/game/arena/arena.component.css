@@ -24,6 +24,7 @@
   border-color: black;
   transition: 0.5s ease-in-out;
   max-width: 250px;
+  background-color: azure;
 }
 
 .btn-order:hover,
