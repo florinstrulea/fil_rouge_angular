@@ -52,6 +52,14 @@ export class ModalapotionComponent implements OnInit {
     this.overlay.nativeElement.classList.add('hidden');
     let value: number = Number(sessionStorage.getItem('playerFull'));
     // this.router.navigateByUrl('/game/arena');
+    sessionStorage.setItem(
+      'playerFullLife',
+      sessionStorage.getItem('playerLifePoints')!
+    );
+
+    this.journalService.setPercentageObservable$(
+      Number(sessionStorage.getItem('playerLifePoints')!)
+    );
   }
 
   consumatePotion(value: string, idElement: number) {

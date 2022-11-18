@@ -2,15 +2,18 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class JournalService {
   public battleDTO = new BehaviorSubject({
     playerDTO: {},
-    monsterDTO: {}
-  })
+    monsterDTO: {},
+  });
+
+  public lifePercentage = new BehaviorSubject<number>(100);
 
   battleDTOObservable$ = this.battleDTO.asObservable();
+  percentage$ = this.lifePercentage.asObservable();
 
   getPlayerObservable$() {
     return this.battleDTO.value;
@@ -18,6 +21,12 @@ export class JournalService {
   setPlayerObservable$(player: any) {
     this.battleDTO.next(player);
   }
+  getPercentageObservable$() {
+    return this.lifePercentage.value;
+  }
+  setPercentageObservable$(percentage: number) {
+    this.lifePercentage.next(percentage);
+  }
 
-  constructor() { }
+  constructor() {}
 }
