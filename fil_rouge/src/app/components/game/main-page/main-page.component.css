@@ -210,3 +210,19 @@ button {
   animation-delay: 0s;
   -webkit-animation-delay: 0s; /* Safari 和 Chrome */
 }
+
+@media screen and (min-width: 760px) and (max-width: 1100px) {
+  .interface__form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+
+  }
+  .interface__form--objects {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+
+  }
+
+}
