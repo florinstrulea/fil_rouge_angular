@@ -61,6 +61,8 @@ export class ModalapotionComponent implements OnInit {
         this.player = res.playerDTO;
         this.journalService.setPlayerObservable$(res);
         sessionStorage.setItem('playerLifePoints', res.playerDTO.hp);
+        let value: number = Number(sessionStorage.getItem('playerFull'));
+        sessionStorage.setItem('playerFullLife');
         console.log('Consume Potion res :');
         console.log(res);
       });

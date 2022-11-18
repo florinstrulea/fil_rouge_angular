@@ -1,63 +1,95 @@
-<div class="background">
-    <div class="container">
-        <div class="row m-0 justify-content-center" id="sceneFight">
-            <div class="adversaries d-flex justify-content-between">
-                <div class="mt-5 pt-5 col-md-3" id="hero">
-                    <div class="card-body">
-                        <p class="text-black fs-4">Points de vie</p>
-                        <div class="progress" style="height:30px; width:300px; ">
-                            <div class="progress-bar bg-success progress-bar-animated" role="progressbar"
-                                aria-label="Animated striped example" aria-valuenow="200" aria-valuemin="0"
-                                aria-valuemax="200" [style.width]="player.hp+'%'"><span
-                                    class="fs-5 bg-success">{{player.hp}}</span>
-                            </div>
-                        </div>
-                        <p class="text-primary fw-bold fs-3">{{player.namePlayer}}</p>
-                        <div class="hero-image-container"><img [src]="playerImage" class=""></div>
-                    </div>
-
-                </div>
-                <div class="mt-5 pt-5 p-4 col-md-3" id="monster">
-                    <div class="card-body">
-                        <p class="text-black fs-4">Points de vie</p>
-                        <div class="progress " style="height:30px; width:300px; ">
-                            <div class="progress-bar bg-danger progress-bar-animated" role="progressbar"
-                                aria-label="Animated striped example" aria-valuenow="5" aria-valuemin="0"
-                                aria-valuemax="" [style.width]="monster.hp+'%'">
-                                <span class="fs-5">{{monster.hp}}</span>
-                            </div>
-                        </div>
-                        <p class="text-danger fw-bold fs-4 text-capitalize">{{monster.name}}</p>
-                        <div class="hero-image-container"><img [src]="monsterImage" class=""></div>
-                    </div>
-                    <img src="" class="">
-                </div>
+<div class="background px-0 mx-0 container-fluid">
+  <div class="row m-0 justify-content-center mx-auto" id="sceneFight">
+    <div class="adversaries d-flex justify-content-between">
+      <div class="mt-5 pt-5 col-md-5" id="hero">
+        <p class="points-vie">Points de vie</p>
+        <div class="progress">
+          <div
+            class="progress-bar bg-success progress-bar-animated"
+            role="progressbar"
+            aria-label="Animated striped example"
+            aria-valuenow="200"
+            aria-valuemin="0"
+            aria-valuemax="200"
+            [style.width]="playerPercentage + '%'"
+          >
+            <span class="bg-success fs-5">{{ player.hp }}</span>
+          </div>
+        </div>
+        <p class="text-success bg-light fw-bold combat-name">
+          {{ player.namePlayer }}
+        </p>
+        <div class="hero-image-container">
+          <img [src]="playerImage" class="" />
+        </div>
+      </div>
+      <div class="mt-5 pt-5 col-md-5" id="monster">
+        <div class="card-body">
+          <p class="points-vie">Points de vie</p>
+          <div class="progress">
+            <div
+              class="progress-bar bg-danger progress-bar-animated"
+              role="progressbar"
+              aria-label="Animated striped example"
+              [style.max]="monster.hp"
+              [style.width]="monsterPercentage + '%'"
+              max="100"
+            >
+              <span class="fs-5">{{ monster.hp }}</span>
             </div>
+          </div>
+          <p
+            class="text-danger bg-light fw-bold text-capitalize combat-name text-end"
+          >
+            {{ monster.name }}
+          </p>
+          <div class="monster-image-container d-flex ms-auto">
+            <div><img [src]="monsterImage" class="" /></div>
+          </div>
+        </div>
+        <img src="" class="" />
+      </div>
+    </div>
 
-            <div class="d-flex justify-content-center text-center">
+    <div class="d-flex justify-content-center text-center">
+      <button
+        id="attack"
+        type="button"
+        class="btn btn-order btn-md rounded merriweather p-3 col-sm-2 col-md-3"
+        (click)="fight()"
+      >
+        Attack
+      </button>
 
-                <button id="attack" type="button" class="btn btn-order btn-lg me-5 rounded-0 merriweather p-3 col-md-3 "
-                    (click)="fight()">Attack</button>
+      <button
+        id="inventory"
+        type="button"
+        class="btn btn-order btn-md mx-5 rounded merriweather p-3 col-sm-2 col-md-3"
+        (click)="openModalConsumePotion()"
+      >
+        Potions
+      </button>
 
-                <button id="inventory" type="button"
-                    class="btn btn-order btn-lg me-5 rounded-0 merriweather p-3 col-md-3" (click)="openModalConsumePotion()">Potions</button>
-
-
-                <button id="run" type="button" class="btn btn-order btn-lg rounded-0 merriweather p-3 col-md-3"
-                    (click)="runBack()">Run</button>
-            </div>
-            <div class="affichageFight col-md-10 overflow-auto">
-                <h4>Journal de Combat</h4>
-                <div class="overflow-auto" #journal>
-                    <!--
+      <button
+        id="run"
+        type="button"
+        class="btn btn-order btn-md rounded merriweather p-3 col-sm-2 col-md-2"
+        (click)="runBack()"
+      >
+        Run
+      </button>
+    </div>
+    <div class="affichageFight col-md-10 overflow-auto">
+      <h4>Journal de Combat</h4>
+      <div class="overflow-auto" #journal>
+        <!--
 
                         ou ici plus bas
                     -->
-                </div>
-
-            </div>
-        </div>
+      </div>
     </div>
-    <app-modal-arena></app-modal-arena>
-    <app-modalapotion></app-modalapotion>
+  </div>
+
+  <app-modal-arena></app-modal-arena>
+  <app-modalapotion></app-modalapotion>
 </div>
