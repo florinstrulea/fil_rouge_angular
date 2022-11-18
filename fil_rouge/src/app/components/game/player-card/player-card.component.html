@@ -7,13 +7,17 @@
       <div class="image-container">
         <img [src]="weaponEquipedImg" class="card-img-top" alt="...">
       </div>
-      <span class="title">{{weaponName}}</span>
+      <div class="title">
+        <p>{{weaponName}}</p>
+      </div>
     </div>
 
     <div class="card_equipements">
       <div class="image-container">
         <img [src]="playerImg" class="card-img-top" alt="...">
-        <span class="title">{{player.namePlayer}}</span>
+      </div>
+      <div class="title">
+        <p>{{player.namePlayer}}</p>
       </div>
     </div>
 
@@ -21,7 +25,9 @@
       <div class="image-container">
         <img [src]="armorEquipedImg" class="card-img-top" alt="...">
       </div>
-      <span class="title">{{armorName}}</span>
+      <div class="title">
+        <p>{{armorName}}</p>
+      </div>
     </div>
   </div>
 
@@ -33,26 +39,34 @@
       <div class="image-container">
         <img [src]="hpImg" class="card-img-top" alt="...">
       </div>
-      <span class="title">{{player.hp}}</span><br>
+      <div class="title">
+        <p>{{player.hp}}</p>
+      </div>
     </div>
 
     <div class="card_stats">
       <div class="image-container">
         <img [src]="moneyImg" class="card-img-top" alt="...">
       </div>
-      <span class="title">{{player.money}}</span><br>
+      <div class="title">
+        <p>{{player.money}}</p>
+      </div>
     </div>
     <div class="card_stats">
       <div class="image-container">
         <img [src]="experienceImg" class="card-img-top" alt="...">
       </div>
-      <span class="title">{{player.experience}}</span><br>
+      <div class="title">
+        <p>{{player.experience}}</p>
+      </div>
     </div>
     <div class="card_stats">
       <div class="image-container">
         <img [src]="levelImg" class="card-img-top" alt="...">
       </div>
-      <span class="title">Lvl : {{player.level}}</span><br>
+      <div class="title">
+        <p>Lvl : {{player.level}}</p>
+      </div>
     </div>
   </div>
 
