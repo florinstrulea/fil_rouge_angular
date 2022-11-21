@@ -34,7 +34,7 @@ export class ChoosePlayerComponent implements OnInit {
       link: '/Archer_Female.png',
       description:
         "Manieuse orpaire à l'arc, elle décoche son arc de façon magistrale er rate rarement sa cible",
-      name: 'Archerette',
+      name: 'Archere',
     },
     {
       id: 8,
