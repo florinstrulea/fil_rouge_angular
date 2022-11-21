@@ -5,22 +5,26 @@ import { AuthStatus } from 'src/app/interfaces/auth-status';
 
 import { Auth } from 'src/app/services/auth/auth.service';
 import { StatusService } from 'src/app/services/auth/status.service';
+import { PlayerCardService } from 'src/app/services/player-card/player-card.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  sub: Subscription = new Subscription;
+  sub: Subscription = new Subscription();
   curAuth?: AuthStatus;
 
-
-  apiUrl: string = "";
-  constructor(private authService: Auth, private statusService: StatusService, private router: Router) {
+  apiUrl: string = '';
+  constructor(
+    private authService: Auth,
+    private statusService: StatusService,
+    private playerCardService: PlayerCardService,
+    private router: Router
+  ) {
     this.apiUrl = environment.apiUrl;
-
   }
 
   ngOnInit(): void {
@@ -28,11 +32,11 @@ export class NavbarComponent implements OnInit {
       this.curAuth = user;
     });
 
-    if (sessionStorage.getItem("token")) {
+    if (sessionStorage.getItem('token')) {
       // On récupère les informations mises en cache
       this.authService.setAuthStatus({
         connected: true,
-        user: JSON.parse(sessionStorage.getItem("user")!)
+        user: JSON.parse(sessionStorage.getItem('user')!),
       });
     }
   }
@@ -42,12 +46,11 @@ export class NavbarComponent implements OnInit {
       this.statusService.envoyerStatus(message);
       this.authService.setAuthStatus({
         connected: false,
-        user: undefined
+        user: undefined,
       });
       sessionStorage.clear();
-      this.router.navigateByUrl("/auth/login")
 
-    })
+      this.router.navigateByUrl('/auth/login');
+    });
   }
-
 }

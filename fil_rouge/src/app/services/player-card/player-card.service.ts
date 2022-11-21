@@ -109,4 +109,29 @@ export class PlayerCardService {
   setPlayerObservable$(player: any) {
     this.current_player.next(player);
   }
+  reset() {
+    this.current_player.next({
+      alive: true,
+      critical: 0,
+      defense: 0,
+      dodge: 0,
+      experience: 0,
+      gender: '',
+      hp: 0,
+      hpMax: 0,
+      id: 0,
+      idArmorEquiped: 0,
+      idWeaponEquiped: 0,
+      level: 0,
+      listArmor: [],
+      listWeapon: [],
+      listPotions: [],
+      money: 0,
+      nameHero: '',
+      namePlayer: '',
+      race: '',
+      speed: 0,
+      strength: 0,
+    });
+  }
 }
